@@ -1,2 +1,1 @@
-exportPattern("Fig*")
-exportPattern("Ex*")
+exportPattern("Fig")
