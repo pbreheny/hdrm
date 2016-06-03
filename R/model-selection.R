@@ -1,4 +1,4 @@
-Ex <- function(N=100, n=25, p=100) {
+Ex1.1 <- function(N=100, n=25, p=100) {
   set.seed(1)
   xnam <- paste0("V", 1:p)
   form <- as.formula(paste("y ~ ", paste(xnam, collapse= "+")))
@@ -22,8 +22,8 @@ Ex <- function(N=100, n=25, p=100) {
   }
   list(results=res, cover=cover, pred=pred)
 }
-Fig <- function(out) {
-  if (missing(out)) error("You need to run the code in Ex() first and pass it to Fig")
+Fig1.2 <- function(out) {
+  if (missing(out)) error("You need to run the code in Ex1.1() first and pass it to Fig1.2()")
   b <- out$results[,"Estimate"]
   hist(b, breaks=seq(-4.5, 4.5, .25), freq=FALSE, xlab=expression(hat(beta)), col="gray", border="white", main="", las=1)
 }

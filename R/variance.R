@@ -1,4 +1,4 @@
-Fig1.1 <- function(seed=1, n=20, p=n-1) {
+Fig1.1 n=20, p=n-1) {
   set.seed(seed)
   X <- std(matrix(rnorm(n*p),n,p))
   bigVar <- numeric(p)

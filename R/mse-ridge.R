@@ -16,7 +16,7 @@ f <- function(rho, lam, n) {
   val
 }
 
-## Fig() here plus more
+## Fig1.3 here plus more
 ##lam <- c(0, exp(seq(log(0.001), log(0.1), length=19)), exp(seq(log(0.1), log(10), length=80)))
 lam <- c(0, exp(seq(log(0.001), log(10), length=99)))
 Y <- matrix(NA, 100, 4)
