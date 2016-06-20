@@ -10,4 +10,4 @@ Depends: glmnet, ncvreg
 Suggests: grpreg
 LazyData: TRUE
 BugReports: http://github.com/pbreheny/hdrm/issues
-License: GPLv3
+License: GPL-3
