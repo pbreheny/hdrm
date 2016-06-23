@@ -393,5 +393,11 @@ formatP <- function(p,digits=2,label=FALSE) {
     val[p >= 10^(-digits)] <- paste("p =",val[p >= 10^(-digits)])
     val[p < 10^(-digits)] <- paste("p",val[p < 10^(-digits)])
   }
-  return(val)
+  val
+}
+revlevel <- function(x) factor(x, levels=rev(levels(x)))
+array2df <- function(X,vars=paste("V",1:ncol(df),sep="")) {
+  df <- cbind(do.call("expand.grid",dimnames(X)),as.numeric(X))
+  names(df) <- vars
+  df
 }

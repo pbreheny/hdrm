@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 needsMan <- NULL
 for (f in list.files("R", full.names=TRUE)) {
-  if (f!="R/utils.R") {
+  if (!(f %in% c("R/utils.R", "R/loadData.R"))) {
     raw <- grep("function(", readLines(f), fixed=TRUE, value=TRUE)
     needsMan <- c(needsMan, breheny::splitleft(raw, " <- "))
   }
@@ -46,6 +46,6 @@ for (x in setdiff(needsMan, hasMan)) {
                "  \\\\item{seed}{Random seed}\n", ARGS, fixed=TRUE)
   ARGS <- gsub("  \\item{out}{\n%%     ~~Describe \\code{out} here~~\n}",
                "  \\\\item{out}{Output of Example}\n", ARGS, fixed=TRUE)
-  man <- gsub("ARGS", paste(ARGS[2:(length(ARGS)-1)], collapse="\n"), man)
+  if (length(ARGS)) man <- gsub("ARGS", paste(ARGS[2:(length(ARGS)-1)], collapse="\n"), man)
   writeLines(man, paste0("man/", x, ".Rd"))
 }
