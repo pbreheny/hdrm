@@ -1,4 +1,4 @@
-Fig5.5 <- function(out) {
+Fig6.5 <- function(out) {
   require(ggplot2)
   require(gridExtra)
 

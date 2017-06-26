@@ -1,4 +1,4 @@
-Fig5.4 <- function(out) {
+Fig6.4 <- function(out) {
   require(ggplot2)
   require(gridExtra)
   dimnames(out)[[3]][1:2] <- c("Univariate", "LassoFIR")
