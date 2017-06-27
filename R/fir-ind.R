@@ -1,8 +1,8 @@
-Ex6.1 <- function() {
+Ex6.2 <- function() {
   #subset(df, loglambda == loglambda[20])
 }
 Fig6.3 <- function(out) {
-  if (missing(out)) error("You need to run the code in Ex6.1() first and pass it to Fig6.3()")
+  if (missing(out)) error("You need to run the code in Ex6.2() first and pass it to Fig6.3()")
   require(ggplot2)
   require(gridExtra)
   require(abind)
