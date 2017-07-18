@@ -120,8 +120,8 @@ ridge.matrix <- function (XX, yy, lambda=10^(seq(-3, 3, length=49))) {
   GCV <- RSS/(1-df/n)^2
 
   beta <- matrix(0, nrow = nrow(coef) + 1, ncol = length(lambda))
-  beta[-1,] <- coef/attr(X, 'scaled:scale')
-  beta[1, ] <- mean(yy) - crossprod(attr(X, 'scaled:center'), beta[-1,])
+  beta[-1,] <- coef/attr(X, 'scale')
+  beta[1, ] <- mean(yy) - crossprod(attr(X, 'center'), beta[-1,])
   if (is.null(colnames(XX))) colnames(XX) <- paste0('V', 1:p)
   dimnames(beta) <- list(c("(Intercept)", colnames(XX)), lambda)
 
