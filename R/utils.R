@@ -129,18 +129,29 @@ ridge.matrix <- function (XX, yy, lambda=10^(seq(-3, 3, length=49))) {
   class(res) <- "ridge"
   res
 }
-plot.ridge <- function(x, xaxis=c('loglam', 'df'), ...) {
+plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), xlab, ylab, ...) {
   xaxis <- match.arg(xaxis)
   B <- t(x$beta[-1,])
   col <- pal(ncol(B))
-  if (xaxis=='loglam') {
+  if (xaxis=='loglam' | xaxis=='both') {
     ll <- log10(x$lambda)
+    if (missing(xlab)) xlab <- expression(lambda)
     matplot(ll, B, lty=1, col=col, type="l", lwd=3, xaxt="n",
-            xlab=expression(lambda), ylab="", las=1, xlim=rev(range(ll)), bty="n")
+            xlab=xlab, ylab="", las=1, xlim=rev(range(ll)), bty="n")
     logAxis(1, base=10)
-  } else {
+  } else if (xaxis=='df') {
     matplot(x$df, B, lty=1, col=col, type="l", lwd=3,
             xlab='Degrees of freedom', ylab="", las=1, bty="n")
+  }
+  if (xaxis=='both') {
+    ind <- seq(1, length(ll), length=5)
+    axis(3, at=ll[ind], labels=round(x$df[ind], 1))
+    mtext("Degrees of freedom", 3, 2.5)
+  }
+  if (missing(ylab)) {
+    mtext(expression(hat(beta)), 2, 3, las=1)
+  } else {
+    mtext(ylab, 2, 3)
   }
 }
 coef.ridge <- function(object, lambda, which=1:length(object$lambda), drop = TRUE, ...) {
