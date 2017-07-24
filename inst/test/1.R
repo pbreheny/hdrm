@@ -7,10 +7,12 @@ Ex1.2()
 
 Fig1.3()
 
-# Doesn't work below here yet
-
+op <- par(mar=c(5,5,5,7))
 Fig1.4()
+par(op)
 
 Fig1.5()
+
+# Doesn't work below here yet
 
 Tab1.1()
