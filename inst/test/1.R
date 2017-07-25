@@ -15,4 +15,4 @@ Fig1.5()
 
 # Doesn't work below here yet
 
-Tab1.1()
+Tab1.1() # t values from summary.ridge are incorrect
