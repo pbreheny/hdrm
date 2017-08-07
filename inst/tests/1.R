@@ -1,6 +1,6 @@
 Fig1.1()
 
-res <- Ex1.1(N=20)
+res <- Ex1.1(N=10)
 Fig1.2(res)
 
 Ex1.2()
@@ -13,6 +13,4 @@ par(op)
 
 Fig1.5()
 
-# Doesn't work below here yet
-
-Tab1.1() # t values from summary.ridge are incorrect
+Tab1.1()
