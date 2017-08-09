@@ -1,6 +1,5 @@
-Fig9.2 <- function(res, N=100, seed=1) {
-  X <- res$X
-  y <- res$y
+Fig9.3 <- function(N=100, seed=1) {
+  loadData("bcTCGA")
   p <- ncol(X)
   n <- nrow(X)
   fit <- glmnet(X, y)
@@ -20,10 +19,11 @@ Fig9.2 <- function(res, N=100, seed=1) {
   S <- apply(SS, 2:3, mean)
   colnames(S) <- ncvreg:::lamNames(fit$lambda)
   q <- apply(Q, 2, mean)
+  sMax <- apply(S, 1, max)
 
   l <- fit$lambda
   col <- rep(rgb(0.6, 0.6, 0.6, 0.25), p)
-  col[res$varType=="A"] <- "red"
+  col[sMax > 0.6] <- "red"
   matplot(l, t(S), type="l", lty=1, xlim=rev(range(l)), col=col, lwd=2, las=1, bty="n",
           xlab=expression(lambda), ylab="Stability")
 
