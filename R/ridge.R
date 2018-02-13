@@ -102,8 +102,9 @@ summary.ridge <- function(object, lambda, which, ...) {
   S <- diag(1/object$scale)
   x <- object$center
   SE <- sqrt(c(s2/object$n + crossprod(x, S %*% V %*%S) %*% x, diag(V)/object$scale^2))
-  Tab <- data.frame(b, SE, b/SE)
-  colnames(Tab) <- c('Estimate', 'SE', 't')
+  p <- 2*pt(-abs(-b/SE), rdf)
+  Tab <- data.frame(b, SE, b/SE, p)
+  colnames(Tab) <- c('Estimate', 'SE', 't', 'p')
   attr(Tab, "rdf") <- rdf
   Tab
 }
