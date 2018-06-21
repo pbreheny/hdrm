@@ -1,9 +1,8 @@
 Fig6.4 <- function(out) {
-  require(ggplot2)
-  require(gridExtra)
+  requireNamespace(ggplot2)
   dimnames(out)[[3]][1:2] <- c("Univariate", "LassoFIR")
   dimnames(out)[[4]] <- c("Causative (A)", "Correlated (B)", "Noise (C)")
-  df <- array2df(apply(out, 2:4, mean, na.rm=TRUE),var=c("p","Method", "Group", "Avg"))
+  df <- array2df(apply(out, 2:4, mean, na.rm=TRUE), vars=c("p","Method", "Group", "Avg"))
 
   # Subsets / reordering factors
   ggdf1 <- subset(df, p==60 & Method != "LassoBIC")
@@ -20,7 +19,7 @@ Fig6.4 <- function(out) {
     scale_fill_grey(start=0,end=1) + coord_flip() + theme(panel.background=element_rect(fill = "gray90")) +
     facet_grid(p~., labeller=label_both) + theme(legend.position="none")
 
-  grid.arrange(p1, p2, heights=c(1.3, 1))
+  gridExtra::grid.arrange(p1, p2, heights=c(1.3, 1))
 
   # Summaries
 #   T1 <- apply(out[,1,,],2:3,mean)

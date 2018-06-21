@@ -26,9 +26,9 @@ genDataABN <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian","bino
   for (i in 1:a) {
     sigmaList[[i]] <- matrix(rho, K, K) + (1-rho)*diag(K)
   }
-  sigmaList[[a+1]] <- hdrm:::genS(p-K*a, rho.noise, noise)
+  sigmaList[[a+1]] <- genS(p-K*a, rho.noise, noise)
   S <- Matrix::.bdiag(sigmaList)
-  X <- hdrm:::genX(n, p, S)
+  X <- genX(n, p, S)
 
   # Gen beta
   if (missing(beta) || length(beta)==1) {
@@ -46,7 +46,7 @@ genDataABN <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian","bino
   }
 
   # Gen y
-  y <- hdrm:::genY(X%*%beta, family=family, sigma=1)
+  y <- genY(X%*%beta, family=family, sigma=1)
 
   # Return
   varType <- vector("character", p)

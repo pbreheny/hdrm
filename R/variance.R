@@ -1,3 +1,13 @@
+#' Reproduce Figure 1.1
+#'
+#' Reproduces Figure 1.2 from the book; if you specify any options, your results may look different.
+#'
+#' @param n     Sample size
+#' @param p     Number of features
+#' @param seed  Random seed
+#'
+#' @examples Fig1.1()
+
 Fig1.1 <- function(n=20, p=n-1, seed=1) {
   set.seed(seed)
   X <- std(matrix(rnorm(n*p),n,p))

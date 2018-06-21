@@ -40,31 +40,16 @@ Data <- genDataABN(n=100, p=20, a=2, b=3)
 dim(Data$X)
 length(Data$y)
 with(Data, data.frame(beta, varType))
-Data$varType
 
 genDataABN(100, 10, 2, 1)$beta
-genDataABN(100, 10, 2, 1)$beta
-genDataABN(100, 10, 2, 1)$beta
-genDataABN(100, 10, 2, 1)$beta
-genData(100, 10, 5, SNR=2)$beta
-genData(100, 10, 5, SNR=2, corr='exch', rho=0.7)$beta
-genData(100, 10, 5, SNR=2, corr='auto', rho=0.7)$beta
-genData(100, 10, 5, SNR=2, corr='auto', rho=0.7, signal='het')$beta
-genData(100, 10, 5, SNR=2, corr='auto', rho=0.1, signal='het')$beta
-genData(100, 10, 5, SNR=2, corr='auto', rho=0.1, signal='het', b=1)$beta
-
-
-genData(100, 10, 5)$beta
-genData(100, 10, 5, SNR=2)$beta
-genData(100, 10, 5, SNR=2, corr='exch', rho=0.7)$beta
-genData(100, 10, 5, SNR=2, corr='auto', rho=0.7)$beta
-genData(100, 10, 5, SNR=2, corr='auto', rho=0.7, signal='het')$beta
-genData(100, 10, 5, SNR=2, corr='auto', rho=0.1, signal='het')$beta
-genData(100, 10, 5, SNR=2, corr='auto', rho=0.1, signal='het', b=1)$beta
+genDataABN(100, 10, 2, 1, rho=0.9)$beta
+genDataABN(100, 10, 2, 1, rho=0.9, rho.noise=0.9)$beta
+genDataABN(100, 10, 2, 1, SNR=3)$beta
+genDataABN(100, 10, 2, 1, SNR=3, signal='het')$beta
+genDataABN(100, 10, 2, 1, beta=3)$beta
+genDataABN(100, 10, 2, 1, beta=10:1)$beta
 
 genDataABN(10, 20, 2, 3, family='binomial')$y
-
-dim(Data$y)
 
 \dontshow{\dontrun{
   require(magrittr)

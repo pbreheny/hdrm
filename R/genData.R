@@ -30,7 +30,7 @@ genData <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"), 
     if (missing(beta)) {
       if (signal=="heterogeneous") b <- b*rev(j)
       b <- b*s
-      beta <- b*sqrt(SNR)/sqrt(drop(crossprod(b,S)%*%b))
+      beta <- b*sqrt(SNR)/sqrt(drop(crossprod(b,S) %*% b))
     } else {
       beta <- b*s*beta
     }
@@ -46,9 +46,8 @@ genS <- function(p, rho, corr) {
   if (corr=='exchangeable') {
     S <- matrix(rho, p, p) + (1-rho)*diag(p)
   } else if (corr=='autoregressive') {
-    require(Matrix)
     RHO <- matrix(rho^(0:(p-1)), p, p, byrow=TRUE)
-    S <- bandSparse(p, k=0:(p-1), diagonals=RHO, symmetric=TRUE)
+    S <- Matrix::bandSparse(p, k=0:(p-1), diagonals=RHO, symmetric=TRUE)
   }
   S
 }

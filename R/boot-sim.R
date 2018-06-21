@@ -1,10 +1,9 @@
 Ex9.3 <- function(N=100, B=100, n=100, p=60, n.corr=2, rho=0.5, seed=1) {
   N=10; B=100; n=100; p=60; n.corr=2; rho=0.5; seed=1
-  require(glmnet)
   pb <- txtProgressBar(0, N, style=3)
   set.seed(seed)
   for (i in 1:N) {
-    Data <- genABC(n=n, p=p, n.corr=n.corr, rho=rho)
+    Data <- genDataABC(n=n, p=p, b=n.corr, rho=rho)
     cvfit <- cv.glmnet(Data$X, Data$y)
     BB <- matrix(NA, B, p, dimnames=list(1:N, colnames(Data$X)))
     for (j in 1:B) {
@@ -13,7 +12,7 @@ Ex9.3 <- function(N=100, B=100, n=100, p=60, n.corr=2, rho=0.5, seed=1) {
       BB[j,] <- coef(fit.j, s=cvfit$lambda.min)[-1]
     }
   }
-    setTxtProgressBar(pb, i)
+  setTxtProgressBar(pb, i)
 
   #B <-
   close(pb)

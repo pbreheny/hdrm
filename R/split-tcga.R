@@ -9,7 +9,6 @@ Ex9.2 <- function(N=100) {
   P <- matrix(1, N, ncol(X.TCGA))
   for (i in 1:N) {
     ind <- as.logical(sample(rep(0:1, each=length(y.TCGA)/2)))
-    require(glmnet)
     cvfit <- cv.glmnet(X.TCGA[ind,], y.TCGA[ind], nfolds=5)
     b <- coef(cvfit, s=cvfit$lambda.min)[-1]
     XX <- X.TCGA[!ind,which(b!=0)]

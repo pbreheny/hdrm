@@ -1,5 +1,7 @@
-ridge.formula <- function(formula, data, subset, na.action, contrasts = NULL, ...) {
+ridge <- function(obj, ...) UseMethod("ridge")
+ridge.formula <- function(obj, data, subset, na.action, contrasts = NULL, ...) {
   m <- match.call(expand.dots = FALSE)
+  names(m)[which(names(m)=='obj')] <- 'formula'
   mm <- match(c("formula", "data", "subset", "na.action"), names(m), 0L)
   m <- m[c(1, mm)]
   m[[1]] <- quote(stats::model.frame)
@@ -10,8 +12,9 @@ ridge.formula <- function(formula, data, subset, na.action, contrasts = NULL, ..
   if (Inter <- attr(Terms, "intercept")) X <- X[, -Inter]
   ridge.matrix(X, y, ...)
 }
-ridge.matrix <- function (XX, yy, lambda=10^(seq(-3, 3, length=49))) {
-  X <- std(XX)
+ridge.matrix <- function (obj, yy, lambda, ...) {
+  if (missing(lambda)) lambda <- 10^(seq(-3, 3, length=49))
+  X <- std(obj)
   n <- nrow(X)
   p <- ncol(X)
   y <- yy - mean(yy)
@@ -24,7 +27,7 @@ ridge.matrix <- function (XX, yy, lambda=10^(seq(-3, 3, length=49))) {
   a <- drop(d * rhs)/div
   dim(a) <- c(dx, k)
   coef <- Xs$v %*% a
-  dimnames(coef) <- list(colnames(XX), format(lambda))
+  dimnames(coef) <- list(colnames(obj), format(lambda))
 
   df <- colSums(matrix(d^2/div, dx))
   Y <- X %*% coef
@@ -34,8 +37,8 @@ ridge.matrix <- function (XX, yy, lambda=10^(seq(-3, 3, length=49))) {
   beta <- matrix(0, nrow = nrow(coef) + 1, ncol = length(lambda))
   beta[-1,] <- coef/attr(X, 'scale')
   beta[1, ] <- mean(yy) - crossprod(attr(X, 'center'), beta[-1,])
-  if (is.null(colnames(XX))) colnames(XX) <- paste0('V', 1:p)
-  dimnames(beta) <- list(c("(Intercept)", colnames(XX)), lambda)
+  if (is.null(colnames(obj))) colnames(obj) <- paste0('V', 1:p)
+  dimnames(beta) <- list(c("(Intercept)", colnames(obj)), lambda)
 
   res <- list(beta = drop(beta), lambda = lambda, GCV = GCV, df=df, RSS=RSS, n=n, SVD=Xs, center=attr(X, 'center'), scale=attr(X, 'scale'))
   class(res) <- "ridge"
@@ -117,11 +120,10 @@ predict.ridge <- function(object, X, lambda, which=1:length(object$lambda), drop
   if (!drop) return(out)
   drop(out)
 }
-confint.ridge <- function(object, X, lambda, which, parm, level=0.95, ...) {
+confint.ridge <- function(object, parm, level=0.95, X, lambda, which, ...) {
   s <- summary(object, lambda, which)
   m <- -qt((1-level)/2, attr(s, "rdf"))
   val <- cbind(Lower=s$Estimate-m*s$SE, Upper=s$Estimate+m*s$SE)
   if (!missing(parm)) val <- val[parm,]
   val
 }
-ridge <- function(obj,...) UseMethod("ridge")
