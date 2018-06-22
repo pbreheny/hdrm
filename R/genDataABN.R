@@ -12,7 +12,7 @@
 #' @param beta       Vector of regression coefficients in the generating model, or, if a scalar, the value of each nonzero regression coefficient
 #' @param SNR        Signal to noise ratio
 #'
-#' @example /inst/tests/genDataABN.R
+#' @example ex/genDataABN.R
 
 genDataABN <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian","binomial"), signal=c('homogeneous', 'heterogeneous'), noise=c('exchangeable', 'autoregressive'),
                    rho.noise=0, beta, SNR=1) {

@@ -13,7 +13,7 @@
 #' @param rho       Correlation between groups
 #' @param rho.g     Correlation between parameters within a group
 #'
-#' @example /inst/tests/genDataGrp.R
+#' @example ex/genDataGrp.R
 
 genDataGrp <- function(n, J, K=1, beta, family=c("gaussian","binomial"), J1=ceiling(J/2), K1=K, SNR=1, signal = c("homogeneous","heterogeneous"),
                     signal.g = c("homogeneous","heterogeneous"), rho = 0, rho.g = rho) {
