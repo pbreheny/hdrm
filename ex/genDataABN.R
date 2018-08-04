@@ -15,6 +15,7 @@ genDataABN(10, 20, 2, 3, family='binomial')$y
 
 \dontshow{\dontrun{
   require(magrittr)
+  genDataABN(1000, 10, 2, 2, rho=0.5)$X %>% cor %>% round(digits=2)
   genDataABN(1000, 10, 2, 2, rho=0.5, rho.noise=0.0, noise='exch')$X %>% cor %>% round(digits=2)
   genDataABN(1000, 10, 2, 2, rho=0.5, rho.noise=0.5, noise='exch')$X %>% cor %>% round(digits=2)
   genDataABN(1000, 10, 2, 2, rho=0.5, rho.noise=0.9, noise='auto')$X %>% cor %>% round(digits=2)
