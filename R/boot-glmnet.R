@@ -5,11 +5,11 @@
 #' @param N          Number of bootstrap resamples (default 500)
 #' @param lambda     Regularization parameter at which solutions are to be bootstrapped (by default, uses cross-valiation to find lambda)
 #' @param seed       Seed (optional)
-#' @param alpha      Error rate; 0.05 (default) corresponds to 95% confidence interval
+#' @param alpha      Error rate; 0.05 (default) corresponds to 95\% confidence interval
 #'
 #' @example ex/boot.R
 
-boot.glmnet <- function(X, y, N=500, lambda, seed, alpha=0.05, ...) {
+boot.glmnet <- function(X, y, N=500, lambda, seed, alpha=0.05) {
   p <- ncol(X)
   n <- nrow(X)
   if (missing(lambda)) {

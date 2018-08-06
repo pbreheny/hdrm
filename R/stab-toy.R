@@ -1,6 +1,18 @@
-Fig9.2 <- function(res, N=100, seed=1) {
-  X <- res$X
-  y <- res$y
+#' Reproduce Figure 9.2
+#'
+#' Reproduces Figure 9.2 from the book.  If you specify any options, your results may look different.
+#'
+#' @param out   Output of Ex9.1
+#' @param N     Number of simulated realizations
+#' @param seed  Random number seed for reproducibility
+#'
+#' @examples
+#' out <- Ex9.1()
+#' Fig9.2(out)
+
+Fig9.2 <- function(out, N=100, seed=1) {
+  X <- out$X
+  y <- out$y
   p <- ncol(X)
   n <- nrow(X)
   fit <- glmnet(X, y)
@@ -23,7 +35,7 @@ Fig9.2 <- function(res, N=100, seed=1) {
 
   l <- fit$lambda
   col <- rep(rgb(0.6, 0.6, 0.6, 0.25), p)
-  col[res$varType=="A"] <- "red"
+  col[out$varType=="A"] <- "red"
   matplot(l, t(S), type="l", lty=1, xlim=rev(range(l)), col=col, lwd=2, las=1, bty="n",
           xlab=expression(lambda), ylab="Stability")
 
