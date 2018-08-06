@@ -1,34 +1,30 @@
-Fig9.3 <- function(res, N=100, seed=1) {
-  X <- res$X
-  y <- res$y
-  p <- ncol(X)
-  n <- nrow(X)
-  cvfit <- cv.glmnet(X, y)
-  pb <- txtProgressBar(0, N, style=3)
-  B <- matrix(NA, N, p, dimnames=list(1:N, colnames(X)))
+#' Reproduce Figure 9.3
+#'
+#' Reproduces Figure 9.3 from the book.  If you specify any options, your results may look different.
+#'
+#' @param out   Output of Ex9.1
+#' @param N     Number of simulated realizations
+#' @param seed  Random number seed for reproducibility
+#'
+#' @examples
+#' out <- Ex9.1()
+#' res <- Fig9.3(out)
+#' covered <- out$beta >= res$Lower & out$beta <= res$Upper
+#' mean(covered)
+#' table(out$varType, covered)
+
+Fig9.3 <- function(out, N=100, seed=1) {
   set.seed(seed)
-  for (i in 1:N) {
-    ind <- sample(1:n, replace=TRUE)
-    #ind <- as.logical(sample(rep(0:1, each=n/2)))
-    fit.i <- glmnet(X[ind,], y[ind], lambda=cvfit$lambda)
-    B[i,] <- coef(fit.i, s=cvfit$lambda.min)[-1]
-    setTxtProgressBar(pb, i)
+  cvfit <- cv.glmnet(out$X, out$y)
+  res <- boot.glmnet(out$X, out$y, lambda=cvfit$lambda.min)
+  BB <- cbind(coef(cvfit)[-1], res)
+  B <- BB[BB[,1] != 0,]
+  CIplot(B, sort=FALSE, xlab=expression(beta), xlim=c(-1.1, 1.1))
+  for (i in 1:nrow(B)) {
+    b <- out$beta[rownames(B)[i]]
+    line <- nrow(B) - i + 1
+    lines(c(b,b), c(line-0.5, line+0.5), col="gray", lty=2, lwd=2, xpd=1)
   }
-  close(pb)
-  cvg <- numeric(p)
-  SE <- apply(B, 2, SE)
-
-#  apply(B, 1, function(x) res$)
-
-  S <- apply(SS, 2:3, mean)
-  colnames(S) <- ncvreg:::lamNames(fit$lambda)
-  q <- apply(Q, 2, mean)
-
-  l <- fit$lambda
-  col <- rep(rgb(0.6, 0.6, 0.6, 0.25), p)
-  col[res$varType=="A"] <- "red"
-  matplot(l, t(S), type="l", lty=1, xlim=rev(range(l)), col=col, lwd=2, las=1, bty="n",
-          xlab=expression(lambda), ylab="Stability")
-
-  return(invisible(list(Selected=q, Stability=S)))
+  colnames(BB) <- c('Estimate', 'Lower', 'Upper')
+  return(invisible(as.data.frame(BB)))
 }

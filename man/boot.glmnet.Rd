@@ -4,21 +4,27 @@
 \alias{boot.glmnet}
 \title{Calculate confidence intervals for lasso using bootstrap}
 \usage{
-boot.glmnet(X, y, B = 500, lambda, seed, alpha = 0.05, ...)
+boot.glmnet(X, y, N = 500, lambda, seed, alpha = 0.05)
 }
 \arguments{
 \item{X}{Design matrix}
 
 \item{y}{Response vector}
 
-\item{B}{Number of bootstrap resamples (default 500)}
+\item{N}{Number of bootstrap resamples (default 500)}
 
 \item{lambda}{Regularization parameter at which solutions are to be bootstrapped (by default, uses cross-valiation to find lambda)}
 
 \item{seed}{Seed (optional)}
 
-\item{alpha}{Error rate; 0.05 (default) corresponds to 95% confidence interval}
+\item{alpha}{Error rate; 0.05 (default) corresponds to 95\% confidence interval}
 }
 \description{
 Calculate confidence intervals for lasso using bootstrap
+}
+\examples{
+Data <- genDataABN(n=100, p=20, a=2, b=3)
+CI <- boot.glmnet(Data$X, Data$y)
+covered <- Data$beta >= CI[,1] & Data$beta <= CI[,2]
+table(covered)
 }
