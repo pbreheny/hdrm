@@ -55,5 +55,11 @@ genDataABN <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian","bino
     varType[((1:a)-1)*K+1+j] <- "B"
   }
   varType[(a*K+1):p] <- "N"
+  varLab <- vector("character", p)
+  varLab[varType=="A"] <- paste0("A", 1:sum(varType=="A"))
+  varLab[varType=="B"] <- paste0("B", 1:sum(varType=="B"))
+  varLab[varType=="N"] <- paste0("N", 1:sum(varType=="N"))
+  colnames(X) <- varLab
+  names(beta) <- varLab
   list(X=X, y=y, beta=beta, family=family, varType=varType)
 }
