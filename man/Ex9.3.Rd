@@ -4,8 +4,8 @@
 \alias{Ex9.3}
 \title{Reproduce Example 9.3}
 \usage{
-Ex9.3(N = 100, B = 100, n = 100, p = 60, n.corr = 2, rho = 0.5,
-  seed = 1)
+Ex9.3(N = 100, B = 100, n = 100, p = 100, a = 10, b = 2,
+  rho = 0.5, noise = "autoregressive", rho.noise = 0.8, seed = 1, ...)
 }
 \arguments{
 \item{N}{Number of simulated realizations}
@@ -13,10 +13,30 @@ Ex9.3(N = 100, B = 100, n = 100, p = 60, n.corr = 2, rho = 0.5,
 \item{B}{Number of bootstrap replications (for each data set)}
 
 \item{n}{Sample size}
+
+\item{p}{Number of features}
+
+\item{a}{Number of causal ('A') variables}
+
+\item{b}{Number of correlated ('B') variables}
+
+\item{rho}{Correlation between 'A' and 'B' variables}
+
+\item{noise}{Correlation structure between features ('exchangeable' | 'autoregressive')}
+
+\item{rho.noise}{Correlation parameter for noise variables}
+
+\item{seed}{Random number seed for reproducibility}
+
+\item{...}{Further arguments to \code{\link{genDataABN}}}
 }
 \description{
 Reproduces Example 9.3 from the book.  If you specify any options, your results may look different.
 }
 \examples{
 out <- Ex9.3()
+mean(out$cov)
+mean(out$cov[, which(out$varType=="A")])
+mean(out$cov[, which(out$varType=="B")])
+mean(out$cov[, which(out$varType=="C")])
 }
