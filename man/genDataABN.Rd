@@ -12,11 +12,11 @@ genDataABN(n = 100, p = 60, a = 6, b = 2, rho = 0.5,
 \arguments{
 \item{n}{Sample size}
 
-\item{p}{Number of groups}
+\item{p}{Number of features}
 
 \item{a}{Number of causal ('A') variables}
 
-\item{b}{Number of correlated ('B') variables}
+\item{b}{Number of correlated ('B') variables per causal ('A') variable}
 
 \item{rho}{Correlation between 'A' and 'B' variables}
 
@@ -28,7 +28,7 @@ genDataABN(n = 100, p = 60, a = 6, b = 2, rho = 0.5,
 
 \item{rho.noise}{Correlation parameter for noise variables}
 
-\item{beta}{Vector of regression coefficients in the generating model, or, if a scalar, the value of each nonzero regression coefficient}
+\item{beta}{Vector of regression coefficients in the generating model.  Should be either a scalar, in which case it represents the value of each nonzero regression coefficient, or a vector, in which case it should be of length \code{a}}
 
 \item{SNR}{Signal to noise ratio}
 }
