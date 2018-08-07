@@ -4,7 +4,7 @@
 \alias{boot.glmnet}
 \title{Calculate confidence intervals for lasso using bootstrap}
 \usage{
-boot.glmnet(X, y, B = 500, lambda, seed, alpha = 0.05)
+boot.glmnet(X, y, B = 500, lambda, seed, alpha = 0.05, bar = TRUE)
 }
 \arguments{
 \item{X}{Design matrix}
@@ -18,6 +18,8 @@ boot.glmnet(X, y, B = 500, lambda, seed, alpha = 0.05)
 \item{seed}{Seed (optional)}
 
 \item{alpha}{Error rate; 0.05 (default) corresponds to 95\% confidence interval}
+
+\item{bar}{Print a progress bar?}
 }
 \description{
 Calculate confidence intervals for lasso using bootstrap
