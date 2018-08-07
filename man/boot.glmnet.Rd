@@ -4,14 +4,14 @@
 \alias{boot.glmnet}
 \title{Calculate confidence intervals for lasso using bootstrap}
 \usage{
-boot.glmnet(X, y, N = 500, lambda, seed, alpha = 0.05)
+boot.glmnet(X, y, B = 500, lambda, seed, alpha = 0.05)
 }
 \arguments{
 \item{X}{Design matrix}
 
 \item{y}{Response vector}
 
-\item{N}{Number of bootstrap resamples (default 500)}
+\item{B}{Number of bootstrap resamples (default 500)}
 
 \item{lambda}{Regularization parameter at which solutions are to be bootstrapped (by default, uses cross-valiation to find lambda)}
 

@@ -19,5 +19,7 @@ Reproduces Figure 9.3 from the book.  If you specify any options, your results m
 \examples{
 out <- Ex9.1()
 res <- Fig9.3(out)
-res$
+covered <- out$beta >= res$Lower & out$beta <= res$Upper
+mean(covered)
+table(out$varType, covered)
 }

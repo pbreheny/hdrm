@@ -1,3 +1,15 @@
+#' Reproduce Example 9.3
+#'
+#' Reproduces Example 9.3 from the book.  If you specify any options, your results may look different.
+#'
+#' @param N     Number of simulated realizations
+#' @param B     Number of bootstrap replications (for each data set)
+#' @param n     Sample size
+#'
+#' @examples
+#' out <- Ex9.3()
+
+
 Ex9.3 <- function(N=100, B=100, n=100, p=60, n.corr=2, rho=0.5, seed=1) {
   N=10; B=100; n=100; p=60; n.corr=2; rho=0.5; seed=1
   pb <- txtProgressBar(0, N, style=3)
