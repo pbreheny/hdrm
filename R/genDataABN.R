@@ -1,15 +1,15 @@
 #' Simulate data according to Causal/Correlated/Noise paradigm
 #'
 #' @param n          Sample size
-#' @param p          Number of groups
+#' @param p          Number of features
 #' @param a          Number of causal ('A') variables
-#' @param b          Number of correlated ('B') variables
+#' @param b          Number of correlated ('B') variables per causal ('A') variable
 #' @param rho        Correlation between 'A' and 'B' variables
 #' @param family     Generate \code{y} according to linear "gaussian" or logistic "binomial" model
 #' @param signal     Should the groups be heterogeneous (in beta) or homogeneous?
 #' @param noise      Correlation structure between features ('exchangeable' | 'autoregressive')
 #' @param rho.noise  Correlation parameter for noise variables
-#' @param beta       Vector of regression coefficients in the generating model, or, if a scalar, the value of each nonzero regression coefficient
+#' @param beta       Vector of regression coefficients in the generating model.  Should be either a scalar, in which case it represents the value of each nonzero regression coefficient, or a vector, in which case it should be of length \code{a}
 #' @param SNR        Signal to noise ratio
 #'
 #' @example ex/genDataABN.R
@@ -43,6 +43,10 @@ genDataABN <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian","bino
       bbb[((1:a)-1)*K+1] <- bb
       beta <- bbb*beta
     }
+  } else {
+    bb <- beta
+    beta <- numeric(p)
+    beta[((1:a)-1)*K+1] <- bb
   }
 
   # Gen y
