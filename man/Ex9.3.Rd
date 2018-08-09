@@ -38,5 +38,5 @@ out <- Ex9.3()
 mean(out$cov)
 mean(out$cov[, which(out$varType=="A")])
 mean(out$cov[, which(out$varType=="B")])
-mean(out$cov[, which(out$varType=="C")])
+mean(out$cov[, which(out$varType=="N")])
 }
