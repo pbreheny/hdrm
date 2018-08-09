@@ -102,4 +102,7 @@ CIplot.coxph <- function(obj, xlab="Regression coefficient", exclude=NULL, plot=
   if (plot) CIplot(B,xlab=xlab,...)
   return(invisible(B))
 }
+CIplot.data.frame <- function(obj, ...) {
+  CIplot.matrix(as.matrix(obj), ...)
+}
 CIplot <- function(obj,...) UseMethod("CIplot")
