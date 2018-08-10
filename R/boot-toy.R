@@ -1,4 +1,4 @@
-#' Reproduce Figure
+#' Reproduce Figure 9.4
 #'
 #' Reproduces Figure from the book.  If you specify any options, your results may look different.
 #'
@@ -8,12 +8,12 @@
 #'
 #' @examples
 #' Data <- Ex9.1()
-#' res <- Fig(Data)
+#' res <- Fig9.4(Data)
 #' covered <- Data$beta >= res$Lower & Data$beta <= res$Upper
 #' mean(covered)
 #' table(Data$varType, covered)
 
-Fig <- function(out, B=100, seed=2) {
+Fig9.4 <- function(out, B=100, seed=2) {
   set.seed(seed)
   cvfit <- cv.glmnet(out$X, out$y)
   res <- boot.glmnet(out$X, out$y, lambda=cvfit$lambda.min, B=B)
