@@ -1,6 +1,6 @@
 #' Reproduce Figure 1.1
 #'
-#' Reproduces Figure 1.2 from the book; if you specify any options, your results may look different.
+#' Reproduces Figure 1.1 from the book; if you specify any options, your results may look different.
 #'
 #' @param n     Sample size
 #' @param p     Number of features

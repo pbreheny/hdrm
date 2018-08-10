@@ -1,4 +1,4 @@
-#' Reproduce Figure 5.6
+#' Reproduce Figure 6.6
 #'
 #' @param fit    \code{ncvreg} fit to the TCGA data; see examples
 #'

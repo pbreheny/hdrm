@@ -2,7 +2,7 @@
 % Please edit documentation in R/mfdr-tcga.R
 \name{Fig6.6}
 \alias{Fig6.6}
-\title{Reproduce Figure 5.6}
+\title{Reproduce Figure 6.6}
 \usage{
 Fig6.6(fit)
 }
@@ -10,7 +10,7 @@ Fig6.6(fit)
 \item{fit}{\code{ncvreg} fit to the TCGA data; see examples}
 }
 \description{
-Reproduce Figure 5.6
+Reproduce Figure 6.6
 }
 \examples{
 loadData("bcTCGA")

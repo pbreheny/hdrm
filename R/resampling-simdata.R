@@ -1,6 +1,6 @@
-#' Reproduce Ex9.1 9.1
+#' Reproduce Example 9.1
 #'
-#' Reproduces Ex9.1 9.1 from the book.  If you specify any options, your results may look different.
+#' Reproduces Example 9.1 from the book.  If you specify any options, your results may look different.
 #'
 #' @param n       Sample size
 #' @param p       Number of features

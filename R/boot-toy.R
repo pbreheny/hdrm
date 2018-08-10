@@ -1,6 +1,6 @@
 #' Reproduce Figure 9.4
 #'
-#' Reproduces Figure from the book.  If you specify any options, your results may look different.
+#' Reproduces Figure 9.4 from the book.  If you specify any options, your results may look different.
 #'
 #' @param out   Output of Ex9.1
 #' @param B     Number of bootstrap replications

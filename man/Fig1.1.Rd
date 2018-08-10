@@ -14,7 +14,7 @@ Fig1.1(n = 20, p = n - 1, seed = 1)
 \item{seed}{Random seed}
 }
 \description{
-Reproduces Figure 1.2 from the book; if you specify any options, your results may look different.
+Reproduces Figure 1.1 from the book; if you specify any options, your results may look different.
 }
 \examples{
 Fig1.1()
