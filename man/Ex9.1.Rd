@@ -2,10 +2,10 @@
 % Please edit documentation in R/resampling-simdata.R
 \name{Ex9.1}
 \alias{Ex9.1}
-\title{Reproduce Ex9.1 9.1}
+\title{Reproduce Example 9.1}
 \usage{
-Ex9.1(n = 100, p = 60, a = 6, b = 2, rho = 0.5, beta = c(1, -1, 0.5,
-  -0.5, 0.5, -0.5), seed = 8, ...)
+Ex9.1(n = 100, p = 60, a = 6, b = 2, rho = 0.5, beta = c(1, -1,
+  0.5, -0.5, 0.5, -0.5), seed = 8, ...)
 }
 \arguments{
 \item{n}{Sample size}
@@ -25,7 +25,7 @@ Ex9.1(n = 100, p = 60, a = 6, b = 2, rho = 0.5, beta = c(1, -1, 0.5,
 \item{...}{Further arguments to \code{\link{genDataABN}}}
 }
 \description{
-Reproduces Ex9.1 9.1 from the book.  If you specify any options, your results may look different.
+Reproduces Example 9.1 from the book.  If you specify any options, your results may look different.
 }
 \examples{
 out <- Ex9.1()

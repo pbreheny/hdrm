@@ -4,11 +4,11 @@
 \alias{CIplot.matrix}
 \title{Plot confidence intervals (NEEDS DOCUMENTATION)}
 \usage{
-\method{CIplot}{matrix}(obj, labels = rownames(B), sort = TRUE, pxlim, xlim,
-  ylim, sub, diff = (ncol(B) == 4), null = 0, n.ticks = 6, mar,
+\method{CIplot}{matrix}(obj, labels = rownames(B), sort = TRUE, pxlim,
+  xlim, ylim, sub, diff = (ncol(B) == 4), null = 0, n.ticks = 6, mar,
   axis = !add, trans, p.label = FALSE, xlab = "", ylab = "",
-  add = FALSE, setupOnly = FALSE, lwd = 2, replaceUnderscore = TRUE,
-  ...)
+  add = FALSE, setupOnly = FALSE, lwd = 2,
+  replaceUnderscore = TRUE, ...)
 }
 \description{
 Plot confidence intervals (NEEDS DOCUMENTATION)
