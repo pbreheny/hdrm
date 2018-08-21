@@ -1,3 +1,9 @@
+#' Reproduce Table 1.1
+#'
+#' Reproduces Table 1.1 from the book.  If you specify any options, your results may look different.
+#'
+#' @examples Tab1.1()
+
 Tab1.1 <- function() {
   loadData('pollution')
   XX <- std(X)

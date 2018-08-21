@@ -1,3 +1,10 @@
+#' Reproduce Figure 1.5
+#'
+#' Reproduces Figure 1.5 from the book.  If you specify any options, your results may look different.
+#'
+#' @examples
+#' Fig1.5()
+
 Fig1.5 <- function() {
   loadData('pollution')
   XX <- std(X)

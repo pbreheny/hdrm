@@ -17,5 +17,5 @@ Ex1.1(N = 100, n = 25, p = 100)
 Reproduces Example 1.1 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-Ex1.1()
+Ex1.1(N=10)
 }

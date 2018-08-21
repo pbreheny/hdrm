@@ -1,3 +1,11 @@
+#' Reproduce Example 1.2
+#'
+#' Reproduces Example 1.2 from the book.
+#'
+#' @param seed   Random number seed for reproducibility
+#'
+#' @examples Ex1.2()
+
 Ex1.2 <- function(seed=11) {
   set.seed(seed)
   x1 <- rnorm(20)

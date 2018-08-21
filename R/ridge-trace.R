@@ -1,5 +1,14 @@
-Fig1.4 <- function() {
-  if (par('mar')[4] < 5) message("Suggested margin: par(mar=c(5,5,5,7))")
+#' Reproduce Figure 1.4
+#'
+#' Reproduces Figure 1.4 from the book.  If you specify any options, your results may look different.
+#'
+#' @param mar   Margins (passed to par)
+#'
+#' @examples
+#' Fig1.4()
+
+Fig1.4 <- function(mar=c(5,5,5,7)) {
+  op <- par(mar=mar)
   loadData("pollution")
   XX <- std(X)
   fit <- ridge(XX, y)
@@ -9,4 +18,5 @@ Fig1.4 <- function() {
   ind <- abs(b) > 15
   text(x=log10(10^(-3.8)), y=b[ind], colnames(X)[ind], xpd=TRUE)
   text(x=log10(10^(-3.8)), y=b["SO2"], "SO2", xpd=TRUE)
+  par(op)
 }

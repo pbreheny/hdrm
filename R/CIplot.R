@@ -1,4 +1,7 @@
 #' Plot confidence intervals (NEEDS DOCUMENTATION)
+CIplot <- function(obj,...) UseMethod("CIplot")
+
+#' @rdname CIplot
 
 CIplot.matrix <- function(obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim, sub, diff=(ncol(B)==4), null=0, n.ticks=6, mar, axis=!add, trans, p.label=FALSE, xlab="", ylab="", add=FALSE, setupOnly=FALSE, lwd=2, replaceUnderscore=TRUE, ...) {
   B <- obj
@@ -105,4 +108,3 @@ CIplot.coxph <- function(obj, xlab="Regression coefficient", exclude=NULL, plot=
 CIplot.data.frame <- function(obj, ...) {
   CIplot.matrix(as.matrix(obj), ...)
 }
-CIplot <- function(obj,...) UseMethod("CIplot")

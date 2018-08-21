@@ -6,7 +6,7 @@
 #' @param n Sample size
 #' @param p Number of features
 #'
-#' @examples Ex1.1()
+#' @examples Ex1.1(N=10)
 
 Ex1.1 <- function(N=100, n=25, p=100) {
   set.seed(1)
@@ -40,7 +40,7 @@ Ex1.1 <- function(N=100, n=25, p=100) {
 #' @param out  Output of Ex1.1()
 #'
 #' @examples
-#' out <- Ex1.1()
+#' out <- Ex1.1(N=10)
 #' Fig1.2(out)
 
 Fig1.2 <- function(out) {
