@@ -1,5 +1,7 @@
 Fig9.3 <- function(N=100, seed=1) {
-  loadData("bcTCGA")
+  Data <- readData("bcTCGA")
+  X <- Data$X
+  y <- Data$y
   p <- ncol(X)
   n <- nrow(X)
   fit <- glmnet(X, y)

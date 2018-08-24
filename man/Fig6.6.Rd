@@ -13,9 +13,8 @@ Fig6.6(fit)
 Reproduce Figure 6.6
 }
 \examples{
-loadData("bcTCGA")
+attachData(bcTCGA)
 
-# Example code
 fit <- ncvreg(X, y, penalty="lasso")
 obj <- mfdr(fit)
 tail(subset(obj, mFDR < .1))

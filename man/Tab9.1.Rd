@@ -35,5 +35,5 @@ Tab9.1(N = 100, B = 100, n = 100, p = 100, a = 10, b = 2,
 Reproduces Table 9.1 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-Tab9.1()
+Tab9.1(N=10)
 }

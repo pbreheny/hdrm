@@ -6,8 +6,9 @@
 #' Fig1.5()
 
 Fig1.5 <- function() {
-  loadData('pollution')
-  XX <- std(X)
+  Data <- readData("pollution")
+  XX <- std(Data$X)
+  y <- Data$y
   fit <- ridge(XX, y)
   ll <- log10(fit$lambda)
   col <- pal(2)

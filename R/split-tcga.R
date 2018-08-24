@@ -1,5 +1,7 @@
 Ex9.2 <- function(N=100) {
-  loadData("bcTCGA")
+  Data <- readData("bcTCGA")
+  X <- Data$X
+  y <- Data$y
   p <- ncol(X)
   colnames(X) <- paste0("V", 1:p)
   X.TCGA <- X

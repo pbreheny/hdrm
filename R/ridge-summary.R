@@ -5,8 +5,9 @@
 #' @examples Tab1.1()
 
 Tab1.1 <- function() {
-  loadData('pollution')
-  XX <- std(X)
+  Data <- readData("pollution")
+  XX <- std(Data$X)
+  y <- Data$y
   fit.ridge <- ridge(XX, y)
   t.ridge <- summary(fit.ridge, which=which.min(fit.ridge$GCV))[,3]
   fit.ols <- lm(y ~ ., data=as.data.frame(XX))

@@ -1,5 +1,7 @@
 Ex6.1 <- function() {
-  loadData("Golub1999")
+  Data <- readData("Golub1999")
+  X <- Data$X
+  y <- Data$y
   summ <- summary(lm(X~y))
   tstat <- sapply(summ, function(s) s$coef[2,3])
   p <- sapply(summ, function(s) s$coef[2,4])
