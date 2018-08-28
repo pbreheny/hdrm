@@ -2,8 +2,8 @@
 #'
 #' Reproduces Figure 2.1 from the book; if you specify any options, your results may look different.
 #'
-#' @param range      Range for beta coefficient (vector of length 2)
-#' @param col        Lasso/ridge color (vector of length 2)
+#' @param range     Range for beta coefficient (vector of length 2)
+#' @param col       Lasso/ridge color (vector of length 2)
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples Fig2.1()
