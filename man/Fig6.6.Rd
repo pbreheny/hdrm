@@ -10,7 +10,7 @@ Fig6.6(fit)
 \item{fit}{\code{ncvreg} fit to the TCGA data; see examples}
 }
 \description{
-Reproduce Figure 6.6
+Reproduces Figure 6.6 from the book.  If you specify any options, your results may look different.
 }
 \examples{
 attachData(bcTCGA)

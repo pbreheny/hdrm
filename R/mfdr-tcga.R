@@ -1,5 +1,7 @@
 #' Reproduce Figure 6.6
 #'
+#' Reproduces Figure 6.6 from the book.  If you specify any options, your results may look different.
+#'
 #' @param fit    \code{ncvreg} fit to the TCGA data; see examples
 #'
 #' @examples
