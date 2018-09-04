@@ -14,7 +14,7 @@ Fig2.1 <- function(range=c(-5,5), col=c("#FF4E37FF", "#008DFFFF"), parlist=list(
   x <- seq(range[1], range[2], len=res)
   xx <- seq(0, range[2],len=res)
 
-  matplot(x, cbind(lasso(x, 1), ridge(x, 0.3)), type="l", lwd=3, lty=1, col=col,
+  matplot(x, cbind(Lasso(x, 1), Ridge(x, 0.3)), type="l", lwd=3, lty=1, col=col,
           xlab=expression(beta), ylab=expression(P(beta)), xaxt="n", yaxt="n", bty="l")
   matplot(xx, cbind(dLasso(xx, 1), dRidge(xx, 0.3)), type="l", lwd=3, lty=1, col=col,
           xlab=expression(abs(beta)), ylab=expression(P*"'"(abs(beta))), xaxt="n", yaxt="n", bty="l")
@@ -24,13 +24,13 @@ Fig2.1 <- function(range=c(-5,5), col=c("#FF4E37FF", "#008DFFFF"), parlist=list(
   par(op)
 }
 
-lasso <- function(theta, l){
+Lasso <- function(theta, l){
   l*abs(theta)
 }
 dLasso <- function(theta, l=1) {
   rep(l,length(theta))
 }
-ridge <- function(theta, l=1) {
+Ridge <- function(theta, l=1) {
   l*theta^2
 }
 dRidge <- function(theta, l=1) {

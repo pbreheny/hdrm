@@ -14,5 +14,6 @@ Ex1.2 <- function(seed=11) {
   cat("lm:\n")
   print(coef(lm(y~x1+x2)))
   cat("ridge:\n")
+  browser()
   coef(ridge(y~x1+x2), lambda=0.1)
 }
