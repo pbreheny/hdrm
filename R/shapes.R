@@ -23,16 +23,3 @@ Fig2.1 <- function(range=c(-5,5), col=c("#FF4E37FF", "#008DFFFF"), parlist=list(
   toplegend(legend=c("Lasso", "Ridge"), lwd=3, col=col)
   par(op)
 }
-
-Lasso <- function(theta, l){
-  l*abs(theta)
-}
-dLasso <- function(theta, l=1) {
-  rep(l,length(theta))
-}
-Ridge <- function(theta, l=1) {
-  l*theta^2
-}
-dRidge <- function(theta, l=1) {
-  l*abs(theta)
-}
