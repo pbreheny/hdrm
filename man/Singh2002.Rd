@@ -1,0 +1,56 @@
+\name{Singh2002}
+\docType{data}
+\alias{Singh2002}
+
+\title{Case-control study of prostate
+cancer}
+\description{
+Prostate tumors are among the most heterogeneous of cancers, both
+histologically and clinically. Gene expression data was collected on
+samples from 102 patients who underwent a prostatectomy. Of the samples,
+52 are from tumors and 50 are from healthy tissue.
+
+}
+\section{Dimensions}{
+\itemize{
+\item
+  n = 102
+\item
+  p = 12,600
+}
+
+}
+\format{
+\itemize{
+\item
+  \code{y}: Classification of sample (normal, tumor)
+\item
+  \code{X}: Gene expression measurements, normalized and on the log2
+  scale
+}
+
+}
+\section{Annotation}{
+\itemize{
+\item
+  Rows of X, and elements of y, are annotated with matching sample
+  labels.
+\item
+  Columns of X are labeled with a GenBank ID. To see what gene a given
+  ID belongs to, visit \url{http://www.ncbi.nlm.nih.gov/genbank}.
+}
+
+}
+\references{
+I obtained the data from the authors at
+\href{http://www-genome.wi.mit.edu/MPR/prostate}{https://portals.broadinstitute.org/cgi-bin/cancer/publications/view/75}
+and used the \href{http://bioconductor.org/packages/vsn}{vsn} package
+for normalization. The original reference is:
+
+
+Singh D, Febbo PG, Ross K, Jackson DG, Manola J, Ladd C, Tamayo P,
+Renshaw AA, D'Amico AV, Richie JP, Lander ES, Loda M, Kantoff PW, Golub
+TR and Sellers WR (2002). Gene expression correlates of clinical
+prostate cancer behavior. \emph{Cancer Cell}, \bold{1}: 203-209.
+
+}

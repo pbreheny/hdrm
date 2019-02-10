@@ -1,0 +1,67 @@
+\name{Golub1999}
+\docType{data}
+\alias{Golub1999}
+
+\title{Gene expression in leukemia
+patients}
+\description{
+This data set consists of 47 patients with acute lymphoblastic leukemia
+(ALL) and 25 patients with acute myeloid leukemia (AML). Each of the 72
+patients had bone marrow samples obtained at the time of diagnosis. Gene
+expression measurements for the samples were taken using Affymetrix
+Hgu6800 chips, resulting in 7129 measurements per patient.
+
+Of the two diseases, AML has a considerably worse prognosis: only 26\%
+survive at least 5 years following diagnosis, compared to 68\% for ALL
+(\href{http://seer.cancer.gov}{source}).
+
+}
+\section{Dimensions}{
+\itemize{
+\item
+  n = 72
+\item
+  p = 7129
+}
+
+}
+\format{
+\itemize{
+\item
+  \code{y}: Type of leukemia (ALL, AML)
+\item
+  \code{X}: Gene expression measurements, normalized and on the log2
+  scale
+}
+
+}
+\section{Annotation}{
+\itemize{
+\item
+  Rows of X, and elements of y, are annotated with arbitrary, matching
+  sample labels.
+\item
+  Columns of X are labeled with the Gene Symbol. In some cases, the
+  probe could not be matched to a gene symbol; in those cases, the
+  column is labeled with the Affymetrix probe label instead. This
+  happens for artificial spike-in probes and probes where it is
+  uncertain which, if any gene, they measure.
+}
+
+}
+\references{
+I obtained the data from the
+\href{https://www.bioconductor.org/packages/golubEsets}{golubEsets}
+package, used the \href{http://bioconductor.org/packages/vsn}{vsn}
+package for normalization, and the
+\href{https://bioconductor.org/packages/hu6800.db/}{hu6800.db} package
+for annotation. The original reference is:
+
+
+Golub TR, Slonim DK, Tamayo P, Huard C, Gaasenbeek M, Mesirov JP, Coller
+H, Loh ML, Downing JR, Caligiuri MA, Bloomfield CD, and Lander ES
+(1999). Molecular classification of cancer: class discovery and class
+prediction by gene expression monitoring. \emph{Science},
+\bold{286}:531-537.
+
+}
