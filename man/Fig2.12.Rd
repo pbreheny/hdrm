@@ -29,7 +29,6 @@ fold <- c(4, 3, 10, 7, 3, 2, 5, 9, 6, 9, 7, 4, 4, 2, 1, 7, 1, 4, 6, 9, 5, 9, 9,
           7, 10, 3, 6, 10, 2, 7, 5, 2, 6, 6, 1, 1, 4, 6, 10, 7, 8, 10, 8, 1, 5,
           5, 10, 6, 10, 3, 1, 3, 8, 2, 9, 3)
 cvfit <- cv.ncvreg(XX, y, penalty.factor=multiplier, penalty='lasso', fold=fold)
-plot(cvfit, type='rsq')
 
 # Plot
 Fig2.12(cvfit)

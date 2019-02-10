@@ -4,9 +4,11 @@
 \alias{Fig1.4}
 \title{Reproduce Figure 1.4}
 \usage{
-Fig1.4(mar = c(5, 5, 5, 7))
+Fig1.4(gcv.line = TRUE, mar = c(5, 5, 5, 7))
 }
 \arguments{
+\item{gcv.line}{Draw a vertical line at the lambda value that minimizes GCV? (Default: true)}
+
 \item{mar}{Margins (passed to par)}
 }
 \description{

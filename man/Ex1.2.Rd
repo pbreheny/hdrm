@@ -4,14 +4,17 @@
 \alias{Ex1.2}
 \title{Reproduce Example 1.2}
 \usage{
-Ex1.2(seed = 11)
+Ex1.2(seed = 11, lambda = 0.1)
 }
 \arguments{
 \item{seed}{Random number seed for reproducibility}
+
+\item{lambda}{Regularization parameter for ridge regression}
 }
 \description{
 Reproduces Example 1.2 from the book.
 }
 \examples{
 Ex1.2()
+Ex1.2(lam=0.01)
 }

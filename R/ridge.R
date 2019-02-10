@@ -1,4 +1,27 @@
+#' Ridge regression
+#'
+#' @param obj         There are two options for running `ridge()`; either supply a formula and data frame as in `lm()`, or an X and y matrix as in `glmnet()`; see examples
+#' @param y           If using the matrix interface, the vector of responses
+#' @param lam         An optional value or vector of values for the regression coefficient; if not supplied, this will be set up automatically
+#' @param data        If using the formula interface, a data.frame/list/environment containing the variables in the formula
+#' @param subset      If using the formula interface, a vector describing the subset of the data to be used in fitting the model
+#' @param na.action   If using the formula interface, a function indicating what should happen when the data contain NAs, as in `lm()`
+#' @param contrasts   If using the formula interface, a list to be passed to `model.matrix()`
+#'
+#' @seealso `plot.ridge()`, `coef.ridge()`, `predict.ridge()`, `summary.ridge()`, `confint.ridge()`
+#'
+#' @examples
+#' ridge()
+#' attachData(pollution)
+#' fit <- ridge(X, y)
+#' plot(fit)
+#' plot(fit, xaxis='df')
+#' plot(fit, xaxis='both')
+
+
 ridge <- function(obj, ...) UseMethod("ridge")
+
+#' @rdname ridge
 ridge.formula <- function(obj, data, subset, na.action, contrasts = NULL, ...) {
   m <- match.call(expand.dots = FALSE)
   names(m)[which(names(m)=='obj')] <- 'formula'
@@ -12,18 +35,19 @@ ridge.formula <- function(obj, data, subset, na.action, contrasts = NULL, ...) {
   if (Inter <- attr(Terms, "intercept")) X <- X[, -Inter]
   ridge.matrix(X, y, ...)
 }
-ridge.matrix <- function (obj, yy, lambda, ...) {
+#' @rdname ridge
+ridge.matrix <- function (obj, y, lambda, ...) {
   if (missing(lambda)) lambda <- 10^(seq(-3, 3, length=49))
   X <- std(obj)
   n <- nrow(X)
   p <- ncol(X)
-  y <- yy - mean(yy)
+  yy <- y - mean(y)
   Xs <- svd(X)
   d <- Xs$d
   k <- length(lambda)
   dx <- length(d)
   div <- d^2 + rep(n*lambda, rep(dx, k))
-  rhs <- crossprod(Xs$u, y)
+  rhs <- crossprod(Xs$u, yy)
   a <- drop(d * rhs)/div
   dim(a) <- c(dx, k)
   coef <- Xs$v %*% a
@@ -31,12 +55,12 @@ ridge.matrix <- function (obj, yy, lambda, ...) {
 
   df <- colSums(matrix(d^2/div, dx))
   Y <- X %*% coef
-  RSS <- colSums((y - Y)^2)
+  RSS <- colSums((yy - Y)^2)
   GCV <- RSS/(1-df/n)^2
 
   beta <- matrix(0, nrow = nrow(coef) + 1, ncol = length(lambda))
   beta[-1,] <- coef/attr(X, 'scale')
-  beta[1, ] <- mean(yy) - crossprod(attr(X, 'center'), beta[-1,])
+  beta[1, ] <- mean(y) - crossprod(attr(X, 'center'), beta[-1,])
   if (is.null(colnames(obj))) colnames(obj) <- paste0('V', 1:p)
   dimnames(beta) <- list(c("(Intercept)", colnames(obj)), lambda)
 
