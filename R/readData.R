@@ -17,7 +17,7 @@
 
 downloadData <- function(name) {
   if (missing(name)) {
-    name <- .hdrm_data_sets
+    name <- hdrm_data_sets
   } else {
     name <- substitute(name)
   }
@@ -40,8 +40,9 @@ downloadData <- function(name) {
 #' head(Data$y)
 
 readData <- function(name) {
-  if (!(name %in% .hdrm_data_sets)) stop(paste0(name, ' is not an hdrm data set'))
-  FILE <- paste0(system.file("data", package="hdrm"), '/', substitute(name), '.rds')
+  name <- substitute(name)
+  if (!(name %in% hdrm_data_sets)) stop(paste0(name, ' is not an hdrm data set'))
+  FILE <- paste0(system.file("data", package="hdrm"), '/', name, '.rds')
   if (!file.exists(FILE)) stop("You have to run downloadData() first; see ?downloadData", call.=FALSE)
   readRDS(FILE)
 }
@@ -55,8 +56,9 @@ readData <- function(name) {
 #' head(y)
 
 attachData <- function(name, envir=parent.frame()) {
-  if (!(name %in% .hdrm_data_sets)) stop(paste0(name, ' is not an hdrm data set'))
-  FILE <- paste0(system.file("data", package="hdrm"), '/', substitute(name), '.rds')
+  name <- substitute(name)
+  if (!(name %in% hdrm_data_sets)) stop(paste0(name, ' is not an hdrm data set'))
+  FILE <- paste0(system.file("data", package="hdrm"), '/', name, '.rds')
   if (!file.exists(FILE)) stop("You have to run downloadData() first; see ?downloadData", call.=FALSE)
   Data <- readRDS(FILE)
   for (x in names(Data)) {
