@@ -24,7 +24,7 @@ downloadData <- function(name) {
   for (id in name) {
     URL <- paste0('http://s3.amazonaws.com/pbreheny-data-sets/', id, '.rds')
     FILE <- paste0(system.file("data", package="hdrm"), '/', id, '.rds')
-    download.file(URL, FILE)
+    download.file(URL, FILE, mode='wb')
   }
 }
 
