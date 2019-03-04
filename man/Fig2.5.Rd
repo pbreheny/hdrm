@@ -4,9 +4,11 @@
 \alias{Fig2.5}
 \title{Reproduce Figure 2.5}
 \usage{
-Fig2.5(mar = rep(5, 4))
+Fig2.5(cv = TRUE, mar = rep(5, 4))
 }
 \arguments{
+\item{cv}{Carry out cross-validation?  Default: true}
+
 \item{mar}{Margins, passed to `par()`}
 }
 \description{

@@ -32,7 +32,6 @@ ridge(obj, ...)
 Ridge regression
 }
 \examples{
-ridge()
 attachData(pollution)
 fit <- ridge(X, y)
 plot(fit)

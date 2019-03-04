@@ -11,7 +11,6 @@
 #' @seealso `plot.ridge()`, `coef.ridge()`, `predict.ridge()`, `summary.ridge()`, `confint.ridge()`
 #'
 #' @examples
-#' ridge()
 #' attachData(pollution)
 #' fit <- ridge(X, y)
 #' plot(fit)
