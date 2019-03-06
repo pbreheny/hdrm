@@ -5,7 +5,7 @@
 \title{Reproduce Example 3.1}
 \usage{
 Ex3.1(N = 500, n = 50, p = 100, p1 = 6, SNR = c(1, 2, 4),
-  seed = 1)
+  seed = 2)
 }
 \arguments{
 \item{N}{Number of simulated realizations}
@@ -24,7 +24,7 @@ Ex3.1(N = 500, n = 50, p = 100, p1 = 6, SNR = c(1, 2, 4),
 A list of two arrays, `MCP`, containing the MSE for MCP, and `SCAD`, containing the MSE for SCAD.
 }
 \description{
-Reproduces Example 1.1 from the book.  If you specify any options, your results may look different.
+Reproduces Example 3.1 from the book.  If you specify any options, your results may look different.
 }
 \examples{
 Ex3.1(N=10)

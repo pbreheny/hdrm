@@ -2,21 +2,19 @@
 % Please edit documentation in R/convexity-diagnostic.R
 \name{Fig3.6}
 \alias{Fig3.6}
-\title{Reproduce Figure 2.10}
+\title{Reproduce Figure 3.6}
 \usage{
 Fig3.6(seed = 9, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 0.5,
   0.5)))
 }
 \arguments{
-\item{parlist}{List of arguments to pass to `par()`}
+\item{seed}{Random seed for reproducibility}
 
-\item{cvfit}{`glmnet()` fit to the TCGA data; see examples}
+\item{parlist}{List of arguments to pass to `par()`}
 }
 \description{
-Reproduces Figure 2.10 from the book.  If you specify any options, your results may look different.
+Reproduces Figure 3.6 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-attachData(bcTCGA)
-cvfit <- cv.glmnet(X, y)
-Fig2.10(cvfit)
+Fig3.6()
 }

@@ -17,7 +17,6 @@
 #' plot(fit, xaxis='df')
 #' plot(fit, xaxis='both')
 
-
 ridge <- function(obj, ...) UseMethod("ridge")
 
 #' @rdname ridge

@@ -2,13 +2,11 @@
 #'
 #' Reproduces Figure 3.6 from the book.  If you specify any options, your results may look different.
 #'
-#' @param cvfit     `glmnet()` fit to the TCGA data; see examples
+#' @param seed      Random seed for reproducibility
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples
-#' attachData(bcTCGA)
-#' cvfit <- cv.glmnet(X, y)
-#' Fig3.6(cvfit)
+#' Fig3.6()
 
 Fig3.6 <- function(seed=9, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5,0.5))) {
   op <- par(parlist)
@@ -40,9 +38,9 @@ Fig3.6 <- function(seed=9, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5,0.5))) {
     q3[i] <- Q(x[i]*b2 + (1-x[i])*b1, 2*l1)
   }
   mar <- par()$mar
-  mar[4] <- 3.1
+  mar[4] <- 5
   par(mar=mar)
-  plot(x, q1, type='l', las=1, ylim=c(0.1, 1.4), bty='n', xaxt='n', ylab=expression(Q(beta)), xlab='')
+  plot(x, q1, type='l', las=1, ylim=c(0, 1), bty='n', xaxt='n', ylab=expression(Q(beta)), xlab='')
   axis(1, at=c(-0.5, 0, 1, 1.5), labels=expression("", beta[1], beta[2], ""))
   lines(x, q2)
   lines(x, q3)
