@@ -4,7 +4,7 @@
 \alias{Fig2.3}
 \title{Reproduce Figure 2.3}
 \usage{
-Fig2.3(lambda = 0.5, n = 10, sigma = 1, ymax = 1.5, ...)
+Fig2.3(lambda = 0.5, n = 10, sigma = 1, ymax = 1.5)
 }
 \arguments{
 \item{lambda}{Regularization parameter}

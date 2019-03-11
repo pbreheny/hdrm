@@ -2,11 +2,12 @@
 #'
 #' @param obj         There are two options for running `ridge()`; either supply a formula and data frame as in `lm()`, or an X and y matrix as in `glmnet()`; see examples
 #' @param y           If using the matrix interface, the vector of responses
-#' @param lam         An optional value or vector of values for the regression coefficient; if not supplied, this will be set up automatically
+#' @param lambda      An optional value or vector of values for the regression coefficient; if not supplied, this will be set up automatically
 #' @param data        If using the formula interface, a data.frame/list/environment containing the variables in the formula
 #' @param subset      If using the formula interface, a vector describing the subset of the data to be used in fitting the model
 #' @param na.action   If using the formula interface, a function indicating what should happen when the data contain NAs, as in `lm()`
 #' @param contrasts   If using the formula interface, a list to be passed to `model.matrix()`
+#' @param ...         Additional arguments to be passed to methods
 #'
 #' @seealso `plot.ridge()`, `coef.ridge()`, `predict.ridge()`, `summary.ridge()`, `confint.ridge()`
 #'

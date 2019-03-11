@@ -16,8 +16,6 @@ attachData(name, envir = parent.frame())
 \item{name}{Name of data set to read/attach}
 
 \item{envir}{If attaching, to which environment?}
-
-\item{name}{Name of data set to read/attach}
 }
 \description{
 These functions are downloading, reading, and attaching data sets described in the hdrm book.

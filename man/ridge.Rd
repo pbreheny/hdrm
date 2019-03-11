@@ -16,6 +16,8 @@ ridge(obj, ...)
 \arguments{
 \item{obj}{There are two options for running `ridge()`; either supply a formula and data frame as in `lm()`, or an X and y matrix as in `glmnet()`; see examples}
 
+\item{...}{Additional arguments to be passed to methods}
+
 \item{data}{If using the formula interface, a data.frame/list/environment containing the variables in the formula}
 
 \item{subset}{If using the formula interface, a vector describing the subset of the data to be used in fitting the model}
@@ -26,7 +28,7 @@ ridge(obj, ...)
 
 \item{y}{If using the matrix interface, the vector of responses}
 
-\item{lam}{An optional value or vector of values for the regression coefficient; if not supplied, this will be set up automatically}
+\item{lambda}{An optional value or vector of values for the regression coefficient; if not supplied, this will be set up automatically}
 }
 \description{
 Ridge regression

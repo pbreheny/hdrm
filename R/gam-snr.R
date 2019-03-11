@@ -45,7 +45,6 @@ Ex3.1 <- function(N=500, n=50, p=100, p1=6, SNR=c(1, 2, 4), seed=2) {
 #' Reproduces Figure 3.5 from the book; if you specify any options, your results may look different.
 #'
 #' @param out       Output of Ex3.1()
-#' @param ylim      Vertical limits, passed to plot()
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples

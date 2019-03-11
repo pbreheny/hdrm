@@ -9,7 +9,7 @@
 #'
 #' @examples Fig2.3()
 
-Fig2.3 <- function(lambda=0.5, n=10, sigma=1, ymax=1.5, ...) {
+Fig2.3 <- function(lambda=0.5, n=10, sigma=1, ymax=1.5) {
   se <- sigma/sqrt(n)
   op <- par(mar=c(5,5,1.5,0.5), mfrow=c(1,2))
 
@@ -34,7 +34,7 @@ Fig2.3 <- function(lambda=0.5, n=10, sigma=1, ymax=1.5, ...) {
   polygon(c(bb, rev(bb)), c(dnorm(bb+lambda, b, se), rep(0, length(bb))), col="gray80", border=NA)
   p <- pnorm((lambda-b)/se) - pnorm((-lambda-b)/se)
   lines(0, p*ymax, type="h", lwd=3)
-  axis(4, at=c(0,ymax/2,ymax), label=c(0, 0.5, 1), las=1)
+  axis(4, at=c(0,ymax/2,ymax), labels=c(0, 0.5, 1), las=1)
   mtext("Probability", 4, line=3)
   mtext(expression(beta[0]==1))
   par(op)

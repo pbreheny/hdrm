@@ -11,8 +11,6 @@ Fig3.5(out, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 1, 0.5), oma =
 \item{out}{Output of Ex3.1()}
 
 \item{parlist}{List of arguments to pass to `par()`}
-
-\item{ylim}{Vertical limits, passed to plot()}
 }
 \description{
 Reproduces Figure 3.5 from the book; if you specify any options, your results may look different.

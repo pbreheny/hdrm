@@ -22,7 +22,7 @@ boot.glmnet <- function(X, y, B=500, lambda, seed, alpha=0.05, bar=TRUE) {
   if (!missing(seed)) set.seed(seed)
   for (i in 1:B) {
     ind <- sample(1:n, replace=TRUE)
-    fit.i <- glmnet(X[ind,], y[ind], nlambda=20, lambda.min=lambda)
+    fit.i <- glmnet(X[ind,], y[ind], nlambda=20, lambda.min.ratio=lambda)
     b <- coef(fit.i, s=lambda)
     beta_hat[i,] <- b[-1]
     if (bar) setTxtProgressBar(pb, i)

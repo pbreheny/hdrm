@@ -18,8 +18,8 @@ Fig2.1 <- function(range=c(-5,5), col=c("#FF4E37FF", "#008DFFFF"), parlist=list(
           xlab=expression(beta), ylab=expression(P(beta)), xaxt="n", yaxt="n", bty="l")
   matplot(xx, cbind(dLasso(xx, 1), dRidge(xx, 0.3)), type="l", lwd=3, lty=1, col=col,
           xlab=expression(abs(beta)), ylab=expression(P*"'"(abs(beta))), xaxt="n", yaxt="n", bty="l")
-  axis(1, at=0, label=0)
-  axis(2, at=c(0,1), label=c(0, expression(lambda)), las=1)
+  axis(1, at=0, labels=0)
+  axis(2, at=c(0,1), labels=c(0, expression(lambda)), las=1)
   toplegend(legend=c("Lasso", "Ridge"), lwd=3, col=col)
   par(op)
 }

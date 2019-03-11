@@ -30,7 +30,6 @@ downloadData <- function(name) {
 
 #' @rdname downloadData
 #'
-#' @param name    Name of data set to read/attach
 #' @param envir   If attaching, to which environment?
 #'
 #' @examples
