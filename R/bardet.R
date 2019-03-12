@@ -33,8 +33,8 @@ Tab4.2 <- function(p=5000, seed=12) {
     R[2,j] <- 1-min(cvfit$cve)/var(y)
     S[2,j] <- predict(cvfit, type='nvars')
   }
-  Tab4.2 <- cbind(c(R[1,], R[2,]), c(S[1,], S[2,]))
-  rownames(Tab) <- paste(rep(c('enet', 'mnet'), each=4), alpha, sep='-')
-  colnames(Tab) <- c('rsq', 'size')
-  Tab
+  out <- cbind(c(R[1,], R[2,]), c(S[1,], S[2,]))
+  rownames(out) <- paste(rep(c('enet', 'mnet'), each=4), alpha, sep='-')
+  colnames(out) <- c('rsq', 'size')
+  out
 }
