@@ -2,7 +2,7 @@
 % Please edit documentation in R/multi-split.R
 \name{Fig9.1}
 \alias{Fig9.1}
-\title{Reproduce Figure 6.6}
+\title{Reproduce Figure 9.1}
 \usage{
 Fig9.1(res, N = 100, seed = 1)
 }
@@ -14,7 +14,7 @@ Fig9.1(res, N = 100, seed = 1)
 \item{out}{Output of Ex9.1()}
 }
 \description{
-Reproduces Figure 6.6 from the book.  If you specify any options, your results may look different.
+Reproduces Figure 9.1 from the book.  If you specify any options, your results may look different.
 }
 \examples{
 

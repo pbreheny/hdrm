@@ -1,4 +1,15 @@
-Ex9.2 <- function(N=100) {
+#' Reproduce Example 9.2
+#'
+#' Reproduces Example 9.2 from the book.  If you specify any options, your results may be different.
+#'
+#' @param N      Number of random splits
+#' @param seed   Random seed for reproducibility
+#'
+#' @examples
+#' p <- Ex9.2(N=10)
+#' head(sort(p))
+
+Ex9.2 <- function(N=100, seed=1) {
   Data <- readData("bcTCGA")
   X <- Data$X
   y <- Data$y
@@ -22,5 +33,7 @@ Ex9.2 <- function(N=100) {
     setTxtProgressBar(pb, i)
   }
   close(pb)
-  return(apply(P, 2, median))
+  p <- apply(P, 2, median)
+  names(p) <- colnames(Data$X)
+  return(p)
 }

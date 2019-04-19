@@ -1,6 +1,6 @@
-#' Reproduce Figure 6.6
+#' Reproduce Figure 9.1
 #'
-#' Reproduces Figure 6.6 from the book.  If you specify any options, your results may look different.
+#' Reproduces Figure 9.1 from the book.  If you specify any options, your results may look different.
 #'
 #' @param out   Output of Ex9.1()
 #' @param N     Number of random splits
