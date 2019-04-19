@@ -8,7 +8,8 @@
 #'
 #' @examples
 #' out <- Ex9.1()
-#' Fig9.2(out)
+#' res <- Fig9.2(out)
+#' head(sort(res$Stability[,20], decreasing=TRUE))
 
 Fig9.2 <- function(out, N=100, seed=1) {
   X <- out$X
@@ -22,7 +23,6 @@ Fig9.2 <- function(out, N=100, seed=1) {
   set.seed(seed)
   for (i in 1:N) {
     ind <- sample(1:n, replace=TRUE)
-    #ind <- as.logical(sample(rep(0:1, each=n/2)))
     fit.i <- glmnet(X[ind,], y[ind], lambda=fit$lambda)
     SS[i,,] <- as.matrix(coef(fit.i)[-1,]!=0)
     Q[i,] <- sapply(predict(fit.i, type="nonzero"), length)
@@ -32,6 +32,7 @@ Fig9.2 <- function(out, N=100, seed=1) {
   S <- apply(SS, 2:3, mean)
   colnames(S) <- ncvreg:::lamNames(fit$lambda)
   q <- apply(Q, 2, mean)
+  names(q) <- colnames(S)
 
   l <- fit$lambda
   col <- rep(rgb(0.6, 0.6, 0.6, 0.25), p)

@@ -4,10 +4,12 @@
 \alias{Ex9.2}
 \title{Reproduce Example 9.2}
 \usage{
-Ex9.2(N = 100)
+Ex9.2(N = 100, seed = 1)
 }
 \arguments{
 \item{N}{Number of random splits}
+
+\item{seed}{Random seed for reproducibility}
 }
 \description{
 Reproduces Example 9.2 from the book.  If you specify any options, your results may be different.

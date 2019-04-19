@@ -1,3 +1,16 @@
+#' Reproduce Figure 9.3
+#'
+#' Reproduces Figure 9.3 from the book.  If you specify any options, your results may look different.
+#'
+#' @param N     Number of simulated realizations
+#' @param seed  Random number seed for reproducibility
+#'
+#' @examples
+#' res <- Fig9.3(N=10)
+#' S <- res$Stability
+#' s <- apply(S, 1, max)
+#' head(sort(s[s>0.6], decreasing=TRUE), n=20)
+
 Fig9.3 <- function(N=100, seed=1) {
   Data <- readData("bcTCGA")
   X <- Data$X
