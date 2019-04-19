@@ -7,17 +7,14 @@
 Fig4.2(res, parlist = list(mfrow = c(1, 2), mar = c(4, 4, 2, 0.5)))
 }
 \arguments{
+\item{res}{Output from Ex4.3}
+
 \item{parlist}{List of arguments to pass to `par()`}
-
-\item{cs}{Output from Ex4.3 with compound symmetric structure}
-
-\item{bd}{Output from Ex4.3 with block diagonal structure}
 }
 \description{
 Reproduces Figure 4.2 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-cs <- Ex4.3(N=5, corr='cs')
-bd <- Ex4.3(N=5, corr='bd')
-Fig4.2(cs, bd)
+res <- Ex4.3(N=5, corr='cs')
+Fig4.2(res)
 }

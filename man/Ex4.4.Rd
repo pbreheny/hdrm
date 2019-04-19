@@ -23,8 +23,8 @@ Ex4.4(N = 100, s = seq(0.1, 1.1, 0.2), n = 100, p = 500, p1 = 12,
 \item{seed}{Seed for reproducibility}
 }
 \description{
-Reproduces Example 4.4 from the book.  If you specify any options, your results may look different.
+Reproduces Example 4.4 from the book.  If you specify any options, your results may look different.  Note that this simulation in particular is very time-consuming if run with the full N=100 replications.
 }
 \examples{
-Ex4.4(N=10)
+Ex4.4(N=3)
 }
