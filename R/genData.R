@@ -39,6 +39,10 @@ genData <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"), 
   # Gen y
   y <- genY(X%*%beta, family=family, sigma=1)
 
+  # Label and return
+  w <- 1 + floor(log10(p))
+  vlab <- paste('V', formatC(5, format='d', width=w, flag='0'))
+  colnames(X) <- names(beta) <- vlab
   list(X=X, y=y, beta=beta, family=family)
 }
 
