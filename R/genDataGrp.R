@@ -28,9 +28,9 @@ genDataGrp <- function(n, J, K=1, beta, family=c("gaussian","binomial"), J1=ceil
   X <- genX(n, J*K, S)
 
   # Gen beta
+  j <- rep(1:J, rep(K,J))
+  k <- rep(1:K,J)
   if (missing(beta) || length(beta)==1) {
-    j <- rep(1:J, rep(K,J))
-    k <- rep(1:K,J)
     b <- (j <= J1) * (k <= K1)
     s <- c(1,-1)[1+j%%2] * c(1,-1)[1+k%%2]
     if (missing(beta)) {
@@ -45,5 +45,13 @@ genDataGrp <- function(n, J, K=1, beta, family=c("gaussian","binomial"), J1=ceil
 
   # Gen y
   y <- genY(X%*%beta, family=family, sigma=1)
-  list(X=X, y=y, beta=beta, family=family, group=rep(1:J,rep(K,J)))
+
+  # Label and return
+  gw <- 1 + floor(log10(J))
+  glab <- paste0('G', formatC(j, format='d', width=gw, flag='0'))
+  vw <- 1 + floor(log10(K))
+  vlab <- paste0('V', formatC(k, format='d', width=vw, flag='0'))
+  lab <- paste(glab, vlab, sep='_')
+  colnames(X) <- names(beta) <- lab
+  list(X=X, y=y, beta=beta, family=family, group=j)
 }
