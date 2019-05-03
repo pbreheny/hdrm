@@ -60,6 +60,9 @@ attachData <- function(name, envir=parent.frame()) {
   FILE <- paste0(system.file("data", package="hdrm"), '/', name, '.rds')
   if (!file.exists(FILE)) stop("You have to run downloadData() first; see ?downloadData", call.=FALSE)
   Data <- readRDS(FILE)
+  if (!is.list(Data)) {
+    stop(paste0("attachData() does not work for ", name, "; use readData() instead."))
+  }
   for (x in names(Data)) {
     assign(x, Data[[x]], envir=envir)
   }
