@@ -12,8 +12,9 @@
 #'
 #' @example ex/genData.R
 
-genData <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"), SNR=1, signal = c("homogeneous","heterogeneous"),
-                    corr=c("exchangeable", "autoregressive"), rho = 0) {
+genData <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"), SNR=1,
+                    signal = c("homogeneous","heterogeneous"), corr=c("exchangeable", "autoregressive"),
+                    rho = 0) {
   family <- match.arg(family)
   signal <- match.arg(signal)
   corr <- match.arg(corr)

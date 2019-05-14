@@ -4,14 +4,14 @@
 \alias{Fig9.1}
 \title{Reproduce Figure 9.1}
 \usage{
-Fig9.1(res, N = 100, seed = 1)
+Fig9.1(out, N = 100, seed = 1)
 }
 \arguments{
+\item{out}{Output of Ex9.1()}
+
 \item{N}{Number of random splits}
 
 \item{seed}{Random number seed for reproducibility}
-
-\item{out}{Output of Ex9.1()}
 }
 \description{
 Reproduces Figure 9.1 from the book.  If you specify any options, your results may look different.
@@ -19,5 +19,6 @@ Reproduces Figure 9.1 from the book.  If you specify any options, your results m
 \examples{
 
 Data <- Ex9.1()
-res <- Fig9.1(Data)
+out <- Fig9.1(Data)
+Fig9.1(out)
 }

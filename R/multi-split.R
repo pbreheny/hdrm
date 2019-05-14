@@ -9,29 +9,30 @@
 #' @examples
 #'
 #' Data <- Ex9.1()
-#' res <- Fig9.1(Data)
+#' out <- Fig9.1(Data)
+#' Fig9.1(out)
 
-Fig9.1 <- function(res, N=100, seed=1) {
+Fig9.1 <- function(out, N=100, seed=1) {
   set.seed(seed)
   pb <- txtProgressBar(1, N, style=3)
-  n <- nrow(res$X)
-  p <- ncol(res$X)
-  P <- matrix(1, N, p, dimnames=list(1:N, colnames(res$X)))
+  n <- nrow(out$X)
+  p <- ncol(out$X)
+  P <- matrix(1, N, p, dimnames=list(1:N, colnames(out$X)))
   for (i in 1:N) {
     ind <- as.logical(sample(rep(0:1, each=n/2)))
-    cvfit <- cv.glmnet(res$X[ind,], res$y[ind])
+    cvfit <- cv.glmnet(out$X[ind,], out$y[ind])
     b <- coef(cvfit, s=cvfit$lambda.min)[-1]
-    XX <- res$X[!ind,which(b!=0)]
-    fit <- lm(res$y[!ind]~XX)
+    XX <- out$X[!ind,which(b!=0)]
+    fit <- lm(out$y[!ind]~XX)
     summ <- summary(fit)$coefficients[-1,]
     var.id <- gsub("XX", "", rownames(summ))
     P[i, var.id] <- summ[,4]
     setTxtProgressBar(pb, i)
   }
   pval <- apply(P, 2, median)
-  boxplot(pval[res$varType=="A"],
-          pval[res$varType=="B"],
-          pval[res$varType=="N"],
+  boxplot(pval[out$varType=="A"],
+          pval[out$varType=="B"],
+          pval[out$varType=="N"],
           col="gray", frame.plot=FALSE, pch=19,
           names=c("A", "B", "N"), las=1, ylim=c(0,1), ylab="p")
   return(invisible(pval))

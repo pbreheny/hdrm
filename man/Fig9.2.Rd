@@ -19,5 +19,5 @@ Reproduces Figure 9.2 from the book.  If you specify any options, your results m
 \examples{
 out <- Ex9.1()
 res <- Fig9.2(out)
-head(sort(S))
+head(sort(res$Stability[,20], decreasing=TRUE))
 }

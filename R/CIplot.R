@@ -1,4 +1,21 @@
 #' Plot confidence intervals (NEEDS DOCUMENTATION)
+#'
+#' "Forest plot"-style plotting of confidence intervals from a regression model.  Basic input is a matrix with columns of estimate/lower/upper, along with an optional 4th column for the p-value.  Also works with a variety of models (lm/glm/coxph/etc.)
+#'
+#' @param obj   The object to be plotted; can be a matrix of raw values or a model object
+#'
+#' @examples
+#' # Supplying a matrix
+#' B <- cbind(1:3, 0:2, 2:4)
+#' rownames(B) <- LETTERS[1:3]
+#' CIplot(B)
+#'
+#' # Supplying a fitted model object
+#' fit <- lm(Ozone ~ Solar.R + Wind + Temp, airquality)
+#' CIplot(fit)
+#'
+#' # Options
+
 CIplot <- function(obj,...) UseMethod("CIplot")
 
 #' @rdname CIplot

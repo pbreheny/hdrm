@@ -2,7 +2,7 @@
 % Please edit documentation in R/stab-tcga.R
 \name{Fig9.3}
 \alias{Fig9.3}
-\title{Reproduce Figure 9.2}
+\title{Reproduce Figure 9.3}
 \usage{
 Fig9.3(N = 100, seed = 1)
 }
@@ -12,8 +12,11 @@ Fig9.3(N = 100, seed = 1)
 \item{seed}{Random number seed for reproducibility}
 }
 \description{
-Reproduces Figure 9.2 from the book.  If you specify any options, your results may look different.
+Reproduces Figure 9.3 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-res <- Fig9.2(out)
+res <- Fig9.3(N=10)
+S <- res$Stability
+s <- apply(S, 1, max)
+head(sort(s[s>0.6], decreasing=TRUE), n=20)
 }
