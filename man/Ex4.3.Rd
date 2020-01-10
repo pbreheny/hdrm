@@ -4,8 +4,7 @@
 \alias{Ex4.3}
 \title{Reproduce Example 4.3}
 \usage{
-Ex4.3(N = 100, s = seq(0.1, 1.1, 0.2), n = 100, p = 500, p1 = 12,
-  seed = 1)
+Ex4.3(N = 100, s = seq(0.1, 1.1, 0.2), n = 100, p = 500, p1 = 12, seed = 1)
 }
 \arguments{
 \item{N}{Number of simulated realizations}

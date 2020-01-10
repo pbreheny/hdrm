@@ -4,8 +4,16 @@
 \alias{Ex9.1}
 \title{Reproduce Example 9.1}
 \usage{
-Ex9.1(n = 100, p = 60, a = 6, b = 2, rho = 0.5, beta = c(1, -1,
-  0.5, -0.5, 0.5, -0.5), seed = 72, ...)
+Ex9.1(
+  n = 100,
+  p = 60,
+  a = 6,
+  b = 2,
+  rho = 0.5,
+  beta = c(1, -1, 0.5, -0.5, 0.5, -0.5),
+  seed = 72,
+  ...
+)
 }
 \arguments{
 \item{n}{Sample size}

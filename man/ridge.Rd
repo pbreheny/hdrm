@@ -8,8 +8,7 @@
 \usage{
 ridge(obj, ...)
 
-\method{ridge}{formula}(obj, data, subset, na.action, contrasts = NULL,
-  ...)
+\method{ridge}{formula}(obj, data, subset, na.action, contrasts = NULL, ...)
 
 \method{ridge}{matrix}(obj, y, lambda, ...)
 }

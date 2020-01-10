@@ -4,10 +4,19 @@
 \alias{genDataABN}
 \title{Simulate data according to Causal/Correlated/Noise paradigm}
 \usage{
-genDataABN(n = 100, p = 60, a = 6, b = 2, rho = 0.5,
-  family = c("gaussian", "binomial"), signal = c("homogeneous",
-  "heterogeneous"), noise = c("exchangeable", "autoregressive"),
-  rho.noise = 0, beta, SNR = 1)
+genDataABN(
+  n = 100,
+  p = 60,
+  a = 6,
+  b = 2,
+  rho = 0.5,
+  family = c("gaussian", "binomial"),
+  signal = c("homogeneous", "heterogeneous"),
+  noise = c("exchangeable", "autoregressive"),
+  rho.noise = 0,
+  beta,
+  SNR = 1
+)
 }
 \arguments{
 \item{n}{Sample size}

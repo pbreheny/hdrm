@@ -4,8 +4,13 @@
 \alias{Fig3.2}
 \title{Reproduce Figure 3.2}
 \usage{
-Fig3.2(n = 200, p = 1000, seed = 105, ylim = c(-4.1, 4.1),
-  parlist = list(mfrow = c(2, 2), mar = c(4.5, 4.5, 3, 0.5)))
+Fig3.2(
+  n = 200,
+  p = 1000,
+  seed = 105,
+  ylim = c(-4.1, 4.1),
+  parlist = list(mfrow = c(2, 2), mar = c(4.5, 4.5, 3, 0.5))
+)
 }
 \arguments{
 \item{n}{Sample size}

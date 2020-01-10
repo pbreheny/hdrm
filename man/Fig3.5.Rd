@@ -4,8 +4,10 @@
 \alias{Fig3.5}
 \title{Reproduce Figure 3.5}
 \usage{
-Fig3.5(out, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 1, 0.5), oma =
-  c(0, 0, 3, 0)))
+Fig3.5(
+  out,
+  parlist = list(mfrow = c(1, 2), mar = c(5, 5, 1, 0.5), oma = c(0, 0, 3, 0))
+)
 }
 \arguments{
 \item{out}{Output of Ex3.1()}

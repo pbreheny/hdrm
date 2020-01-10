@@ -4,8 +4,17 @@
 \alias{Ex4.2}
 \title{Reproduce Example 4.2}
 \usage{
-Ex4.2(N = 1000, rho = seq(0, 0.9, 0.1), n = 50, p = 100, p1 = 5,
-  b = 0.5, alpha = 0.5, corr = c("cs", "bd"), seed = 1)
+Ex4.2(
+  N = 1000,
+  rho = seq(0, 0.9, 0.1),
+  n = 50,
+  p = 100,
+  p1 = 5,
+  b = 0.5,
+  alpha = 0.5,
+  corr = c("cs", "bd"),
+  seed = 1
+)
 }
 \arguments{
 \item{N}{Number of simulated realizations}

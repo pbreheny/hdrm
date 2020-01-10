@@ -4,9 +4,19 @@
 \alias{Tab9.1}
 \title{Reproduce Table 9.1}
 \usage{
-Tab9.1(N = 100, B = 100, n = 100, p = 100, a = 10, b = 2,
-  rho = 0.5, noise = "autoregressive", rho.noise = 0.8, seed = 1,
-  ...)
+Tab9.1(
+  N = 100,
+  B = 100,
+  n = 100,
+  p = 100,
+  a = 10,
+  b = 2,
+  rho = 0.5,
+  noise = "autoregressive",
+  rho.noise = 0.8,
+  seed = 1,
+  ...
+)
 }
 \arguments{
 \item{N}{Number of simulated realizations}

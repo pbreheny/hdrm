@@ -4,8 +4,12 @@
 \alias{Fig4.4}
 \title{Reproduce Figure 4.4}
 \usage{
-Fig4.4(alpha = c(0.75, 0.5, 0.25), ylim = c(-0.25, 0.5), seed = 1,
-  parlist = list(par(mfrow = c(1, 3), mar = c(4, 4, 2, 0), cex = 1)))
+Fig4.4(
+  alpha = c(0.75, 0.5, 0.25),
+  ylim = c(-0.25, 0.5),
+  seed = 1,
+  parlist = list(par(mfrow = c(1, 3), mar = c(4, 4, 2, 0), cex = 1))
+)
 }
 \arguments{
 \item{alpha}{Vector of alpha values for MNet penalty; there will be one plot per alpha value}

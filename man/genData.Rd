@@ -4,9 +4,17 @@
 \alias{genData}
 \title{Simulate data for regression models}
 \usage{
-genData(n, p, p1 = floor(p/2), beta, family = c("gaussian",
-  "binomial"), SNR = 1, signal = c("homogeneous", "heterogeneous"),
-  corr = c("exchangeable", "autoregressive"), rho = 0)
+genData(
+  n,
+  p,
+  p1 = floor(p/2),
+  beta,
+  family = c("gaussian", "binomial"),
+  SNR = 1,
+  signal = c("homogeneous", "heterogeneous"),
+  corr = c("exchangeable", "autoregressive"),
+  rho = 0
+)
 }
 \arguments{
 \item{n}{Sample size}

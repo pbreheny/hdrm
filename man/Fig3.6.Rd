@@ -4,8 +4,7 @@
 \alias{Fig3.6}
 \title{Reproduce Figure 3.6}
 \usage{
-Fig3.6(seed = 9, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 0.5,
-  0.5)))
+Fig3.6(seed = 9, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 0.5, 0.5)))
 }
 \arguments{
 \item{seed}{Random seed for reproducibility}

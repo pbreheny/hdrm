@@ -4,8 +4,10 @@
 \alias{Fig3.3}
 \title{Reproduce Figure 3.3}
 \usage{
-Fig3.3(N = 1e+05, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 1.5,
-  0.5), oma = c(0, 0, 2, 0)))
+Fig3.3(
+  N = 1e+05,
+  parlist = list(mfrow = c(1, 2), mar = c(5, 5, 1.5, 0.5), oma = c(0, 0, 2, 0))
+)
 }
 \arguments{
 \item{N}{Number of simulations}

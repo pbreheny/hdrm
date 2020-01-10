@@ -4,9 +4,12 @@
 \alias{Fig2.1}
 \title{Reproduce Figure 2.1}
 \usage{
-Fig2.1(range = c(-5, 5), col = c("#FF4E37FF", "#008DFFFF"),
-  parlist = list(mfrow = c(1, 2), mar = c(4, 4, 0.5, 0.5), mgp = c(2, 1,
-  0), oma = c(0, 0, 2, 0)))
+Fig2.1(
+  range = c(-5, 5),
+  col = c("#FF4E37FF", "#008DFFFF"),
+  parlist = list(mfrow = c(1, 2), mar = c(4, 4, 0.5, 0.5), mgp = c(2, 1, 0), oma = c(0,
+    0, 2, 0))
+)
 }
 \arguments{
 \item{range}{Range for beta coefficient (vector of length 2)}

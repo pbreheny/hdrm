@@ -4,8 +4,7 @@
 \alias{Ex3.1}
 \title{Reproduce Example 3.1}
 \usage{
-Ex3.1(N = 500, n = 50, p = 100, p1 = 6, SNR = c(1, 2, 4),
-  seed = 2)
+Ex3.1(N = 500, n = 50, p = 100, p1 = 6, SNR = c(1, 2, 4), seed = 2)
 }
 \arguments{
 \item{N}{Number of simulated realizations}

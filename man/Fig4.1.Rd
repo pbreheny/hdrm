@@ -4,8 +4,11 @@
 \alias{Fig4.1}
 \title{Reproduce Figure 4.1}
 \usage{
-Fig4.1(cs, bd, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 0.5, 0.5),
-  oma = c(0, 0, 2, 0)))
+Fig4.1(
+  cs,
+  bd,
+  parlist = list(mfrow = c(1, 2), mar = c(5, 5, 0.5, 0.5), oma = c(0, 0, 2, 0))
+)
 }
 \arguments{
 \item{cs}{Output from Ex4.2 with compound symmetric structure}
