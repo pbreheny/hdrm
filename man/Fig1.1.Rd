@@ -18,4 +18,5 @@ Reproduces Figure 1.1 from the book; if you specify any options, your results ma
 }
 \examples{
 Fig1.1()
+
 }

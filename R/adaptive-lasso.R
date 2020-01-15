@@ -12,6 +12,8 @@
 #' cvfit <- cv.adaptive_lasso(X, y)
 #' plot(cvfit)
 #' summary(cvfit)
+#'
+#' @export
 
 cv.adaptive_lasso <- function(X, y, nfolds=10, seed) {
 

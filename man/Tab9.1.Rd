@@ -46,4 +46,5 @@ Reproduces Table 9.1 from the book.  If you specify any options, your results ma
 }
 \examples{
 Tab9.1(N=5)   # Increase N for more reliable results
+
 }

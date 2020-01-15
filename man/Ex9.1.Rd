@@ -37,4 +37,5 @@ Reproduces Example 9.1 from the book.  If you specify any options, your results 
 }
 \examples{
 out <- Ex9.1()
+
 }

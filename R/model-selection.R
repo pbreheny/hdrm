@@ -7,6 +7,8 @@
 #' @param p Number of features
 #'
 #' @examples Ex1.1(N=10)
+#'
+#' @export
 
 Ex1.1 <- function(N=100, n=25, p=100) {
   set.seed(1)
@@ -42,6 +44,8 @@ Ex1.1 <- function(N=100, n=25, p=100) {
 #' @examples
 #' out <- Ex1.1(N=10)
 #' Fig1.2(out)
+#'
+#' @export
 
 Fig1.2 <- function(out) {
   if (missing(out)) stop("You need to run the code in Ex1.1() first and pass it to Fig1.2()")

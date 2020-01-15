@@ -13,6 +13,8 @@
 #'
 #' @examples
 #' out <- Ex9.1()
+#'
+#' @export
 
 Ex9.1 <- function(n=100, p=60, a=6, b=2, rho=0.5, beta=c(1,-1,0.5,-0.5,0.5,-0.5), seed=72, ...) {
   set.seed(seed)

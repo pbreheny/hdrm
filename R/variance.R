@@ -7,6 +7,8 @@
 #' @param seed  Random seed
 #'
 #' @examples Fig1.1()
+#'
+#' @export
 
 Fig1.1 <- function(n=20, p=n-1, seed=1) {
   set.seed(seed)

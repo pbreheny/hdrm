@@ -34,4 +34,5 @@ Reproduces Example 4.4 from the book.  If you specify any options, your results 
 }
 \examples{
 Ex4.4(N=3)
+
 }

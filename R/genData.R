@@ -11,6 +11,8 @@
 #' @param rho    Correlation coefficient
 #'
 #' @example ex/genData.R
+#'
+#' @export
 
 genData <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"), SNR=1,
                     signal = c("homogeneous","heterogeneous"), corr=c("exchangeable", "autoregressive"),

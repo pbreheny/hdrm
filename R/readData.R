@@ -14,6 +14,8 @@
 #' \dontrun{
 #' downloadData()         # Download all data sets
 #' downloadData(bcTCGA)   # Download a specific data set}
+#'
+#' @export
 
 downloadData <- function(name) {
   if (missing(name)) {
@@ -37,6 +39,8 @@ downloadData <- function(name) {
 #' Data <- readData(bcTCGA)
 #' dim(Data$X)
 #' head(Data$y)
+#'
+#' @export
 
 readData <- function(name) {
   name <- as.character(substitute(name))
@@ -53,6 +57,8 @@ readData <- function(name) {
 #' attachData(bcTCGA)
 #' dim(X)
 #' head(y)
+#'
+#' @export
 
 attachData <- function(name, envir=parent.frame()) {
   name <- as.character(substitute(name))

@@ -15,4 +15,5 @@ Reproduces Figure 1.2 from the book.  If you specify any options, your results m
 \examples{
 out <- Ex1.1(N=10)
 Fig1.2(out)
+
 }

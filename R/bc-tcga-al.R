@@ -7,6 +7,8 @@
 #'
 #' @examples
 #' Fig3.7()
+#'
+#' @export
 
 Fig3.7 <- function(seed=1, ...) {
   bcTCGA <- readData('bcTCGA')

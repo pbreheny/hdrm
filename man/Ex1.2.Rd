@@ -17,4 +17,5 @@ Reproduces Example 1.2 from the book.
 \examples{
 Ex1.2()
 Ex1.2(lam=0.01)
+
 }

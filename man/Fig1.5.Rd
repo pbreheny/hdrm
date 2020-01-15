@@ -11,4 +11,5 @@ Reproduces Figure 1.5 from the book.  If you specify any options, your results m
 }
 \examples{
 Fig1.5()
+
 }

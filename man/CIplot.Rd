@@ -48,4 +48,5 @@ fit <- lm(Ozone ~ Solar.R + Wind + Temp, airquality)
 CIplot(fit)
 
 # Options
+
 }

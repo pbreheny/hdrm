@@ -17,4 +17,5 @@ Reproduces Example 9.2 from the book.  If you specify any options, your results 
 \examples{
 p <- Ex9.2(N=10)
 head(sort(p))
+
 }

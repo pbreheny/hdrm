@@ -8,6 +8,8 @@
 #' @param ymax      What density should Pr(1) correspond to?
 #'
 #' @examples Fig2.3()
+#'
+#' @export
 
 Fig2.3 <- function(lambda=0.5, n=10, sigma=1, ymax=1.5) {
   se <- sigma/sqrt(n)

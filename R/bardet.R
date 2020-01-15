@@ -6,6 +6,8 @@
 #' @param seed   For reproducibility
 #'
 #' @examples Tab4.2()
+#'
+#' @export
 
 Tab4.2 <- function(p=5000, seed=12) {
   Data <- readData('Scheetz2006')

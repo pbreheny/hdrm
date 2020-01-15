@@ -7,6 +7,8 @@
 #'
 #' @examples
 #' Fig1.3()
+#'
+#' @export
 
 Fig1.3 <- function(rho=0.5, n=20) {
   lam <- c(0, exp(seq(log(0.001), log(10), length=99)))

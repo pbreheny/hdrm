@@ -11,4 +11,5 @@ Reproduces Table 1.1 from the book.  If you specify any options, your results ma
 }
 \examples{
 Tab1.1()
+
 }

@@ -12,6 +12,8 @@
 #' @return A list of two arrays, `MCP`, containing the MSE for MCP, and `SCAD`, containing the MSE for SCAD.
 #'
 #' @examples Ex3.1(N=10)
+#'
+#' @export
 
 Ex3.1 <- function(N=500, n=50, p=100, p1=6, SNR=c(1, 2, 4), seed=2) {
   set.seed(seed)

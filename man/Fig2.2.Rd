@@ -16,4 +16,5 @@ Reproduces Figure 2.2 from the book; if you specify any options, your results ma
 }
 \examples{
 Fig2.2()
+
 }

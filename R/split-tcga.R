@@ -8,6 +8,8 @@
 #' @examples
 #' p <- Ex9.2(N=10)
 #' head(sort(p))
+#'
+#' @export
 
 Ex9.2 <- function(N=100, seed=1) {
   Data <- readData("bcTCGA")

@@ -3,6 +3,8 @@
 #' Reproduces Table 1.1 from the book.  If you specify any options, your results may look different.
 #'
 #' @examples Tab1.1()
+#'
+#' @export
 
 Tab1.1 <- function() {
   Data <- readData("pollution")

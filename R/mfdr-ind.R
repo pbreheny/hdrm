@@ -1,6 +1,11 @@
+#' @export
+
 Ex6.2 <- function() {
   #subset(df, loglambda == loglambda[20])
 }
+
+#' @export
+
 Fig6.3 <- function(out) {
   if (missing(out)) stop("You need to run the code in Ex6.2() first and pass it to Fig6.3()")
   requireNamespace("ggplot2")

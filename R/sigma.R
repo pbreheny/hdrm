@@ -9,6 +9,8 @@
 #' @param seed      Random number seed for reproducibility
 #'
 #' @examples Fig2.8(N=5)  # Increase N for a more reliable estimate
+#'
+#' @export
 
 Fig2.8 <- function(n=100, p=1000, N=25, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5,0.5), oma=c(0,0,2,0)), seed=1) {
   set.seed(seed)

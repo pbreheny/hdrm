@@ -40,4 +40,5 @@ Reproduces Example 4.2 from the book.  If you specify any options, your results 
 }
 \examples{
 Ex4.2(N=10)
+
 }

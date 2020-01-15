@@ -5,6 +5,8 @@
 #' @param seed   For reproducibility
 #'
 #' @examples Tab4.1()
+#'
+#' @export
 
 Tab4.1 <- function(seed=1) {
   Data <- readData('bcTCGA')

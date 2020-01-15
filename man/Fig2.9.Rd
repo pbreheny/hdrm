@@ -16,4 +16,5 @@ Fig2.9()
 attachData(pollution)
 cvfit <- cv.glmnet(std(X), y)   # Standardize design matrix
 rsq <- 1-cvfit$cvm/var(y)
+
 }

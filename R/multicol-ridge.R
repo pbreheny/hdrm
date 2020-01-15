@@ -8,6 +8,8 @@
 #' @examples
 #' Ex1.2()
 #' Ex1.2(lam=0.01)
+#'
+#' @export
 
 Ex1.2 <- function(seed=11, lambda=0.1) {
   set.seed(seed)

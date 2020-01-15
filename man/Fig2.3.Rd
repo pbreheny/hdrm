@@ -20,4 +20,5 @@ Reproduces Figure 2.3 from the book; if you specify any options, your results ma
 }
 \examples{
 Fig2.3()
+
 }

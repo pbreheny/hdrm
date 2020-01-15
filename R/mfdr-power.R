@@ -1,3 +1,5 @@
+#' @export
+
 Fig6.4 <- function(out) {
   requireNamespace(ggplot2)
   dimnames(out)[[3]][1:2] <- c("Univariate", "LassoFIR")

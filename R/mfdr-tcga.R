@@ -18,6 +18,8 @@
 #' # An MCP figure
 #' fit <- ncvreg(X, y)
 #' Fig6.6(fit)
+#'
+#' @export
 
 Fig6.6 <- function(fit) {
   obj <- mfdr(fit)

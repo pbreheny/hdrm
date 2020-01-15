@@ -9,6 +9,8 @@
 #' @param bar        Print a progress bar?
 #'
 #' @example ex/boot.R
+#'
+#' @export
 
 boot.glmnet <- function(X, y, B=500, lambda, seed, alpha=0.05, bar=TRUE) {
   p <- ncol(X)

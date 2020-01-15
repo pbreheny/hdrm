@@ -16,4 +16,5 @@ Reproduces Figure 1.4 from the book.  If you specify any options, your results m
 }
 \examples{
 Fig1.4()
+
 }

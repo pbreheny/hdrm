@@ -17,4 +17,5 @@ Reproduces Figure 4.2 from the book.  If you specify any options, your results m
 \examples{
 res <- Ex4.3(N=5, corr='cs')
 Fig4.2(res)
+
 }

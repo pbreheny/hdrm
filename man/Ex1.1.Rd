@@ -18,4 +18,5 @@ Reproduces Example 1.1 from the book.  If you specify any options, your results 
 }
 \examples{
 Ex1.1(N=10)
+
 }

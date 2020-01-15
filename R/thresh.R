@@ -6,6 +6,8 @@
 #' @param col        Lasso/ridge color (vector of length 2)
 #'
 #' @examples Fig2.2()
+#'
+#' @export
 
 Fig2.2 <- function(range=c(-2.5,2.5), col=c("#FF4E37FF", "#008DFFFF")) {
   xx <- seq(range[1], range[2], len=99)

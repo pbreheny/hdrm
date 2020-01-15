@@ -19,4 +19,5 @@ res <- Fig9.3(N=10)
 S <- res$Stability
 s <- apply(S, 1, max)
 head(sort(s[s>0.6], decreasing=TRUE), n=20)
+
 }

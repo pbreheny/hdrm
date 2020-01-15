@@ -17,6 +17,8 @@
 #' plot(fit)
 #' plot(fit, xaxis='df')
 #' plot(fit, xaxis='both')
+#'
+#' @export
 
 ridge <- function(obj, ...) UseMethod("ridge")
 

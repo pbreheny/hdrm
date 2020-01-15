@@ -38,6 +38,7 @@ fit <- ridge(X, y)
 plot(fit)
 plot(fit, xaxis='df')
 plot(fit, xaxis='both')
+
 }
 \seealso{
 `plot.ridge()`, `coef.ridge()`, `predict.ridge()`, `summary.ridge()`, `confint.ridge()`

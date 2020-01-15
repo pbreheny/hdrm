@@ -1,3 +1,5 @@
+#' @export
+
 Ex6.1 <- function() {
   Data <- readData("Golub1999")
   X <- Data$X
@@ -8,6 +10,9 @@ Ex6.1 <- function() {
   z <- qnorm(p/2) * sign(-tstat)
   out <- list(p=p, z=z)
 }
+
+#' @export
+
 Fig6.1 <- function(out) {
   zz <- seq(-10, 10, len=299)
   h <- hist(out$z, breaks=seq(min(zz), max(zz), length = 99), plot=FALSE)

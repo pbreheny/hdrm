@@ -7,6 +7,8 @@
 #'
 #' @examples
 #' Fig1.4()
+#'
+#' @export
 
 Fig1.4 <- function(gcv.line = TRUE, mar = c(5,5,5,7)) {
   op <- par(mar=mar)

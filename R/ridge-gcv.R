@@ -4,6 +4,8 @@
 #'
 #' @examples
 #' Fig1.5()
+#'
+#' @export
 
 Fig1.5 <- function() {
   Data <- readData("pollution")

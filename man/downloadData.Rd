@@ -32,11 +32,14 @@ Data sets in hdrm are lists consisting of `X`, `y`, and possibly other elements.
 downloadData()         # Download all data sets
 downloadData(bcTCGA)   # Download a specific data set}
 
+
 Data <- readData(bcTCGA)
 dim(Data$X)
 head(Data$y)
 
+
 attachData(bcTCGA)
 dim(X)
 head(y)
+
 }

@@ -26,4 +26,5 @@ Fig6.6(fit)
 # An MCP figure
 fit <- ncvreg(X, y)
 Fig6.6(fit)
+
 }

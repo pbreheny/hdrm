@@ -21,4 +21,5 @@ Reproduces Figure 9.1 from the book.  If you specify any options, your results m
 Data <- Ex9.1()
 out <- Fig9.1(Data)
 Fig9.1(out)
+
 }

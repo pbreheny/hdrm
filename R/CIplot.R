@@ -15,6 +15,8 @@
 #' CIplot(fit)
 #'
 #' # Options
+#'
+#' @export
 
 CIplot <- function(obj,...) UseMethod("CIplot")
 

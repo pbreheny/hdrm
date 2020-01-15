@@ -13,6 +13,8 @@
 #' @param seed    Seed for reproducibility
 #'
 #' @examples Ex4.2(N=10)
+#'
+#' @export
 
 Ex4.2 <- function(N=1000, rho=seq(0, 0.9, 0.1), n=50, p=100, p1=5, b=0.5, alpha=0.5, corr=c('cs', 'bd'), seed=1) {
   set.seed(seed)

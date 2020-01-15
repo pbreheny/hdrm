@@ -27,4 +27,5 @@ Reproduces Example 3.1 from the book.  If you specify any options, your results 
 }
 \examples{
 Ex3.1(N=10)
+
 }

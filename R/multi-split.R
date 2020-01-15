@@ -11,6 +11,8 @@
 #' Data <- Ex9.1()
 #' out <- Fig9.1(Data)
 #' Fig9.1(out)
+#'
+#' @export
 
 Fig9.1 <- function(out, N=100, seed=1) {
   set.seed(seed)
