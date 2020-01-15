@@ -19,7 +19,6 @@ genOrtho <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"),
                     signal = c("homogeneous","heterogeneous")) {
   family <- match.arg(family)
   signal <- match.arg(signal)
-  corr <- match.arg(corr)
   if (p > n) stop("Cannot generate orthonormal design matrix if p is larger than n")
 
   # Gen X
