@@ -3,6 +3,7 @@
 #' Reproduces Figure 2.4 from the book.
 #'
 #' @examples Fig2.4()
+#' @export
 
 Fig2.4 <- function() {
   adj <- 0.07

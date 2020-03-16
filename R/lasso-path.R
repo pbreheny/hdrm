@@ -16,6 +16,8 @@
 #' # Nonzero coefficients at CV-selected lambda
 #' cvfit <- cv.glmnet(X, y, nfolds=length(y))
 #' colnames(X)[unlist(predict(cvfit, type="nonzero"))]
+#'
+#' @export
 
 Fig2.5 <- function(cv=TRUE, mar=rep(5,4)) {
   op <- par(mar=mar)

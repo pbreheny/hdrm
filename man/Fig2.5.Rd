@@ -25,4 +25,5 @@ plot(fit, label=TRUE)
 # Nonzero coefficients at CV-selected lambda
 cvfit <- cv.glmnet(X, y, nfolds=length(y))
 colnames(X)[unlist(predict(cvfit, type="nonzero"))]
+
 }
