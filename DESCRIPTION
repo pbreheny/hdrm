@@ -12,5 +12,5 @@ Suggests: ggplot2, abind, gridExtra
 LazyData: TRUE
 BugReports: http://github.com/pbreheny/hdrm/issues
 License: GPL-3
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Encoding: UTF-8

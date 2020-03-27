@@ -21,6 +21,7 @@
 CIplot <- function(obj,...) UseMethod("CIplot")
 
 #' @rdname CIplot
+#' @export
 
 CIplot.matrix <- function(obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim, sub, diff=(ncol(B)==4), null=0, n.ticks=6, mar, axis=!add, trans, p.label=FALSE, xlab="", ylab="", add=FALSE, setupOnly=FALSE, lwd=2, replaceUnderscore=TRUE, ...) {
   B <- obj
@@ -84,6 +85,9 @@ CIplot.matrix <- function(obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim,
   par(op)
   invisible(B)
 }
+
+#' @export
+
 CIplot.lm <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, ...)
 {
   fit <- obj
@@ -98,7 +102,13 @@ CIplot.lm <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclu
   if (plot) CIplot(B,xlab=xlab,...)
   return(invisible(B))
 }
+
+#' @export
+
 CIplot.glm <- function(obj,...) CIplot.lm(obj,...)
+
+#' @export
+
 CIplot.mer <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, n.sim=10000, ...)
 {
   fit <- obj
@@ -111,6 +121,9 @@ CIplot.mer <- function(obj, intercept=FALSE, xlab="Regression coefficient", excl
   if (plot) CIplot(B,xlab=xlab,...)
   return(invisible(B))
 }
+
+#' @export
+
 CIplot.coxph <- function(obj, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, ...) {
   fit <- obj
   p <- length(coef(fit))
@@ -124,6 +137,9 @@ CIplot.coxph <- function(obj, xlab="Regression coefficient", exclude=NULL, plot=
   if (plot) CIplot(B,xlab=xlab,...)
   return(invisible(B))
 }
+
+#' @export
+
 CIplot.data.frame <- function(obj, ...) {
   CIplot.matrix(as.matrix(obj), ...)
 }

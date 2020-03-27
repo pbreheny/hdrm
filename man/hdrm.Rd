@@ -4,6 +4,3 @@
 \name{hdrm}
 \alias{hdrm}
 \title{hdrm: High dimensional regression modeling, by Breheny and Huang}
-\description{
-hdrm: High dimensional regression modeling, by Breheny and Huang
-}
