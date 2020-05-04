@@ -1,5 +1,7 @@
 `hdrm` supplies the code to reproduce examples, figures, analyses, etc., from the forthcoming book *High-Dimensional Regression Modeling*, by Patrick Breheny and Jian Huang.
 
-To install:
+To install the latest version (requires the `remotes` package):
 
-* the latest version (requires `devtools`): `install_github("pbreheny/hdrm")`
+```r
+remotes::install_github("pbreheny/hdrm")
+```
