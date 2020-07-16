@@ -73,6 +73,7 @@ CIplot.matrix <- function(obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim,
 
   ## Add labels
   if (replaceUnderscore) labels <- gsub("_", " ", labels)
+  rownames(B) <- labels
   if (!add) {
     ind <- !is.na(B[,1])
     lapply(which(ind), function(l) text(x=par("usr")[1], adj=1, y=(n:1)[l], labels=labels[[l]], xpd=TRUE, cex=.8)) ## List approach is necessary for compatibility with expressions
@@ -88,8 +89,7 @@ CIplot.matrix <- function(obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim,
 
 #' @export
 
-CIplot.lm <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, ...)
-{
+CIplot.lm <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, ...) {
   fit <- obj
   p <- length(coef(fit))
   j <- if (intercept) 1:p else 2:p
@@ -99,7 +99,7 @@ CIplot.lm <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclu
              summary(fit)$coef[j,4])
   colnames(B) <- c("Coef","Lower","Upper","p")
   for (i in seq_along(exclude)) B <- B[-grep(exclude[i],rownames(B)),,drop=FALSE]
-  if (plot) CIplot(B,xlab=xlab,...)
+  if (plot) B <- CIplot(B,xlab=xlab,...)
   return(invisible(B))
 }
 
@@ -109,8 +109,7 @@ CIplot.glm <- function(obj,...) CIplot.lm(obj,...)
 
 #' @export
 
-CIplot.mer <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, n.sim=10000, ...)
-{
+CIplot.mer <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, n.sim=10000, ...) {
   fit <- obj
   p <- length(fit@fixef)
   j <- if (intercept) 1:p else 2:p
@@ -118,7 +117,7 @@ CIplot.mer <- function(obj, intercept=FALSE, xlab="Regression coefficient", excl
   if (!missing(tau)) B[,1:3] <- B[,1:3]*tau
   colnames(B) <- c("Coef","Lower","Upper","p")
   for (i in seq_along(exclude)) B <- B[-grep(exclude[i],rownames(B)),]
-  if (plot) CIplot(B,xlab=xlab,...)
+  if (plot) B <- CIplot(B,xlab=xlab,...)
   return(invisible(B))
 }
 
@@ -134,7 +133,7 @@ CIplot.coxph <- function(obj, xlab="Regression coefficient", exclude=NULL, plot=
              summary(fit)$coef[j,5])
   colnames(B) <- c("Coef","Lower","Upper","p")
   for (i in seq_along(exclude)) B <- B[-grep(exclude[i],rownames(B)),]
-  if (plot) CIplot(B,xlab=xlab,...)
+  if (plot) B <- CIplot(B,xlab=xlab,...)
   return(invisible(B))
 }
 
