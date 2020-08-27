@@ -84,6 +84,12 @@ CIplot.matrix <- function(obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim,
     }
   }
   par(op)
+
+  # Fix lwr/upr (if tau is negative)
+  for (i in 1:nrow(B)) {
+    B[i, 2:3] <- sort(B[i, 2:3])
+  }
+
   invisible(B)
 }
 
@@ -99,7 +105,7 @@ CIplot.lm <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclu
              summary(fit)$coef[j,4])
   colnames(B) <- c("Coef","Lower","Upper","p")
   for (i in seq_along(exclude)) B <- B[-grep(exclude[i],rownames(B)),,drop=FALSE]
-  if (plot) B <- CIplot(B,xlab=xlab,...)
+  if (plot) B <- CIplot(B, xlab=xlab, ...)
   return(invisible(B))
 }
 
@@ -117,7 +123,7 @@ CIplot.mer <- function(obj, intercept=FALSE, xlab="Regression coefficient", excl
   if (!missing(tau)) B[,1:3] <- B[,1:3]*tau
   colnames(B) <- c("Coef","Lower","Upper","p")
   for (i in seq_along(exclude)) B <- B[-grep(exclude[i],rownames(B)),]
-  if (plot) B <- CIplot(B,xlab=xlab,...)
+  if (plot) B <- CIplot(B, xlab=xlab, ...)
   return(invisible(B))
 }
 
