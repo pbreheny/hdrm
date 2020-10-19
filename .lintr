@@ -1,0 +1,1 @@
+linters: with_defaults(object_name_linter=object_name_linter(styles=c('camelCase', 'CamelCase', 'snake_case')), infix_spaces_linter=NULL)
