@@ -23,6 +23,8 @@
 ridge <- function(obj, ...) UseMethod("ridge")
 
 #' @rdname ridge
+#' @export
+
 ridge.formula <- function(obj, data, subset, na.action, contrasts = NULL, ...) {
   m <- match.call(expand.dots = FALSE)
   names(m)[which(names(m)=='obj')] <- 'formula'
@@ -36,7 +38,10 @@ ridge.formula <- function(obj, data, subset, na.action, contrasts = NULL, ...) {
   if (Inter <- attr(Terms, "intercept")) X <- X[, -Inter]
   ridge.matrix(X, y, ...)
 }
+
 #' @rdname ridge
+#' @export
+
 ridge.matrix <- function (obj, y, lambda, ...) {
   if (missing(lambda)) lambda <- 10^(seq(-3, 3, length=49))
   X <- std(obj)
@@ -69,6 +74,9 @@ ridge.matrix <- function (obj, y, lambda, ...) {
   class(res) <- "ridge"
   res
 }
+
+#' @export
+
 plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), xlab, ylab, ...) {
   xaxis <- match.arg(xaxis)
   B <- t(x$beta[-1,])
@@ -94,6 +102,9 @@ plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), xlab, ylab, ...) {
     mtext(ylab, 2, 3)
   }
 }
+
+#' @export
+
 coef.ridge <- function(object, lambda, which=1:length(object$lambda), drop = TRUE, ...) {
   if (length(object$lambda)==1) {
     if (!missing(lambda) && lambda != object$lambda) stop(paste0("Cannot return fit for lambda=", lambda, "; fit does not contain a regularization path"))
@@ -112,6 +123,9 @@ coef.ridge <- function(object, lambda, which=1:length(object$lambda), drop = TRU
     return(drop(beta))
   else return(beta)
 }
+
+#' @export
+
 summary.ridge <- function(object, lambda, which, ...) {
   if (length(object$lambda)==1) {
     if (!missing(lambda) && lambda != object$lambda) stop(paste0("Cannot return fit for lambda=", lambda, "; fit does not contain a regularization path"))
@@ -136,15 +150,21 @@ summary.ridge <- function(object, lambda, which, ...) {
   attr(Tab, "rdf") <- rdf
   Tab
 }
+
+#' @export
+
 predict.ridge <- function(object, X, lambda, which=1:length(object$lambda), drop=TRUE, ...) {
   beta <- coef(object, lambda=lambda, which=which, drop=FALSE)
-  if (class(beta) == 'numeric') beta <- matrix(beta, ncol=1)
+  if (!inherits(beta, 'matrix')) beta <- matrix(beta, ncol=1)
   alpha <- beta[1,]
   beta <- beta[-1,,drop=FALSE]
   out <- sweep(X %*% beta, 2, alpha, "+")
   if (!drop) return(out)
   drop(out)
 }
+
+#' @export
+
 confint.ridge <- function(object, parm, level=0.95, X, lambda, which, ...) {
   s <- summary(object, lambda, which)
   m <- -qt((1-level)/2, attr(s, "rdf"))
