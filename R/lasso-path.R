@@ -34,7 +34,7 @@ Fig2.5 <- function(cv=TRUE, mar=rep(5,4)) {
   l <- fit$lambda
   b <- coef(fit)[-1,]
   nv <- sapply(predict(fit, type="nonzero"), length)
-  matplot(log(l), t(b), col=pal(ncol(X)), lwd=3, bty="n", xlim=rev(range(log(l))), type="l", lty=1, xaxt="n", xlab=expression(log(lambda)), ylab="", las=1)
+  matplot(log(l), t(b), col=pal(ncol(X)), lwd=3, bty="n", xlim=rev(range(log(l))), type="l", lty=1, xaxt="n", xlab=expression(lambda), ylab="", las=1)
   lines(log(l), rep(0, length(log(l))), lwd=3, col="gray")
   mtext(expression(hat(beta)), 2, 3, las=1)
   at <- c(40, 4, 0.4, 0.04)
