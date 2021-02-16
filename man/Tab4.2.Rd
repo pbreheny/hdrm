@@ -7,7 +7,7 @@
 Tab4.2(p = 5000, seed = 12)
 }
 \arguments{
-\item{p}{Restrict analysis to the `p` genes with the largest variances in expression}
+\item{p}{Restrict analysis to the \code{p} genes with the largest variances in expression}
 
 \item{seed}{For reproducibility}
 }

@@ -9,7 +9,7 @@ Fig3.8(seed = 1, parlist = list(mfrow = c(2, 2)))
 \arguments{
 \item{seed}{For reproducibility}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 3.8 from the book.  If you specify any options, your results may look different.

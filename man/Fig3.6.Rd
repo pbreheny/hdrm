@@ -9,7 +9,7 @@ Fig3.6(seed = 9, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 0.5, 0.5)))
 \arguments{
 \item{seed}{Random seed for reproducibility}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 3.6 from the book.  If you specify any options, your results may look different.

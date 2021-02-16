@@ -31,7 +31,7 @@ Ex4.2(
 
 \item{alpha}{Elastic net tuning parameter}
 
-\item{corr}{Correlation structure, either `cs` (compound symmetric) or `bd` (block diagonal)}
+\item{corr}{Correlation structure, either \code{cs} (compound symmetric) or \code{bd} (block diagonal)}
 
 \item{seed}{Seed for reproducibility}
 }

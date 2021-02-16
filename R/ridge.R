@@ -9,7 +9,7 @@
 #' @param contrasts   If using the formula interface, a list to be passed to `model.matrix()`
 #' @param ...         Additional arguments to be passed to methods
 #'
-#' @seealso `plot.ridge()`, `coef.ridge()`, `predict.ridge()`, `summary.ridge()`, `confint.ridge()`
+#' @seealso [plot.ridge()], `coef.ridge()`, `predict.ridge()`, `summary.ridge()`, `confint.ridge()`
 #'
 #' @examples
 #' attachData(pollution)
@@ -75,6 +75,10 @@ ridge.matrix <- function (obj, y, lambda, ...) {
   res
 }
 
+#' Plot a ridge regression coefficient path
+#'
+#' @param x  a ridge
+#'
 #' @export
 
 plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), xlab, ylab, ...) {

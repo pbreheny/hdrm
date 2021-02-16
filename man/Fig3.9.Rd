@@ -11,7 +11,7 @@ Fig3.9(gam = 8, seed = 1, parlist = list(mfrow = c(1, 2)))
 
 \item{seed}{For reproducibility}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 3.9 from the book.  If you specify any options, your results may look different.

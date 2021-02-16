@@ -7,7 +7,7 @@
 Fig2.11(fit)
 }
 \arguments{
-\item{fit}{`ncvreg()` fit to the TCGA data; see examples}
+\item{fit}{\code{ncvreg()} fit to the TCGA data; see examples}
 }
 \description{
 Reproduces Figure 2.11 from the book.  If you specify any options, your results may look different.

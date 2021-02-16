@@ -19,13 +19,13 @@ attachData(name, envir = parent.frame())
 }
 \description{
 These functions are downloading, reading, and attaching data sets described in the hdrm book.
-To keep the size of the `hdrm` package manageable, these data sets are not included with the package and must be downloaded separately using `downloadData()`; this only needs to be done once.
+To keep the size of the \code{hdrm} package manageable, these data sets are not included with the package and must be downloaded separately using \code{downloadData()}; this only needs to be done once.
 }
 \details{
-Data sets in hdrm are lists consisting of `X`, `y`, and possibly other elements.
-`readData` returns the list as an object that the user can name and use how they want.
-`attachData` assigns the elements of the list into the user's environment.
-`attachData` is often more convenient, but offers less control and potentially introduces side effects, such as overwriting an existing object `X` if one already exists.  See the examples for more details.
+Data sets in hdrm are lists consisting of \code{X}, \code{y}, and possibly other elements.
+\code{readData} returns the list as an object that the user can name and use how they want.
+\code{attachData} assigns the elements of the list into the user's environment.
+\code{attachData} is often more convenient, but offers less control and potentially introduces side effects, such as overwriting an existing object \code{X} if one already exists.  See the examples for more details.
 }
 \examples{
 \dontrun{

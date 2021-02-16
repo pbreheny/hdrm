@@ -7,9 +7,9 @@
 Fig2.12(cvfit, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 5, 0.5)))
 }
 \arguments{
-\item{cvfit}{`cv.ncvreg()` fit to the TCGA data; see examples}
+\item{cvfit}{\code{cv.ncvreg()} fit to the TCGA data; see examples}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 2.12 from the book.  If you specify any options, your results may look different.

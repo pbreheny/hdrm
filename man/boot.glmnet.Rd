@@ -13,7 +13,7 @@ boot.glmnet(X, y, B = 500, lambda, seed, alpha = 0.05, bar = TRUE)
 
 \item{B}{Number of bootstrap resamples (default 500)}
 
-\item{lambda}{Regularization parameter at which solutions are to be bootstrapped (by default, uses cross-valiation to find lambda)}
+\item{lambda}{Regularization parameter at which solutions are to be bootstrapped (by default, uses cross-validation to find lambda)}
 
 \item{seed}{Seed (optional)}
 

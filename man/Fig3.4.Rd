@@ -21,7 +21,7 @@ Fig3.4(
 
 \item{ylim}{Vertical limits, passed to plot()}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 3.4 from the book; if you specify any options, your results may look different.

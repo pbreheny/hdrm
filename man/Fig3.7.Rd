@@ -9,7 +9,7 @@ Fig3.7(seed = 1, ...)
 \arguments{
 \item{seed}{For reproducibility}
 
-\item{...}{Additional arguments to `plot.cv.ncvreg()`}
+\item{...}{Additional arguments to \code{plot.cv.ncvreg()}}
 }
 \description{
 Reproduces Figure 3.7 from the book.  If you specify any options, your results may look different.

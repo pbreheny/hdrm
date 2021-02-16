@@ -13,7 +13,7 @@ ridge(obj, ...)
 \method{ridge}{matrix}(obj, y, lambda, ...)
 }
 \arguments{
-\item{obj}{There are two options for running `ridge()`; either supply a formula and data frame as in `lm()`, or an X and y matrix as in `glmnet()`; see examples}
+\item{obj}{There are two options for running \code{ridge()}; either supply a formula and data frame as in \code{lm()}, or an X and y matrix as in \code{glmnet()}; see examples}
 
 \item{...}{Additional arguments to be passed to methods}
 
@@ -21,9 +21,9 @@ ridge(obj, ...)
 
 \item{subset}{If using the formula interface, a vector describing the subset of the data to be used in fitting the model}
 
-\item{na.action}{If using the formula interface, a function indicating what should happen when the data contain NAs, as in `lm()`}
+\item{na.action}{If using the formula interface, a function indicating what should happen when the data contain NAs, as in \code{lm()}}
 
-\item{contrasts}{If using the formula interface, a list to be passed to `model.matrix()`}
+\item{contrasts}{If using the formula interface, a list to be passed to \code{model.matrix()}}
 
 \item{y}{If using the matrix interface, the vector of responses}
 
@@ -41,5 +41,5 @@ plot(fit, xaxis='both')
 
 }
 \seealso{
-`plot.ridge()`, `coef.ridge()`, `predict.ridge()`, `summary.ridge()`, `confint.ridge()`
+\code{\link[=plot.ridge]{plot.ridge()}}, \code{coef.ridge()}, \code{predict.ridge()}, \code{summary.ridge()}, \code{confint.ridge()}
 }

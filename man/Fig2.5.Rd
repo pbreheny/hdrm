@@ -9,7 +9,7 @@ Fig2.5(cv = TRUE, mar = rep(5, 4))
 \arguments{
 \item{cv}{Carry out cross-validation?  Default: true}
 
-\item{mar}{Margins, passed to `par()`}
+\item{mar}{Margins, passed to \code{par()}}
 }
 \description{
 Reproduces Figure 2.5 from the book; if you specify any options, your results may look different.

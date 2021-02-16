@@ -20,7 +20,7 @@ Ex3.1(N = 500, n = 50, p = 100, p1 = 6, SNR = c(1, 2, 4), seed = 2)
 \item{seed}{Seed for reproducibility}
 }
 \value{
-A list of two arrays, `MCP`, containing the MSE for MCP, and `SCAD`, containing the MSE for SCAD.
+A list of two arrays, \code{MCP}, containing the MSE for MCP, and \code{SCAD}, containing the MSE for SCAD.
 }
 \description{
 Reproduces Example 3.1 from the book.  If you specify any options, your results may look different.

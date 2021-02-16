@@ -18,7 +18,7 @@ Fig4.4(
 
 \item{seed}{For reproducibility}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 4.4 from the book.  If you specify any options, your results may look different.

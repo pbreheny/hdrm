@@ -16,7 +16,7 @@ Fig2.1(
 
 \item{col}{Lasso/ridge color (vector of length 2)}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 2.1 from the book; if you specify any options, your results may look different.

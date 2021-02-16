@@ -12,7 +12,7 @@ Fig3.5(
 \arguments{
 \item{out}{Output of Ex3.1()}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 3.5 from the book; if you specify any options, your results may look different.

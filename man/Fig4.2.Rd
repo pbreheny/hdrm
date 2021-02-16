@@ -9,7 +9,7 @@ Fig4.2(res, parlist = list(mfrow = c(1, 2), mar = c(4, 4, 2, 0.5)))
 \arguments{
 \item{res}{Output from Ex4.3}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 4.2 from the book.  If you specify any options, your results may look different.

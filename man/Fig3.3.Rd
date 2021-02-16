@@ -12,7 +12,7 @@ Fig3.3(
 \arguments{
 \item{N}{Number of simulations}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 3.3 from the book; if you specify any options, your results may look different.

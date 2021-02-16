@@ -15,7 +15,7 @@ Fig4.1(
 
 \item{bd}{Output from Ex4.2 with block diagonal structure}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 4.1 from the book.  If you specify any options, your results may look different.

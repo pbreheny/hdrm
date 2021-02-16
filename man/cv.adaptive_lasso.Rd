@@ -7,16 +7,16 @@
 cv.adaptive_lasso(X, y, nfolds = 10, seed)
 }
 \arguments{
-\item{X}{Design matrix, as in `glmnet()`}
+\item{X}{Design matrix, as in \code{glmnet()}}
 
-\item{y}{Response vector, as in `glmnet()`}
+\item{y}{Response vector, as in \code{glmnet()}}
 
 \item{nfolds}{Number of cv folds (default: 10)}
 
 \item{seed}{For reproducibility with respect to the fold assignments}
 }
 \description{
-Using `cv.glmnet()` to carry out the adaptive lasso will result in an underestimation of error unless you also apply cross-validation to the initial estimator; this function provides a wrapper to do that.
+Using \code{cv.glmnet()} to carry out the adaptive lasso will result in an underestimation of error unless you also apply cross-validation to the initial estimator; this function provides a wrapper to do that.
 }
 \examples{
 attachData(pollution)

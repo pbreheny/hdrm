@@ -19,7 +19,7 @@ Fig2.8(
 
 \item{N}{Number of splits for the refitted CV estimator}
 
-\item{parlist}{List of arguments to pass to `par()`}
+\item{parlist}{List of arguments to pass to \code{par()}}
 
 \item{seed}{Random number seed for reproducibility}
 }
