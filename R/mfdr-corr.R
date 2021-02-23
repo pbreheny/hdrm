@@ -1,3 +1,11 @@
+#' @export
+
+Ex6.3 <- function() {
+  # NEED TO ADD
+}
+
+#' @export
+
 Fig6.5 <- function(out) {
   requireNamespace(ggplot2)
   requireNamespace(gridExtra)
