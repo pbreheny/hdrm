@@ -13,6 +13,8 @@
 #' # Range of lambda values within 1 SE of minimum
 #' lmin <- which(cvfit$lambda==cvfit$lambda.min)
 #' range(cvfit$lambda[which(cvfit$cvm < cvfit$cvup[lmin])])
+#'
+#' @export
 
 Fig2.7 <- function() {
   # Fit

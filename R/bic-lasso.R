@@ -7,6 +7,8 @@
 #' @examples
 #' Fig2.6()
 #' Fig2.6(EBIC=TRUE)
+#'
+#' @export
 
 Fig2.6 <- function(EBIC=FALSE) {
   # Fit

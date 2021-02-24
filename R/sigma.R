@@ -35,7 +35,7 @@ Fig2.8 <- function(n=100, p=1000, N=25, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5
   Sigma <- array(NA, dim=c(length(l), 3, 2))
   Y <- predict(fit, X)
   RSS <- apply(y-Y, 2, crossprod)
-  Sigma[,1,1] <- ifelse(n > nv, sqrt(RSS/(n-nv)), NA)
+  Sigma[,1,1] <- ifelse(n > nv, suppressWarnings(sqrt(RSS/(n-nv))), NA)
   Sigma[,2,1] <- cvfit$cve
 
   # Fan estimator
@@ -84,7 +84,7 @@ Fig2.8 <- function(n=100, p=1000, N=25, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5
   # Estimate sigma using RSS, CVE
   Y <- predict(fit, X)
   RSS <- apply(y-Y, 2, crossprod)
-  Sigma[,1,2] <- ifelse(n > nv, sqrt(RSS/(n-nv)), NA)
+  Sigma[,1,2] <- ifelse(n > nv, suppressWarnings(sqrt(RSS/(n-nv))), NA)
   Sigma[,2,2] <- cvfit$cve
 
   ## Fan estimator
