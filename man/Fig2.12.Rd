@@ -32,4 +32,5 @@ cvfit <- cv.ncvreg(XX, y, penalty.factor=multiplier, penalty='lasso', fold=fold)
 
 # Plot
 Fig2.12(cvfit)
+
 }

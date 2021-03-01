@@ -23,6 +23,8 @@
 #'
 #' # Plot
 #' Fig2.12(cvfit)
+#'
+#' @export
 
 Fig2.12 <- function(cvfit, parlist=list(mfrow=c(1,2), mar=c(5,5,5,0.5))) {
   op <- par(parlist)

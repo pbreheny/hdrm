@@ -8,6 +8,8 @@
 #' attachData(bcTCGA)
 #' fit <- ncvreg(X, y, penalty='lasso', lambda.min=0.005)
 #' Fig2.11(fit)
+#'
+#' @export
 
 Fig2.11 <- function(fit) {
   ll <- log(fit$lambda)

@@ -9,6 +9,8 @@
 #' attachData(bcTCGA)
 #' cvfit <- cv.glmnet(X, y)
 #' Fig2.10(cvfit)
+#'
+#' @export
 
 Fig2.10 <- function(cvfit, parlist=list(mfrow=c(1,2), mar=c(5,5,5,0.5))) {
   op <- par(parlist)
