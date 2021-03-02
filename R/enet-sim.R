@@ -13,7 +13,6 @@
 #' @param seed    Seed for reproducibility
 #'
 #' @examples Ex4.2(N=10)
-#'
 #' @export
 
 Ex4.2 <- function(N=1000, rho=seq(0, 0.9, 0.1), n=50, p=100, p1=5, b=0.5, alpha=0.5, corr=c('cs', 'bd'), seed=1) {
@@ -58,6 +57,7 @@ Ex4.2 <- function(N=1000, rho=seq(0, 0.9, 0.1), n=50, p=100, p1=5, b=0.5, alpha=
 #' cs <- Ex4.2(N=5, corr='cs')
 #' bd <- Ex4.2(N=5, corr='bd')
 #' Fig4.1(cs, bd)
+#' @export
 
 Fig4.1 <- function(cs, bd, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5,0.5), oma=c(0,0,2,0))) {
   labs <- c("Lasso", "Elastic Net")

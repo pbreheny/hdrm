@@ -11,7 +11,6 @@
 #' @param seed    Seed for reproducibility
 #'
 #' @examples Ex4.4(N=3)
-#'
 #' @export
 
 Ex4.4 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, rho=0.7, seed=1) {
@@ -54,7 +53,6 @@ Ex4.4 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, rho=0.7, see
 #' @examples
 #' res <- Ex4.4(N=3)
 #' Fig4.3(res)
-#'
 #' @export
 
 Fig4.3 <- function(res, parlist=list(mfrow=c(1,2), mar=c(4,4,2,0.5))) {
