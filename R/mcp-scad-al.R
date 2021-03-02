@@ -9,6 +9,7 @@
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples Fig3.2()
+#' @export
 
 Fig3.2 <- function(n=200, p=1000, seed=105, ylim=c(-4.1,4.1), parlist=list(mfrow=c(2,2), mar=c(4.5, 4.5, 3, 0.5))) {
   if (p < 40) stop('p must be at least 40')
@@ -45,7 +46,7 @@ Fig3.2 <- function(n=200, p=1000, seed=105, ylim=c(-4.1,4.1), parlist=list(mfrow
   fit <- ncvreg(X, y, penalty='lasso', lambda.min=0.002)
   beta <- fit$beta
   L <- length(fit$lambda)
-  for (l in 1:L) {
+  for (l in 2:L) {
     w <- pmin(1e6, 1/abs(fit$beta[-1,l]))
     fit.al <- ncvreg(X, y, lambda=fit$lambda[1:l], penalty='lasso', penalty.factor=w)
     beta[,l] <- fit.al$beta[,l]

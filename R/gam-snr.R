@@ -52,6 +52,7 @@ Ex3.1 <- function(N=500, n=50, p=100, p1=6, SNR=c(1, 2, 4), seed=2) {
 #' @examples
 #' out <- Ex3.1(N=10)
 #' Fig3.5(out)
+#' @export
 
 Fig3.5 <- function(out, parlist=list(mfrow=c(1,2), mar=c(5,5,1,0.5), oma=c(0,0,3,0))) {
 

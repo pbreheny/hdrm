@@ -16,5 +16,4 @@ Reproduces Figure 3.7 from the book.  If you specify any options, your results m
 }
 \examples{
 Fig3.7()
-
 }

@@ -9,6 +9,7 @@
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples Fig3.4()
+#' @export
 
 Fig3.4 <- function(n=200, p=1000, seed=105, ylim = c(-4,4), parlist=list(mfrow=c(1,3), mar=c(4, 4, 2, 0), cex=1)) {
 

@@ -5,8 +5,8 @@
 #' @param seed      Random seed for reproducibility
 #' @param parlist   List of arguments to pass to `par()`
 #'
-#' @examples
-#' Fig3.6()
+#' @examples Fig3.6()
+#' @export
 
 Fig3.6 <- function(seed=9, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5,0.5))) {
   op <- par(parlist)

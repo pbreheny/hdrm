@@ -6,8 +6,8 @@
 #' @param seed      For reproducibility
 #' @param parlist   List of arguments to pass to `par()`
 #'
-#' @examples
-#' Fig3.9()
+#' @examples Fig3.9()
+#' @export
 
 Fig3.9 <- function(gam=8, seed=1, parlist=list(mfrow=c(1,2))) {
   bcTCGA <- readData('bcTCGA')

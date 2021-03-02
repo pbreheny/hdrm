@@ -5,9 +5,7 @@
 #' @param seed   For reproducibility
 #' @param ...    Additional arguments to `plot.cv.ncvreg()`
 #'
-#' @examples
-#' Fig3.7()
-#'
+#' @examples Fig3.7()
 #' @export
 
 Fig3.7 <- function(seed=1, ...) {

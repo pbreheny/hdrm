@@ -6,6 +6,7 @@
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples Fig3.3()
+#' @export
 
 Fig3.3 <- function(N=100000, parlist=list(mfrow=c(1,2), mar=c(5,5,1.5,0.5), oma=c(0,0,2,0))) {
   # MCP

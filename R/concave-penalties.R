@@ -7,6 +7,7 @@
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples Fig3.1()
+#' @export
 
 Fig3.1 <- function(range = c(-4, 4), col =c("#FF4E37FF", "#00B500FF", "#008DFFFF"),
                 parlist=list(mfrow=c(1,3), mar=c(5,5,5,0.5), xpd=1)) {
