@@ -29,7 +29,7 @@ Ex4.4 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, rho=0.7, see
       for (k in 1:2) {
         min_p <- numeric(5)
         for (a in 1:5) {
-          fit <- with(Data, ncvreg(X, y, penalty=penalty[k], alpha=alpha[a]))
+          fit <- with(Data, ncvreg(X, y, penalty=penalty[k], alpha=alpha[a], warn=FALSE))
           P <- predict(fit, X=pData$X)
           PE <- apply(pData$y-P, 2, crossprod)
           res[i,j,k,a] <- crossprod(Data$beta - coef(fit, which=which.min(PE))[-1])

@@ -17,5 +17,4 @@ Reproduces Figure 4.3 from the book.  If you specify any options, your results m
 \examples{
 res <- Ex4.4(N=3)
 Fig4.3(res)
-
 }

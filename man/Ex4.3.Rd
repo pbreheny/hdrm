@@ -24,5 +24,4 @@ Reproduces Example 4.3 from the book.  If you specify any options, your results 
 }
 \examples{
 Ex4.3(N=10)
-
 }
