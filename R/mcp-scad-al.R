@@ -15,6 +15,7 @@ Fig3.2 <- function(n=200, p=1000, seed=105, ylim=c(-4.1,4.1), parlist=list(mfrow
   if (p < 40) stop('p must be at least 40')
 
   # Gen data
+  set.seed(seed)
   X <- matrix(rnorm(n*p), nrow=n, ncol=p)
   z1 <- rnorm(n); z2 <- rnorm(n)
   X[,1:4]   <- X[,1:4]+z1
