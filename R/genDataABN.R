@@ -16,7 +16,7 @@
 #'
 #' @export
 
-genDataABN <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian","binomial"), signal=c('homogeneous', 'heterogeneous'), noise=c('exchangeable', 'autoregressive'),
+genDataABN <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian", "binomial"), signal=c('homogeneous', 'heterogeneous'), noise=c('exchangeable', 'autoregressive'),
                    rho.noise=0, beta, SNR=1) {
   family <- match.arg(family)
   noise <- match.arg(noise)
@@ -39,7 +39,7 @@ genDataABN <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian","bino
       if (signal=="heterogeneous") bb <- bb*(a:1)
       bbb <- numeric(p)
       bbb[((1:a)-1)*K+1] <- bb
-      beta <- bbb*sqrt(SNR)/sqrt(drop(crossprod(bbb,S)%*%bbb))
+      beta <- bbb*sqrt(SNR)/sqrt(Matrix::drop(Matrix::crossprod(bbb,S)%*%bbb))
     } else {
       bbb <- numeric(p)
       bbb[((1:a)-1)*K+1] <- bb

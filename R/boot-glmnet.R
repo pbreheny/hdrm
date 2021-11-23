@@ -8,8 +8,14 @@
 #' @param alpha      Error rate; 0.05 (default) corresponds to 95% confidence interval
 #' @param bar        Print a progress bar?
 #'
-#' @example ex/boot.R
-#'
+#' @examples
+#' Data <- genDataABN(n=100, p=20, a=2, b=3)
+#' CI <- boot.glmnet(Data$X, Data$y)
+#' covered <- Data$beta >= CI[,1] & Data$beta <= CI[,2]
+#' table(covered)
+#' CI <- boot.glmnet(Data$X, Data$y, lambda=0.65)
+#' covered <- Data$beta >= CI[,1] & Data$beta <= CI[,2]
+#' table(covered)
 #' @export
 
 boot.glmnet <- function(X, y, B=500, lambda, seed, alpha=0.05, bar=TRUE) {
@@ -18,13 +24,18 @@ boot.glmnet <- function(X, y, B=500, lambda, seed, alpha=0.05, bar=TRUE) {
   if (missing(lambda)) {
     cvfit <- cv.glmnet(X, y)
     lambda <- cvfit$lambda.min
+    lmax <- max(cvfit$lambda)
+  } else {
+    fit <- glmnet(X, y, nlambda=5, lambda.min.ratio=0.9)
+    lmax <- max(fit$lambda)
   }
+  lam_seq <- exp(seq(log(lmax), log(lambda), len=10))
   if (bar) pb <- txtProgressBar(0, B, style=3)
   beta_hat <- matrix(NA, B, p, dimnames=list(1:B, colnames(X)))
   if (!missing(seed)) set.seed(seed)
   for (i in 1:B) {
     ind <- sample(1:n, replace=TRUE)
-    fit.i <- glmnet(X[ind,], y[ind], nlambda=20, lambda.min.ratio=lambda)
+    fit.i <- glmnet(X[ind,], y[ind], lambda=lam_seq)
     b <- coef(fit.i, s=lambda)
     beta_hat[i,] <- b[-1]
     if (bar) setTxtProgressBar(pb, i)
