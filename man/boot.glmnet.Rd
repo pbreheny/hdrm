@@ -29,4 +29,7 @@ Data <- genDataABN(n=100, p=20, a=2, b=3)
 CI <- boot.glmnet(Data$X, Data$y)
 covered <- Data$beta >= CI[,1] & Data$beta <= CI[,2]
 table(covered)
+CI <- boot.glmnet(Data$X, Data$y, lambda=0.65)
+covered <- Data$beta >= CI[,1] & Data$beta <= CI[,2]
+table(covered)
 }
