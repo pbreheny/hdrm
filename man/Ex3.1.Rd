@@ -26,6 +26,6 @@ A list of two arrays, \code{MCP}, containing the MSE for MCP, and \code{SCAD}, c
 Reproduces Example 3.1 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-Ex3.1(N=10)
+Ex3.1(N=2)
 
 }

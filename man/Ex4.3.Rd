@@ -23,5 +23,5 @@ Ex4.3(N = 100, s = seq(0.1, 1.1, 0.2), n = 100, p = 500, p1 = 12, seed = 1)
 Reproduces Example 4.3 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-Ex4.3(N=10)
+Ex4.3(N=2, seq=c(0.3, 1))
 }

@@ -4,12 +4,23 @@
 \alias{Fig1.5}
 \title{Reproduce Figure 1.5}
 \usage{
-Fig1.5()
+Fig1.5(
+  lwd = 3,
+  xlim = c(3, -3),
+  ylim = c(50, 250),
+  xlab = expression(lambda),
+  ylab = "Prediction error",
+  ...
+)
+}
+\arguments{
+\item{lwd, xlim, ylim, xlab, ylab}{As in \code{plot()}}
+
+\item{...}{Further arguments to \code{plot()}}
 }
 \description{
 Reproduces Figure 1.5 from the book.  If you specify any options, your results may look different.
 }
 \examples{
 Fig1.5()
-
 }

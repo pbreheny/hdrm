@@ -11,7 +11,7 @@
 #'
 #' @return A list of two arrays, `MCP`, containing the MSE for MCP, and `SCAD`, containing the MSE for SCAD.
 #'
-#' @examples Ex3.1(N=10)
+#' @examples Ex3.1(N=2)
 #'
 #' @export
 
@@ -50,7 +50,7 @@ Ex3.1 <- function(N=500, n=50, p=100, p1=6, SNR=c(1, 2, 4), seed=2) {
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples
-#' out <- Ex3.1(N=10)
+#' out <- Ex3.1(N=3)
 #' Fig3.5(out)
 #' @export
 

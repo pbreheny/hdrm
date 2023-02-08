@@ -10,7 +10,7 @@
 #' @param rho     Correlation between features (compound symmetric)
 #' @param seed    Seed for reproducibility
 #'
-#' @examples Ex4.4(N=3)
+#' @examples Ex4.4(N=2, seq=c(0.3, 1))
 #' @export
 
 Ex4.4 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, rho=0.7, seed=1) {

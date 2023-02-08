@@ -9,7 +9,7 @@
 #' @param p1      Number of non-null features
 #' @param seed    Seed for reproducibility
 #'
-#' @examples Ex4.3(N=10)
+#' @examples Ex4.3(N=2, seq=c(0.3, 1))
 #' @export
 
 Ex4.3 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, seed=1) {
@@ -50,7 +50,7 @@ Ex4.3 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, seed=1) {
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples
-#' res <- Ex4.3(N=5, corr='cs')
+#' res <- Ex4.3(N=5)
 #' Fig4.2(res)
 #' @export
 

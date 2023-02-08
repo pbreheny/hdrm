@@ -1,6 +1,4 @@
-#' hdrm: High dimensional regression modeling, by Breheny and Huang
-#'
-#' @docType package
+#' @keywords internal
 #'
 #' @import stats
 #' @import graphics
@@ -8,9 +6,7 @@
 #' @import utils
 #' @import glmnet
 #' @import ncvreg
-#' 
+#'
 #' @importFrom Matrix bandSparse t
 #' @importFrom grpreg grpreg grpsurv cv.grpreg cv.grpsurv
-#'
-#' @name hdrm
-NULL
+"_PACKAGE"

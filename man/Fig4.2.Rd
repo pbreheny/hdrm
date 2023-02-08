@@ -15,6 +15,6 @@ Fig4.2(res, parlist = list(mfrow = c(1, 2), mar = c(4, 4, 2, 0.5)))
 Reproduces Figure 4.2 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-res <- Ex4.3(N=5, corr='cs')
+res <- Ex4.3(N=5)
 Fig4.2(res)
 }

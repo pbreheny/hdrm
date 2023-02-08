@@ -18,6 +18,6 @@ Fig3.5(
 Reproduces Figure 3.5 from the book; if you specify any options, your results may look different.
 }
 \examples{
-out <- Ex3.1(N=10)
+out <- Ex3.1(N=3)
 Fig3.5(out)
 }

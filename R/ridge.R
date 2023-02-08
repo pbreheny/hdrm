@@ -77,7 +77,11 @@ ridge.matrix <- function (obj, y, lambda, ...) {
 
 #' Plot a ridge regression coefficient path
 #'
-#' @param x  a ridge
+#' @param x       An object of class `"ridge"`, as returned by `ridge()`
+#' @param xaxis   One of `"loglam"`, `"df"`, or `"both"`. If `"both"`, the
+#' bottom axis is lambda (log scale), and the top is df.
+#' @param xlab,ylab   As in `plot()`
+#' @param ...         Additional arguments to `matplot()`
 #'
 #' @export
 
@@ -89,7 +93,7 @@ plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), xlab, ylab, ...) {
     ll <- log10(x$lambda)
     if (missing(xlab)) xlab <- expression(lambda)
     matplot(ll, B, lty=1, col=col, type="l", lwd=3, xaxt="n",
-            xlab=xlab, ylab="", las=1, xlim=rev(range(ll)), bty="n")
+            xlab=xlab, ylab="", las=1, xlim=rev(range(ll)), bty="n", ...)
     logAxis(1, base=10)
   } else if (xaxis=='df') {
     matplot(x$df, B, lty=1, col=col, type="l", lwd=3,

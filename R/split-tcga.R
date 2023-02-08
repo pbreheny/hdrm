@@ -6,7 +6,7 @@
 #' @param seed   Random seed for reproducibility
 #'
 #' @examples
-#' p <- Ex9.2(N=10)
+#' p <- Ex9.2(N=5)
 #' head(sort(p))
 #'
 #' @export

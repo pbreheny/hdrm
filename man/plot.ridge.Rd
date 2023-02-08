@@ -7,7 +7,14 @@
 \method{plot}{ridge}(x, xaxis = c("loglam", "df", "both"), xlab, ylab, ...)
 }
 \arguments{
-\item{x}{a ridge}
+\item{x}{An object of class \code{"ridge"}, as returned by \code{ridge()}}
+
+\item{xaxis}{One of \code{"loglam"}, \code{"df"}, or \code{"both"}. If \code{"both"}, the
+bottom axis is lambda (log scale), and the top is df.}
+
+\item{xlab, ylab}{As in \code{plot()}}
+
+\item{...}{Additional arguments to \code{matplot()}}
 }
 \description{
 Plot a ridge regression coefficient path

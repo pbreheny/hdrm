@@ -33,5 +33,5 @@ Ex4.4(
 Reproduces Example 4.4 from the book.  If you specify any options, your results may look different.  Note that this simulation in particular is very time-consuming if run with the full N=100 replications.
 }
 \examples{
-Ex4.4(N=3)
+Ex4.4(N=2, seq=c(0.3, 1))
 }

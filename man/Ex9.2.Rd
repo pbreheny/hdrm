@@ -15,7 +15,7 @@ Ex9.2(N = 100, seed = 1)
 Reproduces Example 9.2 from the book.  If you specify any options, your results may be different.
 }
 \examples{
-p <- Ex9.2(N=10)
+p <- Ex9.2(N=5)
 head(sort(p))
 
 }
