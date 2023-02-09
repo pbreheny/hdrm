@@ -6,8 +6,8 @@ Author: Patrick Breheny and Jian Huang
 Maintainer: Patrick Breheny <patrick-breheny@uiowa.edu>
 Description: Examples, simulations, and figures from the book, "High-Dimensional
  Regression Modeling", by Breheny and Huang.
-Depends: R (>= 3.5.0)
-Imports: glmnet, grpreg, Matrix, ncvreg
+Depends: R (>= 3.5.0), glmnet, ncvreg
+Imports: grpreg, Matrix
 Suggests: ggplot2, abind, gridExtra, tinytest
 BugReports: http://github.com/pbreheny/hdrm/issues
 License: GPL-3
