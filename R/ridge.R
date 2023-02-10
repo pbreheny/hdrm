@@ -17,7 +17,12 @@
 #' plot(fit)
 #' plot(fit, xaxis='df')
 #' plot(fit, xaxis='both')
-#'
+#' coef(fit)
+#' coef(fit, standardize=TRUE)
+#' coef(fit, standardize=TRUE, lambda=0.1)
+#' p1 <- cbind(1, std(X)) %*% coef(fit, standardize=TRUE, lambda=1)
+#' p2 <- cbind(1, X) %*% coef(fit, lambda=1)
+#' head(p1); head(p2) # identical
 #' @export
 
 ridge <- function(obj, ...) UseMethod("ridge")
@@ -47,7 +52,8 @@ ridge.matrix <- function (obj, y, lambda, ...) {
   X <- std(obj)
   n <- nrow(X)
   p <- ncol(X)
-  yy <- y - mean(y)
+  my <- mean(y)
+  yy <- y - my
   Xs <- svd(X)
   d <- Xs$d
   k <- length(lambda)
@@ -66,11 +72,11 @@ ridge.matrix <- function (obj, y, lambda, ...) {
 
   beta <- matrix(0, nrow = nrow(coef) + 1, ncol = length(lambda))
   beta[-1,] <- coef/attr(X, 'scale')
-  beta[1, ] <- mean(y) - crossprod(attr(X, 'center'), beta[-1,])
+  beta[1, ] <- my - crossprod(attr(X, 'center'), beta[-1,])
   if (is.null(colnames(obj))) colnames(obj) <- paste0('V', 1:p)
   dimnames(beta) <- list(c("(Intercept)", colnames(obj)), lambda)
 
-  res <- list(beta = drop(beta), lambda = lambda, GCV = GCV, df=df, RSS=RSS, n=n, SVD=Xs, center=attr(X, 'center'), scale=attr(X, 'scale'))
+  res <- list(beta = drop(beta), lambda = lambda, GCV = GCV, df=df, RSS=RSS, n=n, SVD=Xs, center=attr(X, 'center'), scale=attr(X, 'scale'), ymean=my)
   class(res) <- "ridge"
   res
 }
@@ -113,23 +119,26 @@ plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), xlab, ylab, ...) {
 
 #' @export
 
-coef.ridge <- function(object, lambda, which=1:length(object$lambda), drop = TRUE, ...) {
+coef.ridge <- function(object, lambda, which=1:length(object$lambda), standardize=FALSE, drop=TRUE, ...) {
   if (length(object$lambda)==1) {
     if (!missing(lambda) && lambda != object$lambda) stop(paste0("Cannot return fit for lambda=", lambda, "; fit does not contain a regularization path"))
-    return(object$beta)
-  }
-  if (!missing(lambda)) {
+    beta <- object$beta
+  } else if (!missing(lambda)) {
     ind <- approx(object$lambda, seq(object$lambda), lambda)$y
     l <- floor(ind)
     r <- ceiling(ind)
     w <- ind%%1
     beta <- (1-w)*object$beta[, l, drop = FALSE] + w*object$beta[, r, drop = FALSE]
     colnames(beta) <- round(lambda, 4)
+  } else {
+    beta <- object$beta[, which, drop = FALSE]
   }
-  else beta <- object$beta[, which, drop = FALSE]
-  if (drop)
-    return(drop(beta))
-  else return(beta)
+  if (standardize) {
+    beta[1,] <- object$ymean
+    beta[-1,] <- beta[-1,] * object$scale
+  }
+  if (drop) beta <- drop(beta)
+  beta
 }
 
 #' @export

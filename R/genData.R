@@ -33,7 +33,7 @@ genData <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"), 
     if (missing(beta)) {
       if (signal=="heterogeneous") b <- b*rev(j)
       b <- b*s
-      beta <- b*sqrt(SNR)/sqrt(drop(crossprod(b,S) %*% b))
+      beta <- b*sqrt(SNR)/sqrt(Matrix::drop(Matrix::crossprod(b,S) %*% b))
     } else {
       beta <- b*s*beta
     }
