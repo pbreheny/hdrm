@@ -14,6 +14,7 @@
 #' @examples
 #' attachData(pollution)
 #' fit <- ridge(X, y)
+#' summary(fit, lambda=0.1)
 #' plot(fit)
 #' plot(fit, xaxis='df')
 #' plot(fit, xaxis='both')
@@ -117,6 +118,7 @@ plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), xlab, ylab, ...) {
   }
 }
 
+#' @rdname ridge
 #' @export
 
 coef.ridge <- function(object, lambda, which=1:length(object$lambda), standardize=FALSE, drop=TRUE, ...) {
@@ -141,6 +143,7 @@ coef.ridge <- function(object, lambda, which=1:length(object$lambda), standardiz
   beta
 }
 
+#' @rdname ridge
 #' @export
 
 summary.ridge <- function(object, lambda, which, ...) {
@@ -155,6 +158,7 @@ summary.ridge <- function(object, lambda, which, ...) {
   l <- object$lambda[ind]
   W <- tcrossprod(sweep(object$SVD$v, 2, object$SVD$d^2/object$n + l, '/'), object$SVD$v)
   b <- coef(object, which=ind)
+  bb <- coef(object, standardize=TRUE, which=ind)
   rdf <- object$n-object$df[ind]-1
   s2 <- object$RSS[ind]/rdf
   V <- s2/object$n*W
@@ -162,12 +166,13 @@ summary.ridge <- function(object, lambda, which, ...) {
   x <- object$center
   SE <- sqrt(c(s2/object$n + crossprod(x, S %*% V %*%S) %*% x, diag(V)/object$scale^2))
   p <- 2*pt(-abs(-b/SE), rdf)
-  Tab <- data.frame(b, SE, b/SE, p)
-  colnames(Tab) <- c('Estimate', 'SE', 't', 'p')
+  Tab <- data.frame(b, bb, SE, b/SE, p)
+  colnames(Tab) <- c('Estimate', 'Standardized', 'SE', 't', 'p')
   attr(Tab, "rdf") <- rdf
   Tab
 }
 
+#' @rdname ridge
 #' @export
 
 predict.ridge <- function(object, X, lambda, which=1:length(object$lambda), drop=TRUE, ...) {
@@ -180,6 +185,7 @@ predict.ridge <- function(object, X, lambda, which=1:length(object$lambda), drop
   drop(out)
 }
 
+#' @rdname ridge
 #' @export
 
 confint.ridge <- function(object, parm, level=0.95, X, lambda, which, ...) {

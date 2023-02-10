@@ -4,6 +4,10 @@
 \alias{ridge}
 \alias{ridge.formula}
 \alias{ridge.matrix}
+\alias{coef.ridge}
+\alias{summary.ridge}
+\alias{predict.ridge}
+\alias{confint.ridge}
 \title{Ridge regression}
 \usage{
 ridge(obj, ...)
@@ -11,6 +15,21 @@ ridge(obj, ...)
 \method{ridge}{formula}(obj, data, subset, na.action, contrasts = NULL, ...)
 
 \method{ridge}{matrix}(obj, y, lambda, ...)
+
+\method{coef}{ridge}(
+  object,
+  lambda,
+  which = 1:length(object$lambda),
+  standardize = FALSE,
+  drop = TRUE,
+  ...
+)
+
+\method{summary}{ridge}(object, lambda, which, ...)
+
+\method{predict}{ridge}(object, X, lambda, which = 1:length(object$lambda), drop = TRUE, ...)
+
+\method{confint}{ridge}(object, parm, level = 0.95, X, lambda, which, ...)
 }
 \arguments{
 \item{obj}{There are two options for running \code{ridge()}; either supply a formula and data frame as in \code{lm()}, or an X and y matrix as in \code{glmnet()}; see examples}
@@ -38,7 +57,12 @@ fit <- ridge(X, y)
 plot(fit)
 plot(fit, xaxis='df')
 plot(fit, xaxis='both')
-
+coef(fit)
+coef(fit, standardize=TRUE)
+coef(fit, standardize=TRUE, lambda=0.1)
+p1 <- cbind(1, std(X)) \%*\% coef(fit, standardize=TRUE, lambda=1)
+p2 <- cbind(1, X) \%*\% coef(fit, lambda=1)
+head(p1); head(p2) # identical
 }
 \seealso{
 \code{\link[=plot.ridge]{plot.ridge()}}, \code{coef.ridge()}, \code{predict.ridge()}, \code{summary.ridge()}, \code{confint.ridge()}
