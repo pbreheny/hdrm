@@ -21,9 +21,31 @@
 CIplot <- function(obj,...) UseMethod("CIplot")
 
 #' @rdname CIplot
+#'
+#' @param labels              Paramater labels
+#' @param sort                Sort parameters by estimate? (default: true)
+#' @param xlim,pxlim          x axis limits and breakpoints; see `pretty()`
+#' @param ylim                y axis limits (default: c(0.5, n+0.5), where n is number of params)
+#' @param sub                 Text to be written at top of plot
+#' @param diff                Include tests of difference / p-values?
+#' @param null                Draw a line representing no effect at this value (default: 0)
+#' @param n.ticks             Number of ticks on x-axis
+#' @param mar                 As in `par()`
+#' @param axis                Create an x axis?
+#' @param trans               Function to transform parameter space
+#' @param p.label             Label p-values (p=0.02 instead of just 0.02)? (default: FALSE)
+#' @param xlab,ylab           As in `plot()`
+#' @param add                 Add to existing plot?
+#' @param setupOnly           Create a new window for plot, but don't actually plot anything yet
+#' @param lwd                 As in `lines()`
+#' @param replaceUnderscore   Replace underscore with space in plotting label
+#' @param ...                 Additional arguments to `plot()`
+#'
 #' @export
 
-CIplot.matrix <- function(obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim, sub, diff=(ncol(B)==4), null=0, n.ticks=6, mar, axis=!add, trans, p.label=FALSE, xlab="", ylab="", add=FALSE, setupOnly=FALSE, lwd=2, replaceUnderscore=TRUE, ...) {
+CIplot.matrix <- function(
+    obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim, sub, diff=(ncol(B)==4), null=0, n.ticks=6, mar, axis=!add,
+    trans, p.label=FALSE, xlab="", ylab="", add=FALSE, setupOnly=FALSE, lwd=2, replaceUnderscore=TRUE, ...) {
   B <- obj
   if (sort) B <- B[order(B[,1], decreasing=TRUE),,drop=FALSE]
 
@@ -59,7 +81,7 @@ CIplot.matrix <- function(obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim,
     col <- if ("col" %in% names(dots)) rep_len(dots$col[n-i+1], n) else "black"
     lines(c(B[i,2:3]), c(n-i+1,n-i+1), lwd=lwd, col=col)
     if (diff) {
-      p <- formatP(B[,4], label=p.label)
+      p <- format_p(B[,4], label=p.label)
       p[is.na(B[,4])] <- ""
       mtext(at=n-i+1,p[i],line=1,side=4,las=1, cex=0.8*par("cex"), adj=0)
     }

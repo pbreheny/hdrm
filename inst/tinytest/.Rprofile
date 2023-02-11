@@ -1,9 +1,0 @@
-#.libPaths("/home/pbreheny/.R/lib/R/library")
-suppressMessages({
-  require(utils)
-  require(stats)
-  require(grDevices)
-})
-options(repos=c(CRAN="https://mirror.las.iastate.edu/CRAN"))
-X11.options(type="cairo")
-options(bitmapType="cairo")

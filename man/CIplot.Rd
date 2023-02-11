@@ -33,6 +33,42 @@ CIplot(obj, ...)
 }
 \arguments{
 \item{obj}{The object to be plotted; can be a matrix of raw values or a model object}
+
+\item{...}{Additional arguments to \code{plot()}}
+
+\item{labels}{Paramater labels}
+
+\item{sort}{Sort parameters by estimate? (default: true)}
+
+\item{xlim, pxlim}{x axis limits and breakpoints; see \code{pretty()}}
+
+\item{ylim}{y axis limits (default: c(0.5, n+0.5), where n is number of params)}
+
+\item{sub}{Text to be written at top of plot}
+
+\item{diff}{Include tests of difference / p-values?}
+
+\item{null}{Draw a line representing no effect at this value (default: 0)}
+
+\item{n.ticks}{Number of ticks on x-axis}
+
+\item{mar}{As in \code{par()}}
+
+\item{axis}{Create an x axis?}
+
+\item{trans}{Function to transform parameter space}
+
+\item{p.label}{Label p-values (p=0.02 instead of just 0.02)? (default: FALSE)}
+
+\item{xlab, ylab}{As in \code{plot()}}
+
+\item{add}{Add to existing plot?}
+
+\item{setupOnly}{Create a new window for plot, but don't actually plot anything yet}
+
+\item{lwd}{As in \code{lines()}}
+
+\item{replaceUnderscore}{Replace underscore with space in plotting label}
 }
 \description{
 "Forest plot"-style plotting of confidence intervals from a regression model.  Basic input is a matrix with columns of estimate/lower/upper, along with an optional 4th column for the p-value.  Also works with a variety of models (lm/glm/coxph/etc.)

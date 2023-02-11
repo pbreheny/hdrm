@@ -47,6 +47,21 @@ ridge(obj, ...)
 \item{y}{If using the matrix interface, the vector of responses}
 
 \item{lambda}{An optional value or vector of values for the regression coefficient; if not supplied, this will be set up automatically}
+
+\item{object}{A \code{ridge} object, as returned by \code{ridge()}}
+
+\item{which}{Indices of \code{lambda} at which coefficients / predictions are required. By default, all
+indices are returned. If \code{lambda} is specified, this will override \code{which}.}
+
+\item{standardize}{Return coefficients on standardized scale (default: FALSE)}
+
+\item{drop}{If requesting coefficients for a single lambda value, drop matrix down to a vector (default: TRUE)}
+
+\item{X}{Matrix of predictor values at which predictions are required.}
+
+\item{parm}{Which parameters to construct confidence intervals for; either a vector of indices or a vector of names (default: all)}
+
+\item{level}{Confidence level (default: 0.95)}
 }
 \description{
 Ridge regression
@@ -54,6 +69,7 @@ Ridge regression
 \examples{
 attachData(pollution)
 fit <- ridge(X, y)
+summary(fit, lambda=0.1)
 plot(fit)
 plot(fit, xaxis='df')
 plot(fit, xaxis='both')

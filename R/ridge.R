@@ -119,12 +119,19 @@ plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), xlab, ylab, ...) {
 }
 
 #' @rdname ridge
+#'
+#' @param object        A `ridge` object, as returned by `ridge()`
+#' @param which         Indices of `lambda` at which coefficients / predictions are required. By default, all
+#' indices are returned. If `lambda` is specified, this will override `which`.
+#' @param standardize   Return coefficients on standardized scale (default: FALSE)
+#' @param drop          If requesting coefficients for a single lambda value, drop matrix down to a vector (default: TRUE)
+#'
 #' @export
 
 coef.ridge <- function(object, lambda, which=1:length(object$lambda), standardize=FALSE, drop=TRUE, ...) {
   if (length(object$lambda)==1) {
     if (!missing(lambda) && lambda != object$lambda) stop(paste0("Cannot return fit for lambda=", lambda, "; fit does not contain a regularization path"))
-    beta <- object$beta
+    beta <- matrix(object$beta, ncol=1, dimnames=list(names(object$beta), object$lambda))
   } else if (!missing(lambda)) {
     ind <- approx(object$lambda, seq(object$lambda), lambda)$y
     l <- floor(ind)
@@ -173,6 +180,9 @@ summary.ridge <- function(object, lambda, which, ...) {
 }
 
 #' @rdname ridge
+#'
+#' @param X   Matrix of predictor values at which predictions are required.
+#'
 #' @export
 
 predict.ridge <- function(object, X, lambda, which=1:length(object$lambda), drop=TRUE, ...) {
@@ -186,12 +196,18 @@ predict.ridge <- function(object, X, lambda, which=1:length(object$lambda), drop
 }
 
 #' @rdname ridge
+#'
+#' @param level   Confidence level (default: 0.95)
+#' @param parm    Which parameters to construct confidence intervals for; either a vector of indices or a vector of names (default: all)
+#'
 #' @export
 
 confint.ridge <- function(object, parm, level=0.95, X, lambda, which, ...) {
   s <- summary(object, lambda, which)
   m <- -qt((1-level)/2, attr(s, "rdf"))
   val <- cbind(Lower=s$Estimate-m*s$SE, Upper=s$Estimate+m*s$SE)
+  rownames(val) <- if (inherits(object$beta, 'array')) rownames(object$beta) else names(object$beta)
   if (!missing(parm)) val <- val[parm,]
+  attr(val, 'level') <- level
   val
 }

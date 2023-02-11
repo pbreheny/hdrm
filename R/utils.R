@@ -91,8 +91,9 @@ lfdrPlot <- function(z, pi0=1, delta=0, sigma=1, lfdrReturn=TRUE, ...) {
 
   if (lfdrReturn) return(lfdr)
 }
-formatP <- function(p,digits=2,label=FALSE) {
-  val <- formatC(p,digits=digits,format="f")
+
+format_p <- function(p, digits=2, label=FALSE) {
+  val <- formatC(p, digits=digits, format="f")
   for (d in -(digits:4)) val[p < 10^d] <- paste("<",formatC(10^d))
   if (any(p < .01, na.rm=TRUE) & !label) val[substr(val,1,2)=="0."] <- paste("  ",val[substr(val,1,2)=="0."])
   if (label) {
