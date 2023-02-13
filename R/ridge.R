@@ -18,6 +18,7 @@
 #' plot(fit)
 #' plot(fit, xaxis='df')
 #' plot(fit, xaxis='both')
+#' plot(fit, standardize=TRUE)
 #' coef(fit)
 #' coef(fit, standardize=TRUE)
 #' coef(fit, standardize=TRUE, lambda=0.1)
@@ -84,17 +85,18 @@ ridge.matrix <- function (obj, y, lambda, ...) {
 
 #' Plot a ridge regression coefficient path
 #'
-#' @param x       An object of class `"ridge"`, as returned by `ridge()`
-#' @param xaxis   One of `"loglam"`, `"df"`, or `"both"`. If `"both"`, the
+#' @param x             An object of class `"ridge"`, as returned by `ridge()`
+#' @param xaxis         One of `"loglam"`, `"df"`, or `"both"`. If `"both"`, the
 #' bottom axis is lambda (log scale), and the top is df.
-#' @param xlab,ylab   As in `plot()`
-#' @param ...         Additional arguments to `matplot()`
+#' @param standardize   As in `coef()` (default: FALSE)
+#' @param xlab,ylab     As in `plot()`
+#' @param ...           Additional arguments to `matplot()`
 #'
 #' @export
 
-plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), xlab, ylab, ...) {
+plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), standardize=FALSE, xlab, ylab, ...) {
   xaxis <- match.arg(xaxis)
-  B <- t(x$beta[-1,])
+  B <- t(coef(x, standardize=standardize)[-1,])
   col <- pal(ncol(B))
   if (xaxis=='loglam' | xaxis=='both') {
     ll <- log10(x$lambda)

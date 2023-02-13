@@ -11,5 +11,4 @@ Reproduces Example 6.1 from the book.  If you specify any options, your results 
 }
 \examples{
 out <- Ex6.1()
-
 }

@@ -4,7 +4,6 @@
 #'
 #' @examples
 #' out <- Ex6.1()
-#'
 #' @export
 
 Ex6.1 <- function() {
@@ -27,7 +26,6 @@ Ex6.1 <- function() {
 #' @examples
 #' out <- Ex6.1()
 #' Fig6.1(out)
-#'
 #' @export
 
 Fig6.1 <- function(out) {

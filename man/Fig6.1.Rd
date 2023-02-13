@@ -15,5 +15,4 @@ Reproduces Figure 6.1 from the book; if you specify any options, your results ma
 \examples{
 out <- Ex6.1()
 Fig6.1(out)
-
 }
