@@ -1,9 +1,10 @@
-#' Reproduce Example 6.1
+#' Reproduce Example 6.1 and Figure 6.1
 #'
-#' Reproduces Example 6.1 from the book.  If you specify any options, your results may look different.
+#' Reproduces Example 6.1 and Figure 6.1 from the book. If you specify any options, your results may look different.
 #'
 #' @examples
 #' out <- Ex6.1()
+#' Fig6.1(out)
 #' @export
 
 Ex6.1 <- function() {
@@ -17,15 +18,10 @@ Ex6.1 <- function() {
   out <- list(p=p, z=z)
 }
 
-#' Reproduce Figure 6.1
-#'
-#' Reproduces Figure 6.1 from the book; if you specify any options, your results may look different.
+#' @rdname Ex6.1
 #'
 #' @param out       Output of Ex6.1()
 #'
-#' @examples
-#' out <- Ex6.1()
-#' Fig6.1(out)
 #' @export
 
 Fig6.1 <- function(out) {

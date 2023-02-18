@@ -12,6 +12,7 @@
 #' covered <- Data$beta >= res$Lower & Data$beta <= res$Upper
 #' mean(covered)
 #' table(Data$varType, covered)
+#' @export
 
 Fig9.4 <- function(out, B=100, seed=2) {
   set.seed(seed)

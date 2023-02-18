@@ -8,7 +8,8 @@ Fig4.4(
   alpha = c(0.75, 0.5, 0.25),
   ylim = c(-0.25, 0.5),
   seed = 1,
-  parlist = list(par(mfrow = c(1, 3), mar = c(4, 4, 2, 0), cex = 1))
+  nfolds = 10,
+  parlist = list(mfrow = c(1, 3), mar = c(4, 4, 2, 0), cex = 1)
 )
 }
 \arguments{
@@ -18,11 +19,13 @@ Fig4.4(
 
 \item{seed}{For reproducibility}
 
+\item{nfolds}{As in \code{cv.ncvreg()}}
+
 \item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 4.4 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-Fig4.4()
+Fig4.4(nfolds=3)
 }

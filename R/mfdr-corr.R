@@ -1,14 +1,27 @@
+#' Reproduce Example 6.2 and Figure 6.3
+#'
+#' Reproduces Example 6.2 and Figure 6.3 from the book.  If you specify any options, your results may look different.
+#'
+#' @examples
+#' \dontrun{
+#' out <- Ex6.2()
+#' Fig6.3(out)
+#' }
 #' @export
 
 Ex6.3 <- function() {
+  stop('Ex6.3 not implemented yet')
+
   # NEED TO ADD
 }
 
+#' @rdname Ex6.3
+#'
+#' @param out   Output of `Ex6.3()`
+#'
 #' @export
 
 Fig6.5 <- function(out) {
-  requireNamespace(ggplot2)
-  requireNamespace(gridExtra)
 
   ## Read in data
   df <- array2df(apply(out[,,-1], 2:3, sum), vars=c("lambda", "Type", "Avg"))

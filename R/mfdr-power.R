@@ -1,7 +1,6 @@
 #' @export
 
 Fig6.4 <- function(out) {
-  requireNamespace(ggplot2)
   dimnames(out)[[3]][1:2] <- c("Univariate", "LassoFIR")
   dimnames(out)[[4]] <- c("Causative (A)", "Correlated (B)", "Noise (C)")
   df <- array2df(apply(out, 2:4, mean, na.rm=TRUE), vars=c("p","Method", "Group", "Avg"))

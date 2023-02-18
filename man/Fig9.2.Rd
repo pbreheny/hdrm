@@ -14,7 +14,7 @@ Fig9.2(out, N = 100, seed = 1)
 \item{seed}{Random number seed for reproducibility}
 }
 \description{
-Reproduces Figure 9.2 from the book.  If you specify any options, your results may look different.
+Reproduces Figure 9.2 from the book. If you specify any options, your results may look different.
 }
 \examples{
 out <- Ex9.1()

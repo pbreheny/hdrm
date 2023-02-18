@@ -2,9 +2,12 @@
 % Please edit documentation in R/mnet-sim-ind.R
 \name{Ex4.3}
 \alias{Ex4.3}
-\title{Reproduce Example 4.3}
+\alias{Fig4.2}
+\title{Reproduce Example 4.3 and Figure 4.2}
 \usage{
 Ex4.3(N = 100, s = seq(0.1, 1.1, 0.2), n = 100, p = 500, p1 = 12, seed = 1)
+
+Fig4.2(res, parlist = list(mfrow = c(1, 2), mar = c(4, 4, 2, 0.5)))
 }
 \arguments{
 \item{N}{Number of simulated realizations}
@@ -18,10 +21,15 @@ Ex4.3(N = 100, s = seq(0.1, 1.1, 0.2), n = 100, p = 500, p1 = 12, seed = 1)
 \item{p1}{Number of non-null features}
 
 \item{seed}{Seed for reproducibility}
+
+\item{res}{Output from Ex4.3}
+
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
-Reproduces Example 4.3 from the book.  If you specify any options, your results may look different.
+Reproduces Example 4.3 and Figure 4.2 from the book. If you specify any options, your results may look different.
 }
 \examples{
-Ex4.3(N=2, seq=c(0.3, 1))
+res <- Ex4.3(N=2, s=c(0.3, 1))
+Fig4.2(res)
 }

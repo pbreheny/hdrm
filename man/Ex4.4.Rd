@@ -2,7 +2,8 @@
 % Please edit documentation in R/mnet-sim-cor.R
 \name{Ex4.4}
 \alias{Ex4.4}
-\title{Reproduce Example 4.4}
+\alias{Fig4.3}
+\title{Reproduce Example 4.4 and Figure 4.3}
 \usage{
 Ex4.4(
   N = 100,
@@ -13,6 +14,8 @@ Ex4.4(
   rho = 0.7,
   seed = 1
 )
+
+Fig4.3(res, parlist = list(mfrow = c(1, 2), mar = c(4, 4, 2, 0.5)))
 }
 \arguments{
 \item{N}{Number of simulated realizations}
@@ -28,10 +31,15 @@ Ex4.4(
 \item{rho}{Correlation between features (compound symmetric)}
 
 \item{seed}{Seed for reproducibility}
+
+\item{res}{Output from Ex4.4}
+
+\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
-Reproduces Example 4.4 from the book.  If you specify any options, your results may look different.  Note that this simulation in particular is very time-consuming if run with the full N=100 replications.
+Reproduces Example 4.4 and Figure 4.3 from the book.  If you specify any options, your results may look different.  Note that this simulation in particular is very time-consuming if run with the full N=100 replications.
 }
 \examples{
-Ex4.4(N=2, seq=c(0.3, 1))
+res <- Ex4.4(N=2, s=c(0.3, 1))
+Fig4.3(res)
 }

@@ -13,13 +13,14 @@ Fig9.1(out, N = 100, seed = 1)
 
 \item{seed}{Random number seed for reproducibility}
 }
+\value{
+A vector of p-values
+}
 \description{
 Reproduces Figure 9.1 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-
 Data <- Ex9.1()
 out <- Fig9.1(Data)
-Fig9.1(out)
-
+head(out)
 }

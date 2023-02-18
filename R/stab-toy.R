@@ -1,6 +1,6 @@
 #' Reproduce Figure 9.2
 #'
-#' Reproduces Figure 9.2 from the book.  If you specify any options, your results may look different.
+#' Reproduces Figure 9.2 from the book. If you specify any options, your results may look different.
 #'
 #' @param out   Output of Ex9.1
 #' @param N     Number of simulated realizations
@@ -10,6 +10,7 @@
 #' out <- Ex9.1()
 #' res <- Fig9.2(out)
 #' head(sort(res$Stability[,20], decreasing=TRUE))
+#' @export
 
 Fig9.2 <- function(out, N=100, seed=1) {
   X <- out$X
@@ -30,7 +31,7 @@ Fig9.2 <- function(out, N=100, seed=1) {
   }
   close(pb)
   S <- apply(SS, 2:3, mean)
-  colnames(S) <- ncvreg:::lamNames(fit$lambda)
+  colnames(S) <- lam_names(fit$lambda)
   q <- apply(Q, 2, mean)
   names(q) <- colnames(S)
 

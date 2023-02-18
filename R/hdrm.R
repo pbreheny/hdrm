@@ -7,6 +7,7 @@
 #' @import glmnet
 #' @import ncvreg
 #'
+#' @importFrom rlang .data
 #' @importFrom Matrix bandSparse t
 #' @importFrom grpreg grpreg grpsurv cv.grpreg cv.grpsurv
 "_PACKAGE"

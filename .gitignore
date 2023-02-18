@@ -1,5 +1,5 @@
 .Rproj.user
 hdrm.Rproj
 !R/sysdata.rda
-data/*
-!data/README
+inst/extdata/*
+!inst/extdata/README

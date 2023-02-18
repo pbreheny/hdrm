@@ -25,7 +25,7 @@ downloadData <- function(name) {
   }
   for (id in name) {
     URL <- paste0('http://s3.amazonaws.com/pbreheny-data-sets/', id, '.rds')
-    FILE <- paste0(system.file("data", package="hdrm"), '/', id, '.rds')
+    FILE <- paste0(system.file("extdata", package="hdrm"), '/', id, '.rds')
     download.file(URL, FILE, mode='wb')
   }
 }
@@ -45,7 +45,7 @@ downloadData <- function(name) {
 readData <- function(name) {
   name <- as.character(substitute(name))
   if (!(name %in% hdrm_data_sets)) stop(paste0(name, ' is not an hdrm data set'))
-  FILE <- paste0(system.file("data", package="hdrm"), '/', name, '.rds')
+  FILE <- paste0(system.file("extdata", package="hdrm"), '/', name, '.rds')
   if (!file.exists(FILE)) stop("You have to run downloadData() first; see ?downloadData", call.=FALSE)
   readRDS(FILE)
 }
@@ -63,7 +63,7 @@ readData <- function(name) {
 attachData <- function(name, envir=parent.frame()) {
   name <- as.character(substitute(name))
   if (!(name %in% hdrm_data_sets)) stop(paste0(name, ' is not an hdrm data set'))
-  FILE <- paste0(system.file("data", package="hdrm"), '/', name, '.rds')
+  FILE <- paste0(system.file("extdata", package="hdrm"), '/', name, '.rds')
   if (!file.exists(FILE)) stop("You have to run downloadData() first; see ?downloadData", call.=FALSE)
   Data <- readRDS(FILE)
   if (!is.list(Data)) {

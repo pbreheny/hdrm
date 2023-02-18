@@ -4,10 +4,12 @@
 \alias{Fig3.8}
 \title{Reproduce Figure 3.8}
 \usage{
-Fig3.8(seed = 1, parlist = list(mfrow = c(2, 2)))
+Fig3.8(seed = 1, nfolds = 10, parlist = list(mfrow = c(2, 2)))
 }
 \arguments{
 \item{seed}{For reproducibility}
+
+\item{nfolds}{As in \code{cv.ncvreg()} (default: 10)}
 
 \item{parlist}{List of arguments to pass to \code{par()}}
 }
@@ -15,5 +17,5 @@ Fig3.8(seed = 1, parlist = list(mfrow = c(2, 2)))
 Reproduces Figure 3.8 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-Fig3.8()
+Fig3.8(nfolds=3)
 }

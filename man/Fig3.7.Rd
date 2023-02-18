@@ -4,10 +4,12 @@
 \alias{Fig3.7}
 \title{Reproduce Figure 3.7}
 \usage{
-Fig3.7(seed = 1, ...)
+Fig3.7(seed = 1, nfolds = 10, ...)
 }
 \arguments{
 \item{seed}{For reproducibility}
+
+\item{nfolds}{As in \code{cv.ncvreg()} (default: 10)}
 
 \item{...}{Additional arguments to \code{plot.cv.ncvreg()}}
 }
@@ -15,5 +17,5 @@ Fig3.7(seed = 1, ...)
 Reproduces Figure 3.7 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-Fig3.7()
+Fig3.7(nfolds=3)
 }

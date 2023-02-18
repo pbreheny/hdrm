@@ -6,12 +6,12 @@
 #' @param N     Number of random splits
 #' @param seed  Random number seed for reproducibility
 #'
-#' @examples
+#' @returns A vector of p-values
 #'
+#' @examples
 #' Data <- Ex9.1()
 #' out <- Fig9.1(Data)
-#' Fig9.1(out)
-#'
+#' head(out)
 #' @export
 
 Fig9.1 <- function(out, N=100, seed=1) {

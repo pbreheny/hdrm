@@ -1,14 +1,14 @@
 Package: hdrm
 Title: High-Dimensional Regression Modeling
-Date: 2023-02-13
-Version: 0.5.0
+Date: 2023-02-18
+Version: 0.5.1
 Author: Patrick Breheny and Jian Huang
 Maintainer: Patrick Breheny <patrick-breheny@uiowa.edu>
 Description: Examples, simulations, and figures from the book, "High-Dimensional
  Regression Modeling", by Breheny and Huang.
 Depends: R (>= 3.5.0), glmnet, ncvreg
-Imports: grpreg, Matrix
-Suggests: ggplot2, abind, gridExtra, tinytest
+Imports: grpreg, Matrix, rlang
+Suggests: abind, ggplot2, gridExtra, tinytest
 BugReports: http://github.com/pbreheny/hdrm/issues
 License: GPL-3
 RoxygenNote: 7.2.3

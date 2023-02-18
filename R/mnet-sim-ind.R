@@ -1,6 +1,6 @@
-#' Reproduce Example 4.3
+#' Reproduce Example 4.3 and Figure 4.2
 #'
-#' Reproduces Example 4.3 from the book.  If you specify any options, your results may look different.
+#' Reproduces Example 4.3 and Figure 4.2 from the book. If you specify any options, your results may look different.
 #'
 #' @param N       Number of simulated realizations
 #' @param s       Signal strength (coefficient value for the non-null features)
@@ -9,7 +9,9 @@
 #' @param p1      Number of non-null features
 #' @param seed    Seed for reproducibility
 #'
-#' @examples Ex4.3(N=2, seq=c(0.3, 1))
+#' @examples
+#' res <- Ex4.3(N=2, s=c(0.3, 1))
+#' Fig4.2(res)
 #' @export
 
 Ex4.3 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, seed=1) {
@@ -42,16 +44,12 @@ Ex4.3 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, seed=1) {
   res
 }
 
-#' Reproduce Figure 4.2
-#'
-#' Reproduces Figure 4.2 from the book.  If you specify any options, your results may look different.
+#' @rdname Ex4.3
+#' @aliases Fig4.2
 #'
 #' @param res       Output from Ex4.3
 #' @param parlist   List of arguments to pass to `par()`
 #'
-#' @examples
-#' res <- Ex4.3(N=5)
-#' Fig4.2(res)
 #' @export
 
 Fig4.2 <- function(res, parlist=list(mfrow=c(1,2), mar=c(4,4,2,0.5))) {

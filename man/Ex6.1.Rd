@@ -2,13 +2,20 @@
 % Please edit documentation in R/z-values.R
 \name{Ex6.1}
 \alias{Ex6.1}
-\title{Reproduce Example 6.1}
+\alias{Fig6.1}
+\title{Reproduce Example 6.1 and Figure 6.1}
 \usage{
 Ex6.1()
+
+Fig6.1(out)
+}
+\arguments{
+\item{out}{Output of Ex6.1()}
 }
 \description{
-Reproduces Example 6.1 from the book.  If you specify any options, your results may look different.
+Reproduces Example 6.1 and Figure 6.1 from the book. If you specify any options, your results may look different.
 }
 \examples{
 out <- Ex6.1()
+Fig6.1(out)
 }

@@ -34,7 +34,7 @@ Fig9.3 <- function(N=100, seed=1) {
   }
   close(pb)
   S <- apply(SS, 2:3, mean)
-  colnames(S) <- ncvreg:::lamNames(fit$lambda)
+  colnames(S) <- lam_names(fit$lambda)
   q <- apply(Q, 2, mean)
   sMax <- apply(S, 1, max)
 

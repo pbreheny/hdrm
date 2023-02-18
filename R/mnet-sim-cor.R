@@ -1,6 +1,6 @@
-#' Reproduce Example 4.4
+#' Reproduce Example 4.4 and Figure 4.3
 #'
-#' Reproduces Example 4.4 from the book.  If you specify any options, your results may look different.  Note that this simulation in particular is very time-consuming if run with the full N=100 replications.
+#' Reproduces Example 4.4 and Figure 4.3 from the book.  If you specify any options, your results may look different.  Note that this simulation in particular is very time-consuming if run with the full N=100 replications.
 #'
 #' @param N       Number of simulated realizations
 #' @param s       Signal strength (coefficient value for the non-null features)
@@ -10,7 +10,9 @@
 #' @param rho     Correlation between features (compound symmetric)
 #' @param seed    Seed for reproducibility
 #'
-#' @examples Ex4.4(N=2, seq=c(0.3, 1))
+#' @examples
+#' res <- Ex4.4(N=2, s=c(0.3, 1))
+#' Fig4.3(res)
 #' @export
 
 Ex4.4 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, rho=0.7, seed=1) {
@@ -43,16 +45,11 @@ Ex4.4 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, rho=0.7, see
   res
 }
 
-#' Reproduce Figure 4.3
-#'
-#' Reproduces Figure 4.3 from the book.  If you specify any options, your results may look different.
+#' @rdname Ex4.4
 #'
 #' @param res       Output from Ex4.4
 #' @param parlist   List of arguments to pass to `par()`
 #'
-#' @examples
-#' res <- Ex4.4(N=3)
-#' Fig4.3(res)
 #' @export
 
 Fig4.3 <- function(res, parlist=list(mfrow=c(1,2), mar=c(4,4,2,0.5))) {
