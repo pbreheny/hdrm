@@ -32,6 +32,7 @@ Ex1.1 <- function(N=100, n=25, p=100) {
     cover <- c(cover, apply(confint(fit)[-1,,drop=FALSE], 1, prod) <= 0)
     setTxtProgressBar(pb, i)
   }
+  close(pb)
   list(results=res, cover=cover, pred=pred)
 }
 

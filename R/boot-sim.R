@@ -30,6 +30,7 @@ Tab9.1 <- function(N=100, B=100, n=100, p=100, a=10, b=2, rho=0.5, noise='autore
     cov[i,] <- Data$beta >= res$Lower & Data$beta <= res$Upper
     setTxtProgressBar(pb, i)
   }
+  close(pb)
   out <- data.frame(A=mean(cov[, Data$varType=="A"]),
                     B=mean(cov[, Data$varType=="B"]),
                     N=mean(cov[, Data$varType=="N"]),

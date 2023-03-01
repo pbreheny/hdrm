@@ -42,6 +42,7 @@ Ex4.2 <- function(N=1000, rho=seq(0, 0.9, 0.1), n=50, p=100, p1=5, b=0.5, alpha=
     }
     setTxtProgressBar(pb, i)
   }
+  close(pb)
   res
 }
 

@@ -31,6 +31,7 @@ Fig9.1 <- function(out, N=100, seed=1) {
     P[i, var.id] <- summ[,4]
     setTxtProgressBar(pb, i)
   }
+  close(pb)
   pval <- apply(P, 2, median)
   boxplot(pval[out$varType=="A"],
           pval[out$varType=="B"],

@@ -39,6 +39,7 @@ Ex3.1 <- function(N=500, n=50, p=100, p1=6, SNR=c(1, 2, 4), seed=2) {
     }
     setTxtProgressBar(pb, i)
   }
+  close(pb)
   list(MCP=mMSE, SCAD=sMSE)
 }
 

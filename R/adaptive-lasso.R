@@ -41,6 +41,7 @@ cv.adaptive_lasso <- function(X, y, nfolds=10, seed) {
     E[fold==i,] <- ncvreg:::loss.ncvreg(y[fold==i], yhat, 'gaussian')
     setTxtProgressBar(pb, i)
   }
+  close(pb)
 
   # Return as cv.ncvreg object
   ind <- which(apply(is.finite(E), 2, all))

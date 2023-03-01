@@ -64,6 +64,7 @@ Fig2.8 <- function(n=100, p=1000, N=25, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5
     V[i,] <- 0.5*v1 + 0.5*v2
     setTxtProgressBar(pb, i)
   }
+  close(pb)
   Sigma[,3,1] <- sqrt(apply(V, 2, mean, na.rm=TRUE))
 
   # Signal case -------------------------------------------------------------
@@ -108,6 +109,7 @@ Fig2.8 <- function(n=100, p=1000, N=25, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5
     V[i,] <- 0.5*v1 + 0.5*v2
     setTxtProgressBar(pb, i)
   }
+  close(pb)
   Sigma[,3,2] <- sqrt(apply(V, 2, mean, na.rm=TRUE))
 
   # Plot --------------------------------------------------------------------
