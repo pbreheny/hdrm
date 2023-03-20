@@ -26,7 +26,7 @@ SCAD <- function(theta, l, a=3.7) {
 }
 dSCAD <- function(theta, l, a=3.7) {
   theta <- abs(theta)
-  (theta < l)*l + ((theta > l) & (theta < a*l)) * ((a*l-theta) / (a-1))
+  (theta <= l)*l + ((theta > l) & (theta < a*l)) * ((a*l-theta) / (a-1))
 }
 firmSCAD <- function(z, l, g=3.7) {
   (abs(z) > g*l)*z +
