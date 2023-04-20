@@ -103,7 +103,7 @@ plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), standardize=FALSE, xl
     if (missing(xlab)) xlab <- expression(lambda)
     matplot(ll, B, lty=1, col=col, type="l", lwd=3, xaxt="n",
             xlab=xlab, ylab="", las=1, xlim=rev(range(ll)), bty="n", ...)
-    logAxis(1, base=10)
+    log_axis(1, base=10)
   } else if (xaxis=='df') {
     matplot(x$df, B, lty=1, col=col, type="l", lwd=3,
             xlab='Degrees of freedom', ylab="", las=1, bty="n")

@@ -18,7 +18,7 @@ Fig1.5 <- function(lwd=3, xlim=c(3,-3), ylim=c(50,250), xlab=expression(lambda),
   col <- pal(2)
   plot(ll, fit$GCV/1000, type="l", lwd=3, xlim=xlim, las=1, xlab=xlab, xaxt="n", ylab=ylab, ylim=ylim,
        col=col[2], bty="n")
-  logAxis(1, base=10)
+  log_axis(1, base=10)
   lines(ll, fit$RSS/1000, col=col[1], lwd=3)
   text(-3.1, 105, "GCV", xpd=TRUE)
   text(-3.1, 65, "RSS", xpd=TRUE)

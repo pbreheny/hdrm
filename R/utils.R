@@ -3,7 +3,27 @@ array2df <- function(X,vars=paste("V",1:ncol(df),sep="")) {
   names(df) <- vars
   df
 }
-logAxis <- function(side=1, base, disp=base, n=5, style=NULL, ...) {
+
+#' Make a log-scale axis
+#'
+#' @param side    1=bottom, 2=left, 3=top, 4=right
+#' @param base    What base is the log?  Default is base e (natural log).
+#' @param disp    By default, displays in same base as how constructed, but can display in other bases too
+#' @param n       Number of tick marks
+#' @param style   Either "dec" for decimals such as 0.125, or "pow" for powers such as 2^(-3)
+#' @param ...     Further arguments to `axis()`
+#'
+#' @examples
+#' x <- rexp(100)
+#' y <- runif(100)
+#' plot(log(x), y)
+#' plot(log(x), y, xaxt='n', xlab='x')
+#' log_axis()
+#' plot(log(x), y, xaxt='n', xlab='x')
+#' log_axis(style='pow', disp=2)
+#' @export
+
+log_axis <- function(side=1, base, disp=base, n=5, style=NULL, ...) {
   if (missing(base)) base <- exp(1)
   is.x <- side%%2 == 1
   usr <- if(is.x) par("usr")[1:2] else par("usr")[3:4]
@@ -26,6 +46,24 @@ logAxis <- function(side=1, base, disp=base, n=5, style=NULL, ...) {
   }
   a <- axis(side, at=at, labels=lab, las=1, ...)
 }
+
+#' Make a legend on top or right side of plot
+#'
+#' @param horiz   Horizontal layout?
+#' @param ...     Further arguments to `legend()`
+#'
+#' @name toplegend
+#'
+#' @examples
+#' g <- rbinom(20, 1, 0.5)
+#' x <- rnorm(20)
+#' y <- rnorm(20)
+#' plot(x, y, col=pal(2)[g+1], pch=19)
+#' toplegend(legend=c('Group 1', 'Group 2'), col=pal(2), pch=19)
+NULL
+
+#' @rdname toplegend
+#' @export
 toplegend <- function(horiz=TRUE, ...) {
   if (par("oma")[3]==0) {
     x <- mean(par("usr")[1:2])
@@ -42,6 +80,9 @@ toplegend <- function(horiz=TRUE, ...) {
     legend(mean(xxx), mean(c(yyy[2],yyyy[2])), xpd=NA, bty="n", xjust=0.5, yjust=0.5, horiz=horiz, ...)
   }
 }
+
+#' @rdname toplegend
+#' @export
 rightlegend <- function(...) {
   if (par("oma")[3]==0) {
     y <- mean(par("usr")[3:4])
@@ -64,6 +105,16 @@ transform.coord <- function(x,p) {
   b <- a + ba
   c(a,b)
 }
+
+#' Generate a nice palette of colors
+#'
+#' @param n       Number of colors to generate, evenly spaced on hcl scale
+#' @param alpha   Partial transparency
+#'
+#' @examples
+#' pal(3)
+#' @export
+
 pal <- function(n, alpha=1) {
   if (n==2) {
     val <- hcl(seq(15,375,len=4), l=60, c=150, alpha=alpha)[c(1,3)]

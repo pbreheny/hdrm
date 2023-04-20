@@ -19,6 +19,6 @@ Fig1.1 <- function(n=20, p=n-1, seed=1) {
   }
   plot(1:p, log(20*bigVar, 2), yaxt="n", ylab="Largest variance", xlab="Number of columns included",
        pch=19, bty="n", xlim=c(0,n))
-  logAxis(2, base=2)
+  log_axis(2, base=2)
   invisible(20*bigVar)
 }
