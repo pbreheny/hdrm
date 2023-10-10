@@ -36,7 +36,14 @@ gen_data(
 \item{rho}{Correlation coefficient}
 }
 \description{
-Simulate data for regression models
+This function is designed to scale efficiently to high dimensions, and
+therefore imposes some restrictions. For example, correlation must be
+positive.
+}
+\details{
+Note that if beta is not supplied, this function must calculate the SNR to
+determine an appropriate coefficient size. This will be slow if the dimension
+is large and beta is not sparse.
 }
 \examples{
 dat <- gen_data(100, 100, 10)

@@ -21,22 +21,26 @@ gen_data(1000, 10, rho=0.7, corr='auto')$X |> cor() |> round(digits=2)
 gen_data(1000, 3, 3, rho=0)$X |> cor() |> round(digits=2)
 
 # timing check: exch
+n <- 100
 p <- 3000
-old <- function(n, p, rho) genX(n, p, genS(p, rho, 'exchangeable'))
+p1 <- 5
+rho <- 0.5
 res <- bench::mark(
-  old(100, p, 0.5),
-  gen_x(100, p, 0.5),
+  genData(n, p, p1, rho=rho, corr='exchangeable'),
+  gen_data(n, p, p1, rho=rho, corr='exchangeable'),
   check=FALSE)
 summary(res)
 summary(res, relative = TRUE)
 ggplot2::autoplot(res)
 
 # timing check: auto
+n <- 100
 p <- 3000
-old <- function(n, p, rho) genX(n, p, genS(p, rho, 'autoregressive'))
+p1 <- 5
+rho <- 0.5
 res <- bench::mark(
-  old(100, p, 0.5),
-  gen_x(100, p, 0.5, corr='autoregressive'),
+  genData(n, p, p1, rho=rho, corr='autoregressive'),
+  gen_data(n, p, p1, rho=rho, corr='autoregressive'),
   check=FALSE)
 summary(res)
 summary(res, relative = TRUE)

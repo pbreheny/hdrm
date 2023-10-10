@@ -1,5 +1,13 @@
 #' Simulate data for regression models
 #'
+#' This function is designed to scale efficiently to high dimensions, and
+#' therefore imposes some restrictions. For example, correlation must be
+#' positive.
+#'
+#' Note that if beta is not supplied, this function must calculate the SNR to
+#' determine an appropriate coefficient size. This will be slow if the dimension
+#' is large and beta is not sparse.
+#'
 #' @param n      Sample size
 #' @param p      Number of features
 #' @param p1     Number of nonzero features
@@ -39,7 +47,7 @@ gen_data <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"),
   signal <- match.arg(signal)
   corr <- match.arg(corr)
 
-  # Gen X, S
+  # Gen X
   X <- gen_x(n, p, rho, corr)
 
   # Gen beta
@@ -51,7 +59,7 @@ gen_data <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"),
       if (signal=="heterogeneous") b <- b*rev(j)
       b <- b*s
       beta <- b*sqrt(SNR)/sqrt(drop(crossprod(b)))
-      #beta <- b*sqrt(SNR)/sqrt(calc_bsb(b, rho, corr))
+      #beta <- b*sqrt(SNR)/sqrt(calc_bsb(b[1:p1], rho, corr))
     } else {
       beta <- b*s*beta
     }
