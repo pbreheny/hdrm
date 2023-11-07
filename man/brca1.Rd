@@ -1,9 +1,8 @@
-\name{bcTCGA}
+\name{brca1}
 \docType{data}
-\alias{bcTCGA}
+\alias{brca1}
 
-\title{Breast cancer gene expression data from The Cancer Genome
-Atlas}
+\title{Breast cancer gene expression data from The Cancer Genome Atlas}
 \description{
 This data set comes from breast cancer tissue samples deposited to The
 Cancer Genome Atlas (TCGA) project. TCGA contains data on tumour samples
@@ -23,15 +22,15 @@ expression measurements are recorded on the log scale. There are are 491
 genes with missing data, which we have excluded.
 
 }
+
 \section{Dimensions}{
 \itemize{
 \item
   n = 536
 \item
-  p = 17,322
-}
+  p = 17322
+}}
 
-}
 \format{
 \itemize{
 \item

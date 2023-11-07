@@ -30,10 +30,9 @@ Data sets in hdrm are lists consisting of \code{X}, \code{y}, and possibly other
 \examples{
 \dontrun{
 downloadData()         # Download all data sets
-downloadData(bcTCGA)   # Download a specific data set}
+downloadData(brca1)    # Download a specific data set}
 
-
-Data <- readData(bcTCGA)
+Data <- readData(brca1)
 dim(Data$X)
 head(Data$y)
 
