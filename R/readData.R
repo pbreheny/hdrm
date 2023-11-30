@@ -13,8 +13,7 @@
 #' @examples
 #' \dontrun{
 #' downloadData()         # Download all data sets
-#' downloadData(bcTCGA)   # Download a specific data set}
-#'
+#' downloadData(brca1)    # Download a specific data set}
 #' @export
 
 downloadData <- function(name) {
@@ -24,7 +23,10 @@ downloadData <- function(name) {
     name <- as.character(substitute(name))
   }
   for (id in name) {
-    URL <- paste0('http://s3.amazonaws.com/pbreheny-data-sets/', id, '.rds')
+    ext <- if (id == 'glioma') '.txt' else '.rds'
+    URL <- paste0(
+      'https://github.com/IowaBiostat/data-sets/raw/main/',
+      id, '/', id, ext)
     FILE <- paste0(system.file("extdata", package="hdrm"), '/', id, '.rds')
     download.file(URL, FILE, mode='wb')
   }
@@ -36,7 +38,7 @@ downloadData <- function(name) {
 #'
 #' @examples
 #'
-#' Data <- readData(bcTCGA)
+#' Data <- readData(brca1)
 #' dim(Data$X)
 #' head(Data$y)
 #'
