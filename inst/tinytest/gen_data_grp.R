@@ -20,3 +20,18 @@ gen_data_grp(1000, 3, 3, rho=0)$X |> cor() |> round(digits=2)
 gen_data_grp(1000, 3, 3, rho=0.7)$X |> cor() |> round(digits=2)
 gen_data_grp(1000, 3, 3, rho=0.3, rho.g=0.8)$X |> cor() |> round(digits=2)
 gen_data_grp(1000, 3, 3, rho=0.1, rho.g=0.5)$X |> cor() |> round(digits=2)
+
+# timing check
+n <- 100
+J <- 1000
+K <- 3
+rho <- 0.3
+rho.g <- 0.6
+res <- bench::mark(
+  genDataGrp(n, J, K, rho=rho, rho.g = rho.g),
+  gen_data_grp(n, J, K, rho=rho, rho.g = rho.g),
+  check=FALSE)
+summary(res)
+summary(res, relative = TRUE)
+ggplot2::autoplot(res)
+
