@@ -2,8 +2,8 @@ if (interactive()) library(tinytest)
 
 dat <- gen_data(100, 100, 10)
 expect_equal(dim(dat$X), c(100, 100))
-head(dat$y)
-head(dat$beta)
+head(dat$y
+# head(dat$beta)
 
 gen_data(100, 10, 5)$beta
 gen_data(100, 10, 5, SNR=2)$beta
@@ -29,9 +29,9 @@ res <- bench::mark(
   genData(n, p, p1, rho=rho, corr='exchangeable'),
   gen_data(n, p, p1, rho=rho, corr='exchangeable'),
   check=FALSE)
-summary(res)
-summary(res, relative = TRUE)
-ggplot2::autoplot(res)
+# summary(res)
+# summary(res, relative = TRUE)
+# ggplot2::autoplot(res)
 
 # timing check: auto
 n <- 100
@@ -42,9 +42,9 @@ res <- bench::mark(
   genData(n, p, p1, rho=rho, corr='autoregressive'),
   gen_data(n, p, p1, rho=rho, corr='autoregressive'),
   check=FALSE)
-summary(res)
-summary(res, relative = TRUE)
-ggplot2::autoplot(res)
+# summary(res)
+# summary(res, relative = TRUE)
+# ggplot2::autoplot(res)
 
 # bsb
 rho <- 0.4

@@ -111,3 +111,4 @@ gen_y <- function(eta, family=c("gaussian", "binomial"), sigma=1) {
     rbinom(n,1,pi.)
   }
 }
+
