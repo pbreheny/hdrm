@@ -1,42 +1,24 @@
-#' Reproduce Example 6.2 and Figure 6.3
+#' Reproduce Example 6.3 and Figure 6.5
 #'
-#' Reproduces Example 6.2 and Figure 6.3 from the book.  If you specify any options, your results may look different.
+#' Reproduces Example 6.3 and Figure 6.5 from the book.  If you specify any options, your results may look different.
 #'
 #' @examples
 #' \dontrun{
-#' out <- Ex6.2()
-#' Fig6.3(out)
+#' out <- Ex6.3()
+#' Fig6.5(out)
 #' }
 #' @export
 
 Ex6.3 <- function() {
+  # ~/res/lassoFDR/corr/*
   stop('Ex6.3 not implemented yet')
-
-  # NEED TO ADD
 }
 
 #' @rdname Ex6.3
-#'
 #' @param out   Output of `Ex6.3()`
-#'
 #' @export
 
 Fig6.5 <- function(out) {
-
-  ## Read in data
-  df <- array2df(apply(out[,,-1], 2:3, sum), vars=c("lambda", "Type", "Avg"))
-  S <- apply(out[,,1], 2, sum)
-  df$mFDR <- df$Avg/S
-  df$Avg <- df$Avg/dim(out)[1]
-  df$lam <- factor2num(df$lambda)
-  df$ll <- log(df$lam)
-
-  xlim <- rev(range(df$ll))
-  p1 <- qplot(ll, Avg, data=df, color=Type, geom="line", xlab=expression(log(lambda)), ylab="False inclusions", xlim=xlim) +
-    geom_line(size=2) + scale_color_manual(values=pal(2, alpha=0.5)) + theme(legend.position="top")
-  p2 <- qplot(ll, mFDR, data=df, color=Type, geom="line", xlab=expression(log(lambda)), ylab="False inclusions", xlim=xlim) +
-    geom_line(size=2) + scale_color_manual(values=pal(2, alpha=0.5)) + theme(legend.position="top")
-
-  #subset(df, ll == ll[14])
-  gridExtra::grid.arrange(p1, p2, widths=c(1,1))
+  if (missing(out)) stop("You need to run the code in Ex6.3() first and pass it to Fig6.5()")
+  # /man/Breheny2019/fig/sim-corr.R
 }

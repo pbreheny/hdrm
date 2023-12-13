@@ -1,9 +1,3 @@
-array2df <- function(X,vars=paste("V",1:ncol(df),sep="")) {
-  df <- cbind(do.call("expand.grid",dimnames(X)),as.numeric(X))
-  names(df) <- vars
-  df
-}
-
 #' Make a log-scale axis
 #'
 #' @param side    1=bottom, 2=left, 3=top, 4=right
