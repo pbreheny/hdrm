@@ -50,8 +50,8 @@ ggplot2::autoplot(res)
 rho <- 0.4
 b <- rnorm(10)
 E <- (1-rho)*diag(10) + matrix(rho, 10, 10)
-expect_equal(crossprod(b, E) %*% b |> drop(), calc_bsb(b, rho, 'exchangeable'))
+expect_equal(crossprod(b, E) %*% b |> drop(), hdrm:::calc_bsb(b, rho, 'exchangeable'))
 rho <- 0.9
 RHO <- matrix(rho^(0:9), 10, 10, byrow=TRUE)
 A <- Matrix::bandSparse(10, k=0:9, diagonals=RHO, symmetric=TRUE)
-expect_equal(crossprod(b, A) %*% b |> drop(), calc_bsb(b, rho, 'autoregressive'))
+expect_equal(crossprod(b, A) %*% b |> drop(), hdrm:::calc_bsb(b, rho, 'autoregressive'))

@@ -3,7 +3,7 @@
 \name{Ex6.3}
 \alias{Ex6.3}
 \alias{Fig6.5}
-\title{Reproduce Example 6.2 and Figure 6.3}
+\title{Reproduce Example 6.3 and Figure 6.5}
 \usage{
 Ex6.3()
 
@@ -13,11 +13,11 @@ Fig6.5(out)
 \item{out}{Output of \code{Ex6.3()}}
 }
 \description{
-Reproduces Example 6.2 and Figure 6.3 from the book.  If you specify any options, your results may look different.
+Reproduces Example 6.3 and Figure 6.5 from the book.  If you specify any options, your results may look different.
 }
 \examples{
 \dontrun{
-out <- Ex6.2()
-Fig6.3(out)
+out <- Ex6.3()
+Fig6.5(out)
 }
 }

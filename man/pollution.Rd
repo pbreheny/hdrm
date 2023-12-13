@@ -66,7 +66,7 @@ the analysis as well.
     occupations
   \item
     \code{Poor}: Percentage of households with annual income under
-    \$3,000 in 1960
+    $3,000 in 1960
   \item
     \code{HC}: Pollution potential of hydrocarbons
   \item

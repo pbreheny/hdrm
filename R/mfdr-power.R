@@ -2,6 +2,8 @@
 #'
 #' Reproduces Example Figure 6.4 from the book.  If you specify any options, your results may look different.
 #'
+#' @param out   Output of `Ex6.2()`
+#'
 #' @examples
 #' \dontrun{
 #' out <- Ex6.2()
