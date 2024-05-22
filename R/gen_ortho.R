@@ -4,18 +4,17 @@
 #' @param p      Number of features
 #' @param p1     Number of nonzero features
 #' @param beta   Vector of regression coefficients in the generating model, or, if a scalar, the value of each nonzero regression coefficient.
-#' @param family Generate \code{y} according to linear "gaussian" or logistic "binomial" model
+#' @param family Generate `y according to linear "gaussian" or logistic "binomial" model
 #' @param SNR    Signal to noise ratio
 #' @param signal Should the beta coefficients be homogeneous (default) or heterogeneous
 #'
 #' @examples
-#' Data <- genOrtho(5, 2)
+#' Data <- gen_ortho(5, 2)
 #' Data$X
 #' crossprod(Data$X)
-#'
 #' @export
 
-genOrtho <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"), SNR=1,
+gen_ortho <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"), SNR=1,
                     signal = c("homogeneous","heterogeneous")) {
   family <- match.arg(family)
   signal <- match.arg(signal)

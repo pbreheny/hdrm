@@ -1,26 +1,24 @@
-#' Plot confidence intervals (NEEDS DOCUMENTATION)
+#' Create forest plot of confidence intervals
 #'
-#' "Forest plot"-style plotting of confidence intervals from a regression model.  Basic input is a matrix with columns of estimate/lower/upper, along with an optional 4th column for the p-value.  Also works with a variety of models (lm/glm/coxph/etc.)
+#' "Forest plot"-style plotting of confidence intervals from a regression model. Basic input is a matrix with columns of estimate/lower/upper, along with an optional 4th column for the p-value. Also works with a variety of models (lm/glm/coxph/etc).
 #'
 #' @param obj   The object to be plotted; can be a matrix of raw values or a model object
+#' @param ...
 #'
 #' @examples
 #' # Supplying a matrix
 #' B <- cbind(1:3, 0:2, 2:4)
 #' rownames(B) <- LETTERS[1:3]
-#' CIplot(B)
+#' ci_plot(B)
 #'
 #' # Supplying a fitted model object
 #' fit <- lm(Ozone ~ Solar.R + Wind + Temp, airquality)
-#' CIplot(fit)
-#'
-#' # Options
-#'
+#' ci_plot(fit)
 #' @export
 
-CIplot <- function(obj,...) UseMethod("CIplot")
+ci_plot <- function(obj, ...) UseMethod("ci_plot")
 
-#' @rdname CIplot
+#' @rdname ci_plot
 #'
 #' @param labels              Paramater labels
 #' @param sort                Sort parameters by estimate? (default: true)
@@ -43,7 +41,7 @@ CIplot <- function(obj,...) UseMethod("CIplot")
 #'
 #' @export
 
-CIplot.matrix <- function(
+ci_plot.matrix <- function(
     obj, labels=rownames(B), sort=TRUE, pxlim, xlim, ylim, sub, diff=(ncol(B)==4), null=0, n.ticks=6, mar, axis=!add,
     trans, p.label=FALSE, xlab="", ylab="", add=FALSE, setupOnly=FALSE, lwd=2, replaceUnderscore=TRUE, ...) {
   B <- obj
@@ -117,7 +115,7 @@ CIplot.matrix <- function(
 
 #' @export
 
-CIplot.lm <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, ...) {
+ci_plot.lm <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, ...) {
   fit <- obj
   p <- length(coef(fit))
   j <- if (intercept) 1:p else 2:p
@@ -127,17 +125,17 @@ CIplot.lm <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclu
              summary(fit)$coef[j,4])
   colnames(B) <- c("Coef","Lower","Upper","p")
   for (i in seq_along(exclude)) B <- B[-grep(exclude[i],rownames(B)),,drop=FALSE]
-  if (plot) B <- CIplot(B, xlab=xlab, ...)
+  if (plot) B <- ci_plot(B, xlab=xlab, ...)
   return(invisible(B))
 }
 
 #' @export
 
-CIplot.glm <- function(obj,...) CIplot.lm(obj,...)
+ci_plot.glm <- function(obj,...) ci_plot.lm(obj,...)
 
 #' @export
 
-CIplot.mer <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, n.sim=10000, ...) {
+ci_plot.mer <- function(obj, intercept=FALSE, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, n.sim=10000, ...) {
   fit <- obj
   p <- length(fit@fixef)
   j <- if (intercept) 1:p else 2:p
@@ -145,13 +143,13 @@ CIplot.mer <- function(obj, intercept=FALSE, xlab="Regression coefficient", excl
   if (!missing(tau)) B[,1:3] <- B[,1:3]*tau
   colnames(B) <- c("Coef","Lower","Upper","p")
   for (i in seq_along(exclude)) B <- B[-grep(exclude[i],rownames(B)),]
-  if (plot) B <- CIplot(B, xlab=xlab, ...)
+  if (plot) B <- ci_plot(B, xlab=xlab, ...)
   return(invisible(B))
 }
 
 #' @export
 
-CIplot.coxph <- function(obj, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, ...) {
+ci_plot.coxph <- function(obj, xlab="Regression coefficient", exclude=NULL, plot=TRUE, tau, ...) {
   fit <- obj
   p <- length(coef(fit))
   j <- 1:p
@@ -161,12 +159,12 @@ CIplot.coxph <- function(obj, xlab="Regression coefficient", exclude=NULL, plot=
              summary(fit)$coef[j,5])
   colnames(B) <- c("Coef","Lower","Upper","p")
   for (i in seq_along(exclude)) B <- B[-grep(exclude[i],rownames(B)),]
-  if (plot) B <- CIplot(B,xlab=xlab,...)
+  if (plot) B <- ci_plot(B,xlab=xlab,...)
   return(invisible(B))
 }
 
 #' @export
 
-CIplot.data.frame <- function(obj, ...) {
-  CIplot.matrix(as.matrix(obj), ...)
+ci_plot.data.frame <- function(obj, ...) {
+  ci_plot.matrix(as.matrix(obj), ...)
 }
