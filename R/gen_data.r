@@ -40,7 +40,7 @@
 #' gen_data(1000, 3, 3, rho=0)$X |> cor() |> round(digits=2)
 #' @export
 
-gen_data <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial"), SNR=1,
+gen_data <- function(n, p, p1=floor(p/2), beta, family=c("gaussian","binomial","poisson"), SNR=1,
                     signal = c("homogeneous","heterogeneous"), corr=c("exchangeable", "autoregressive"),
                     rho = 0) {
   family <- match.arg(family)
@@ -99,15 +99,18 @@ calc_bsb <- function(b, rho, corr) {
   }
 }
 
-gen_y <- function(eta, family=c("gaussian", "binomial"), sigma=1) {
-  family=match.arg(family)
+gen_y <- function(eta, family = c("gaussian", "binomial", "poisson"), sigma = 1) {
+  family <- match.arg(family)
   n <- length(eta)
-  if (family=="gaussian") {
-    rnorm(n, mean=eta, sd=sigma)
-  } else if (family=="binomial") {
-    pi. <- exp(eta)/(1+exp(eta))
-    pi.[eta > log(.9999/.0001)] <- 1
-    pi.[eta < log(.0001/.9999)] <- 0
-    rbinom(n,1,pi.)
+  if (family == "gaussian") {
+    rnorm(n, mean = eta, sd = sigma)
+  } else if (family == "binomial") {
+    pi. <- 1 / (1 + exp(-eta))
+    pi.[eta > log(.9999 / .0001)] <- 1
+    pi.[eta < log(.0001 / .9999)] <- 0
+    rbinom(n, 1, pi.)
+  } else if (family == "poisson") {
+    mu <- exp(eta)
+    rpois(n, lambda = mu)
   }
 }

@@ -45,7 +45,7 @@
 #' @export
 
 gen_data_grp <- function(n, J, K=1, beta, family=c("gaussian","binomial"), J1=ceiling(J/2), K1=K, SNR=1, signal = c("homogeneous","heterogeneous"),
-                       signal.g = c("homogeneous","heterogeneous"), rho = 0, rho.g = rho) {
+                       signal.g = c("homogeneous","heterogeneous"), rho = 0, rho.g = rho, rho.gz = rho) {
   family <- match.arg(family)
   signal <- match.arg(signal)
   signal.g <- match.arg(signal.g)
@@ -53,9 +53,13 @@ gen_data_grp <- function(n, J, K=1, beta, family=c("gaussian","binomial"), J1=ce
   # Gen X
   columns <- list()
   common_factor <- sqrt(rho)*rnorm(n)
-  for (i in 1:J) {
+  for (i in 1:J1) {
     z <- rnorm(n)
     columns[[i]] <- common_factor + sqrt(rho.g - rho)*rnorm(n) + sqrt(1-rho.g) * matrix(rnorm(n*K), n, K)
+  }
+  for (i in (J1 + 1):J) {
+    z <- rnorm(n)
+    columns[[i]] <- common_factor + sqrt(rho.gz - rho)*rnorm(n) + sqrt(1-rho.gz) * matrix(rnorm(n*K), n, K)
   }
   X <- do.call(cbind, columns)
 

@@ -71,10 +71,14 @@ gen_data_abn <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian", "b
       bbb[((1:a)-1)*K+1] <- bb
       beta <- bbb*beta
     }
-  } else {
+  } else if (length(beta) == a) {
     bb <- beta
     beta <- numeric(p)
     beta[((1:a)-1)*K+1] <- bb
+  } else if (length(beta) == p) {
+    if (sum(beta[!(((1:a)-1)*K+1)]) != 0 & sum(beta[!(((1:a)-1)*K+1)]) != 0 & rho != 0) {
+      warning("User supplied all beta values, and there is correlation between causal variables. Make sure this is what you expected")
+    }
   }
 
   # Gen y
@@ -84,8 +88,10 @@ gen_data_abn <- function(n=100, p=60, a=6, b=2, rho=0.5, family=c("gaussian", "b
   # Return
   varType <- vector("character", p)
   varType[((1:a)-1)*K+1] <- "A"
-  for (j in 1:b) {
-    varType[((1:a)-1)*K+1+j] <- "B"
+  if (b > 0) {
+    for (j in 1:b) {
+      varType[((1:a)-1)*K+1+j] <- "B"
+    }
   }
   varType[(a*K+1):p] <- "N"
   varLab <- vector("character", p)
