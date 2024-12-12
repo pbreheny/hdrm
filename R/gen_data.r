@@ -114,3 +114,4 @@ gen_y <- function(eta, family = c("gaussian", "binomial", "poisson"), sigma = 1)
     rpois(n, lambda = mu)
   }
 }
+
