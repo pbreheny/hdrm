@@ -1,4 +1,4 @@
-[![GitHub version](https://img.shields.io/static/v1?label=GitHub&message=0.9.3&color=blue&logo=github)](https://github.com/pbreheny/hdrm)
+[![GitHub version](https://img.shields.io/static/v1?label=GitHub&message=0.9.4&color=blue&logo=github)](https://github.com/pbreheny/hdrm)
 
 # hdrm: High dimensional regression modeling
 

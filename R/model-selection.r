@@ -16,7 +16,7 @@ Ex1.1 <- function(N=100, n=25, p=100, bar=TRUE) {
   xnam <- paste0("V", 1:p)
   form <- as.formula(paste("y ~ ", paste(xnam, collapse= "+")))
 
-  out <- expand.grid(coef=1:5, rep=1:N, estimate=NA_real_, cover=NA_integer_, pse=NA_real_)
+  out <- expand.grid(coef=1:5, rep=1:N, estimate=NA_real_, p=NA_real_, cover=NA_integer_, pe=NA_real_, pex=NA_real_)
   pb <- progress::progress_bar$new(total = nrow(out))
   for (i in 1:nrow(out)) {
     if (i == 1 || out$rep[i] != out$rep[i-1]) {
@@ -28,17 +28,23 @@ Ex1.1 <- function(N=100, n=25, p=100, bar=TRUE) {
       yy <- rnorm(n)
       fit0 <- lm(y~1, data=train)
       fit <- step(fit0, scope=form, direction="forward", trace=0, k=log(n), steps=5)
-      pse <- crossprod(yy - predict(fit, test))
+      smry <- summary(fit)$coef
+      pe <- crossprod(yy - predict(fit, test))
+      pex <- crossprod(yy - predict(fit, train))
       j <- 2
     } else {
       j <- j + 1
     }
-    out$estimate[i] <- coef(fit)[j]
-    out$cover[i] <- prod(confint(fit)[j,]) <= 0
-    out$pse[i] <- pse
+    if (j <= length(coef(fit))) {
+      out$estimate[i] <- coef(fit)[j]
+      out$p[i] <- smry[j,4]
+      out$cover[i] <- prod(confint(fit)[j,]) <= 0
+      out$pe[i] <- pe
+      out$pex[i] <- pex
+    }
     if (bar) pb$tick()
   }
-  out
+  out[!is.na(out$estimate), ]
 }
 
 #' Reproduce Figure 1.2
