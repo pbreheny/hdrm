@@ -23,8 +23,8 @@ Ex3.1 <- function(N=500, n=50, p=100, p1=6, SNR=c(1, 2, 4), seed=2) {
   pb <- txtProgressBar(0, N, style=3)
   for (i in 1:N) {
     for (j in 1:length(SNR)) {
-      Data <- genData(n, p, p1, SNR=SNR[j])
-      pData <- genData(n, p, p1, SNR=SNR[j])
+      Data <- gen_data(n, p, p1, SNR=SNR[j])
+      pData <- gen_data(n, p, p1, SNR=SNR[j])
       for (k in 1:length(gam)) {
         fit <- with(Data, ncvreg(X, y, gamma=gam[k]))
         pred <- predict(fit, pData$X)

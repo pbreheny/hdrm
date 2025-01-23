@@ -25,8 +25,8 @@ Ex4.3 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, seed=1) {
   pb <- txtProgressBar(0, N, style=3)
   for (i in 1:N) {
     for (j in 1:S) {
-      Data <- genData(n, p, p1, beta=s[j])
-      pData <- genData(n, p, p1, beta=s[j])
+      Data <- gen_data(n, p, p1, beta=s[j])
+      pData <- gen_data(n, p, p1, beta=s[j])
       for (k in 1:2) {
         min_p <- numeric(5)
         for (a in 1:5) {

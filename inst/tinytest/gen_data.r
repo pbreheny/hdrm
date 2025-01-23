@@ -20,32 +20,6 @@ gen_data(1000, 10, rho=0.7, corr='exch')$X |> cor() |> round(digits=2)
 gen_data(1000, 10, rho=0.7, corr='auto')$X |> cor() |> round(digits=2)
 gen_data(1000, 3, 3, rho=0)$X |> cor() |> round(digits=2)
 
-# timing check: exch
-n <- 100
-p <- 3000
-p1 <- 5
-rho <- 0.5
-res <- bench::mark(
-  genData(n, p, p1, rho=rho, corr='exchangeable'),
-  gen_data(n, p, p1, rho=rho, corr='exchangeable'),
-  check=FALSE)
-summary(res)
-summary(res, relative = TRUE)
-ggplot2::autoplot(res)
-
-# timing check: auto
-n <- 100
-p <- 3000
-p1 <- 5
-rho <- 0.5
-res <- bench::mark(
-  genData(n, p, p1, rho=rho, corr='autoregressive'),
-  gen_data(n, p, p1, rho=rho, corr='autoregressive'),
-  check=FALSE)
-summary(res)
-summary(res, relative = TRUE)
-ggplot2::autoplot(res)
-
 # bsb
 rho <- 0.4
 b <- rnorm(10)

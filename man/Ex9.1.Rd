@@ -30,7 +30,7 @@ Ex9.1(
 
 \item{seed}{Random number seed for reproducibility}
 
-\item{...}{Further arguments to \code{\link{genDataABN}}}
+\item{...}{Further arguments to \code{\link{gen_data_abn}}}
 }
 \description{
 Reproduces Example 9.1 from the book.  If you specify any options, your results may look different.

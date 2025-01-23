@@ -27,11 +27,11 @@ Ex4.2 <- function(N=1000, rho=seq(0, 0.9, 0.1), n=50, p=100, p1=5, b=0.5, alpha=
   for (i in 1:N) {
     for (j in 1:R) {
       if (corr == 'cs') {
-        Data <- genData(n, p, rho=rho[j], beta=beta)
-        pData <- genData(n, p, rho=rho[j], beta=beta)
+        Data <- gen_data(n, p, rho=rho[j], beta=beta)
+        pData <- gen_data(n, p, rho=rho[j], beta=beta)
       } else {
-        Data <- genDataGrp(n, J=20, K=5, rho.g=rho[j], beta=beta)
-        pData <- genDataGrp(n, J=20, K=5, rho.g=rho[j], beta=beta)
+        Data <- gen_data_grp(n, J=20, K=5, rho.g=rho[j], beta=beta)
+        pData <- gen_data_grp(n, J=20, K=5, rho.g=rho[j], beta=beta)
       }
       for (k in 1:2) {
         fit <- with(Data, glmnet(X, y, alpha=alpha[k]))

@@ -11,7 +11,7 @@
 Fig3.6 <- function(seed=9, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5,0.5))) {
   op <- par(parlist)
   set.seed(seed)
-  Data <- genData(20, 50, 4)
+  Data <- gen_data(20, 50, 4)
   fit <- with(Data, ncvreg(X, y, nlambda=500))
   plot(fit, bty='n')
 
