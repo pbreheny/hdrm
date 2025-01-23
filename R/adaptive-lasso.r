@@ -8,7 +8,7 @@
 #' @param seed        For reproducibility with respect to the fold assignments
 #'
 #' @examples
-#' attachData(pollution)
+#' attach_data(pollution)
 #' cvfit <- cv.adaptive_lasso(X, y)
 #' plot(cvfit)
 #' summary(cvfit)

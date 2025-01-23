@@ -13,7 +13,7 @@ Reproduces Figure 2.9 from the book; if you specify any options, your results ma
 Fig2.9()
 
 # By hand
-attachData(pollution)
+attach_data(pollution)
 cvfit <- cv.glmnet(std(X), y)   # Standardize design matrix
 rsq <- 1-cvfit$cvm/var(y)
 

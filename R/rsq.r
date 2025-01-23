@@ -6,7 +6,7 @@
 #' Fig2.9()
 #'
 #' # By hand
-#' attachData(pollution)
+#' attach_data(pollution)
 #' cvfit <- cv.glmnet(std(X), y)   # Standardize design matrix
 #' rsq <- 1-cvfit$cvm/var(y)
 #'
@@ -14,7 +14,7 @@
 
 Fig2.9 <- function() {
   # Fit
-  Data <- readData('pollution')
+  Data <- read_data('pollution')
   X <- std(Data$X)
   y <- Data$y
   cvfit <- cv.ncvreg(X, y, penalty="lasso", nfolds=length(y))

@@ -9,7 +9,7 @@
 #' Fig2.5()
 #'
 #' # default glmnet plot
-#' attachData(pollution)
+#' attach_data(pollution)
 #' fit <- glmnet(std(X), y)   # Standardize design matrix
 #' plot(fit, label=TRUE)
 #'
@@ -21,7 +21,7 @@
 
 Fig2.5 <- function(cv=TRUE, mar=rep(5,4)) {
   op <- par(mar=mar)
-  Data <- readData('pollution')
+  Data <- read_data('pollution')
   X <- std(Data$X)
   y <- Data$y
 

@@ -13,7 +13,7 @@ Fig2.11(fit)
 Reproduces Figure 2.11 from the book.  If you specify any options, your results may look different.
 }
 \examples{
-attachData(brca1)
+attach_data(brca1)
 fit <- ncvreg(X, y, penalty='lasso', lambda.min=0.005)
 Fig2.11(fit)
 

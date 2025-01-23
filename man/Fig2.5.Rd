@@ -18,7 +18,7 @@ Reproduces Figure 2.5 from the book; if you specify any options, your results ma
 Fig2.5()
 
 # default glmnet plot
-attachData(pollution)
+attach_data(pollution)
 fit <- glmnet(std(X), y)   # Standardize design matrix
 plot(fit, label=TRUE)
 

@@ -10,7 +10,7 @@
 #' @export
 
 Fig1.5 <- function(lwd=3, xlim=c(3,-3), ylim=c(50,250), xlab=expression(lambda), ylab="Prediction error", ...) {
-  Data <- readData("pollution")
+  Data <- read_data("pollution")
   XX <- std(Data$X)
   y <- Data$y
   fit <- ridge(XX, y)

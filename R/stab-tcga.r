@@ -14,7 +14,7 @@
 #' @export
 
 Fig9.3 <- function(N=100, seed=1) {
-  Data <- readData("brca1")
+  Data <- read_data("brca1")
   X <- Data$X
   y <- Data$y
   p <- ncol(X)

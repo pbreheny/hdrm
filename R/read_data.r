@@ -1,7 +1,7 @@
 #' Download data and read into R
 #'
 #' These functions are downloading, reading, and attaching data sets described in the hdrm book.
-#' To keep the size of the `hdrm` package manageable, these data sets are not included with the package and must be downloaded separately using `downloadData()`; this only needs to be done once.
+#' To keep the size of the `hdrm` package manageable, these data sets are not included with the package and must be downloaded separately using `download_data()`; this only needs to be done once.
 #'
 #' Data sets in hdrm are lists consisting of `X`, `y`, and possibly other elements.
 #' `read_data` returns the list as an object that the user can name and use how they want.

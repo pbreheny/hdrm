@@ -11,7 +11,7 @@
 #' @export
 
 Fig3.7 <- function(seed=1, nfolds=10, ...) {
-  brca1 <- readData('brca1')
+  brca1 <- read_data('brca1')
 
   # Adaptive lasso (BIC as initial estimator)
   fit <- ncvreg(brca1$X, brca1$y, penalty='lasso')

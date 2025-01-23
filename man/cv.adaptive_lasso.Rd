@@ -19,7 +19,7 @@ cv.adaptive_lasso(X, y, nfolds = 10, seed)
 Using \code{cv.glmnet()} to carry out the adaptive lasso will result in an underestimation of error unless you also apply cross-validation to the initial estimator; this function provides a wrapper to do that.
 }
 \examples{
-attachData(pollution)
+attach_data(pollution)
 cvfit <- cv.adaptive_lasso(X, y)
 plot(cvfit)
 summary(cvfit)

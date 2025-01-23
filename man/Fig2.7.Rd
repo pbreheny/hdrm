@@ -13,7 +13,7 @@ Reproduces Figure 2.7 from the book; if you specify any options, your results ma
 Fig2.7()
 
 # Default plot
-attachData(pollution)
+attach_data(pollution)
 cvfit <- cv.glmnet(std(X), y)   # Standardize design matrix
 plot(cvfit)
 

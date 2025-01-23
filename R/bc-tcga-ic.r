@@ -5,7 +5,7 @@
 #' @param fit     `ncvreg()` fit to the TCGA data; see examples
 #'
 #' @examples
-#' attachData(brca1)
+#' attach_data(brca1)
 #' fit <- ncvreg(X, y, penalty='lasso', lambda.min=0.005)
 #' Fig2.11(fit)
 #'

@@ -10,7 +10,7 @@
 #' @export
 
 Tab4.2 <- function(p=5000, seed=12) {
-  Data <- readData('Scheetz2006')
+  Data <- read_data('Scheetz2006')
   alpha <- seq(1, 0.25, -0.25)
 
   # Restrict to n w/ highest variance

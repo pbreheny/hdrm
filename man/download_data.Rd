@@ -19,7 +19,7 @@ attach_data(name, envir = parent.frame())
 }
 \description{
 These functions are downloading, reading, and attaching data sets described in the hdrm book.
-To keep the size of the \code{hdrm} package manageable, these data sets are not included with the package and must be downloaded separately using \code{downloadData()}; this only needs to be done once.
+To keep the size of the \code{hdrm} package manageable, these data sets are not included with the package and must be downloaded separately using \code{download_data()}; this only needs to be done once.
 }
 \details{
 Data sets in hdrm are lists consisting of \code{X}, \code{y}, and possibly other elements.

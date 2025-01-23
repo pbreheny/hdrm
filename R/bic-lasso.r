@@ -12,7 +12,7 @@
 
 Fig2.6 <- function(EBIC=FALSE) {
   # Fit
-  Data <- readData('pollution')
+  Data <- read_data('pollution')
   X <- std(Data$X)
   y <- Data$y
   fit <- ncvreg(X, y, penalty="lasso")

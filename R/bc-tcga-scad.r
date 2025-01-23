@@ -10,7 +10,7 @@
 #' @export
 
 Fig3.9 <- function(gam=8, seed=1, parlist=list(mfrow=c(1,2))) {
-  brca1 <- readData('brca1')
+  brca1 <- read_data('brca1')
   X <- brca1$X
   y <- brca1$y
 

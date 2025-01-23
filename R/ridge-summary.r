@@ -7,7 +7,7 @@
 #' @export
 
 Tab1.1 <- function() {
-  Data <- readData("pollution")
+  Data <- read_data("pollution")
   XX <- std(Data$X)
   y <- Data$y
   fit.ridge <- ridge(XX, y)

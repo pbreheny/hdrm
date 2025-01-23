@@ -12,7 +12,7 @@
 
 Fig1.4 <- function(gcv.line = TRUE, mar = c(5,5,5,7)) {
   op <- par(mar=mar)
-  Data <- readData("pollution")
+  Data <- read_data("pollution")
   XX <- std(Data$X)
   y <- Data$y
   fit <- ridge(XX, y)

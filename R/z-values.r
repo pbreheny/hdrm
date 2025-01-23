@@ -8,7 +8,7 @@
 #' @export
 
 Ex6.1 <- function() {
-  Data <- readData("Golub1999")
+  Data <- read_data("Golub1999")
   X <- Data$X
   y <- Data$y
   summ <- summary(lm(X~y))

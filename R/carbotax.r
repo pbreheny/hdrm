@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' # Set up data
-#' attachData(Koussounadis2014)
+#' attach_data(Koussounadis2014)
 #' sDay <- splines::ns(sData$Day, df=2)
 #' X0 <- model.matrix(~ Treatment*sDay, sData)[,-1]
 #' multiplier <- rep(0:1, c(ncol(X0), ncol(X)))

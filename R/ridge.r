@@ -12,7 +12,7 @@
 #' @seealso [plot.ridge()], `coef.ridge()`, `predict.ridge()`, `summary.ridge()`, `confint.ridge()`
 #'
 #' @examples
-#' attachData(pollution)
+#' attach_data(pollution)
 #' fit <- ridge(X, y)
 #' summary(fit, lambda=0.1)
 #' plot(fit)

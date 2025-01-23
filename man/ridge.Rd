@@ -67,7 +67,7 @@ indices are returned. If \code{lambda} is specified, this will override \code{wh
 Ridge regression
 }
 \examples{
-attachData(pollution)
+attach_data(pollution)
 fit <- ridge(X, y)
 summary(fit, lambda=0.1)
 plot(fit)

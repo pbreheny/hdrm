@@ -6,7 +6,7 @@
 #' Fig2.7()
 #'
 #' # Default plot
-#' attachData(pollution)
+#' attach_data(pollution)
 #' cvfit <- cv.glmnet(std(X), y)   # Standardize design matrix
 #' plot(cvfit)
 #'
@@ -18,7 +18,7 @@
 
 Fig2.7 <- function() {
   # Fit
-  Data <- readData('pollution')
+  Data <- read_data('pollution')
   X <- std(Data$X)
   y <- Data$y
   cvfit <- cv.glmnet(X, y)
