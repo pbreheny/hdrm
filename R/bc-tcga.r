@@ -6,7 +6,7 @@
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples
-#' attachData(bcTCGA)
+#' attachData(brca1)
 #' cvfit <- cv.glmnet(X, y)
 #' Fig2.10(cvfit)
 #' @export

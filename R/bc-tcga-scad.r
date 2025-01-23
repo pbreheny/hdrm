@@ -10,9 +10,9 @@
 #' @export
 
 Fig3.9 <- function(gam=8, seed=1, parlist=list(mfrow=c(1,2))) {
-  bcTCGA <- readData('bcTCGA')
-  X <- bcTCGA$X
-  y <- bcTCGA$y
+  brca1 <- readData('brca1')
+  X <- brca1$X
+  y <- brca1$y
 
   set.seed(seed)
   cvfit <- cv.ncvreg(X, y, penalty='SCAD', gam=gam)

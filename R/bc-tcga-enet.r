@@ -9,7 +9,7 @@
 #' @export
 
 Tab4.1 <- function(seed=1) {
-  Data <- readData('bcTCGA')
+  Data <- readData('brca1')
   alpha <- seq(1, 0.25, -0.25)
 
   # Enet

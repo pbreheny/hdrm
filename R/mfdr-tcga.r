@@ -5,7 +5,7 @@
 #' @param fit    \code{ncvreg} fit to the TCGA data; see examples
 #'
 #' @examples
-#' attachData(bcTCGA)
+#' attachData(brca1)
 #'
 #' fit <- ncvreg(X, y, penalty="lasso")
 #' obj <- mfdr(fit)

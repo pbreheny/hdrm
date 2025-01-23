@@ -11,9 +11,9 @@
 #' @export
 
 Fig3.8 <- function(seed=1, nfolds=10, parlist=list(mfrow=c(2,2))) {
-  bcTCGA <- readData('bcTCGA')
-  X <- bcTCGA$X
-  y <- bcTCGA$y
+  brca1 <- readData('brca1')
+  X <- brca1$X
+  y <- brca1$y
 
   # MCP (gam=3, gam=7)
   set.seed(seed)
