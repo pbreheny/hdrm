@@ -35,3 +35,4 @@ expect_equivalent(p0, p1)
 
 # plot.ridge works
 expect_silent(plot(ridge(y~X)))
+

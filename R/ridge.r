@@ -56,21 +56,21 @@ ridge.matrix <- function (obj, y, lambda, ...) {
   p <- ncol(X)
   my <- mean(y)
   yy <- y - my
-  Xs <- svd(X)
-  d <- Xs$d
-  k <- length(lambda)
-  dx <- length(d)
-  div <- d^2 + rep(n*lambda, rep(dx, k))
-  rhs <- crossprod(Xs$u, yy)
-  a <- drop(d * rhs)/div
-  dim(a) <- c(dx, k)
-  coef <- Xs$v %*% a
+  xsvd <- svd(X)
+  u <- xsvd$u
+  d <- xsvd$d
+  v <- xsvd$v
+  div <- outer(d^2, n*lambda, '+')
+  mid <- d^2 / div
+  sii <- vapply(1:n, function(i) crossprod(u[i,], u[i,] * mid), numeric(length(lambda)))
+  if (length(lambda) > 1) sii <- t(sii)
+  coef <- v %*% sweep(1/div, 1, drop(d * crossprod(u, yy)), '*')
   dimnames(coef) <- list(colnames(obj), format(lambda))
 
-  df <- colSums(matrix(d^2/div, dx))
+  df <- colSums(d^2/div)
   Y <- X %*% coef
-  RSS <- colSums((yy - Y)^2)
-  GCV <- RSS/(1-df/n)^2
+  rss <- colSums((yy - Y)^2)
+  loocv <- colMeans(((yy - Y) / (1-sii))^2)
 
   beta <- matrix(0, nrow = nrow(coef) + 1, ncol = length(lambda))
   beta[-1,] <- coef/attr(X, 'scale')
@@ -78,7 +78,7 @@ ridge.matrix <- function (obj, y, lambda, ...) {
   if (is.null(colnames(obj))) colnames(obj) <- paste0('V', 1:p)
   dimnames(beta) <- list(c("(Intercept)", colnames(obj)), lambda)
 
-  res <- list(beta = drop(beta), lambda = lambda, GCV = GCV, df=df, RSS=RSS, n=n, SVD=Xs, center=attr(X, 'center'), scale=attr(X, 'scale'), ymean=my)
+  res <- list(beta = drop(beta), lambda = lambda, loocv = loocv, df=df, rss=rss, n=n, svd=xsvd, center=attr(X, 'center'), scale=attr(X, 'scale'), ymean=my)
   class(res) <- "ridge"
   res
 }
@@ -165,11 +165,11 @@ summary.ridge <- function(object, lambda, which, ...) {
     ind <- which
   }
   l <- object$lambda[ind]
-  W <- tcrossprod(sweep(object$SVD$v, 2, object$SVD$d^2/object$n + l, '/'), object$SVD$v)
+  W <- tcrossprod(sweep(object$svd$v, 2, object$svd$d^2/object$n + l, '/'), object$svd$v)
   b <- coef(object, which=ind)
   bb <- coef(object, standardize=TRUE, which=ind)
   rdf <- object$n-object$df[ind]-1
-  s2 <- object$RSS[ind]/rdf
+  s2 <- object$rss[ind]/rdf
   V <- s2/object$n*W
   S <- diag(1/object$scale)
   x <- object$center
