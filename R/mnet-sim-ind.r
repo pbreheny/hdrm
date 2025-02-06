@@ -15,7 +15,11 @@
 #' @export
 
 Ex4.3 <- function(N=100, s=seq(0.1, 1.1, 0.2), n=100, p=500, p1=12, seed=1) {
-  set.seed(seed)
+  if (!missing(seed)) {
+    original_seed <- .GlobalEnv$.Random.seed
+    on.exit(.GlobalEnv$.Random.seed <- original_seed)
+    set.seed(seed)
+  }
   S <- length(s)
   alpha <- seq(1, 0, length.out=5)
   penalty <- c('lasso', 'MCP')

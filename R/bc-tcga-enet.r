@@ -4,27 +4,27 @@
 #'
 #' @param seed   For reproducibility
 #'
-#' @examples Tab4.1()
-#'
+#' @examples
+#' Tab4.1()
 #' @export
 
 Tab4.1 <- function(seed=1) {
-  Data <- read_data('brca1')
+  dat <- read_data('brca1')
   alpha <- seq(1, 0.25, -0.25)
 
   # Enet
   R <- S <- matrix(NA, 2, 4)
+  fold <- ncvreg::assign_fold(dat$y, 10, seed=seed)
   for (j in 1:4) {
-    set.seed(seed)
-    cvfit <- with(Data, cv.glmnet(X, y, alpha=alpha[j]))
-    R[1,j] <- 1-min(cvfit$cvm)/var(Data$y)
+    cvfit <- cv.glmnet(dat$X, dat$y, alpha=alpha[j], fold=fold)
+    R[1,j] <- 1-min(cvfit$cvm)/var(dat$y)
     S[1,j] <- length(predict(cvfit, type='nonzero')[[1]])
   }
 
   # Mnet
   for (j in 1:4) {
-    cvfit <- with(Data, cv.ncvreg(X, y, alpha=alpha[j], seed=seed))
-    R[2,j] <- 1-min(cvfit$cve)/var(Data$y)
+    cvfit <- cv.ncvreg(dat$X, dat$y, alpha=alpha[j], fold=fold)
+    R[2,j] <- 1-min(cvfit$cve)/var(dat$y)
     S[2,j] <- predict(cvfit, type='nvars')
   }
   out <- cbind(c(R[1,], R[2,]), c(S[1,], S[2,]))

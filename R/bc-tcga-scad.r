@@ -6,7 +6,8 @@
 #' @param seed      For reproducibility
 #' @param parlist   List of arguments to pass to `par()`
 #'
-#' @examples Fig3.9()
+#' @examples
+#' Fig3.9()
 #' @export
 
 Fig3.9 <- function(gam=8, seed=1, parlist=list(mfrow=c(1,2))) {
@@ -14,8 +15,8 @@ Fig3.9 <- function(gam=8, seed=1, parlist=list(mfrow=c(1,2))) {
   X <- brca1$X
   y <- brca1$y
 
-  set.seed(seed)
-  cvfit <- cv.ncvreg(X, y, penalty='SCAD', gam=gam)
+  fold <- ncvreg::assign_fold(y, 10, seed=seed)
+  cvfit <- cv.ncvreg(X, y, penalty='SCAD', gam=gam, fold=fold)
   fit <- cvfit$fit
   xlim <- log(c(fit$lambda[1], cvfit$lambda.min))
   op <- par(parlist)

@@ -21,17 +21,17 @@ Tab4.2 <- function(p=5000, seed=12) {
   y <- Data$y
 
   # Enet
+  fold <- ncvreg::assign_fold(y, 10, seed=seed)
   R <- S <- matrix(NA, 2, 4)
   for (j in 1:4) {
-    set.seed(seed)
-    cvfit <- cv.glmnet(X, y, alpha=alpha[j])
+    cvfit <- cv.glmnet(X, y, alpha=alpha[j], fold=fold)
     R[1,j] <- 1-min(cvfit$cvm)/var(y)
     S[1,j] <- length(predict(cvfit, type='nonzero')[[1]])
   }
 
   # Mnet
   for (j in 1:4) {
-    cvfit <- cv.ncvreg(X, y, alpha=alpha[j], seed=seed)
+    cvfit <- cv.ncvreg(X, y, alpha=alpha[j], fold=fold)
     R[2,j] <- 1-min(cvfit$cve)/var(y)
     S[2,j] <- predict(cvfit, type='nvars')
   }

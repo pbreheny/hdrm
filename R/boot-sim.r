@@ -16,7 +16,6 @@
 #'
 #' @examples
 #' Tab9.1(N=5)   # Increase N for more reliable results
-#'
 #' @export
 
 Tab9.1 <- function(N=100, B=100, n=100, p=100, a=10, b=2, rho=0.5, noise='autoregressive', rho.noise=0.8, seed=1, ...) {

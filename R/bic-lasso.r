@@ -7,7 +7,6 @@
 #' @examples
 #' Fig2.6()
 #' Fig2.6(EBIC=TRUE)
-#'
 #' @export
 
 Fig2.6 <- function(EBIC=FALSE) {
@@ -37,6 +36,8 @@ Fig2.6 <- function(EBIC=FALSE) {
   at <- c(40, 4, 0.4, 0.04)
   axis(1, at=log(at), labels=at)
   toplegend(legend=lab, lwd=3, col=col)
+  original_seed <- .GlobalEnv$.Random.seed
+  on.exit(.GlobalEnv$.Random.seed <- original_seed)
   set.seed(6)
   for (i in 1:length(col)) {
     abline(v=ll[which.min(IC[,i])]+runif(1, -0.03, 0.03), lty=2, lwd=2, col=col[i])

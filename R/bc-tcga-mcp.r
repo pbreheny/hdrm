@@ -16,10 +16,9 @@ Fig3.8 <- function(seed=1, nfolds=10, parlist=list(mfrow=c(2,2))) {
   y <- brca1$y
 
   # MCP (gam=3, gam=7)
-  set.seed(seed)
-  cvfit3 <- cv.ncvreg(X, y, nfolds=nfolds)
+  fold <- ncvreg::assign_fold(y, nfolds, seed=seed)
+  cvfit3 <- cv.ncvreg(X, y, fold=fold)
   fit3 <- cvfit3$fit
-  set.seed(seed)
   cvfit7 <- cv.ncvreg(X, y, gam=7, nfolds=nfolds)
   fit7 <- cvfit7$fit
 

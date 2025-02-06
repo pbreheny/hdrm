@@ -2,10 +2,10 @@
 #'
 #' Using `cv.glmnet()` to carry out the adaptive lasso will result in an underestimation of error unless you also apply cross-validation to the initial estimator; this function provides a wrapper to do that.
 #'
-#' @param X           Design matrix, as in `glmnet()`
-#' @param y           Response vector, as in `glmnet()`
-#' @param nfolds      Number of cv folds (default: 10)
-#' @param seed        For reproducibility with respect to the fold assignments
+#' @param X         Design matrix, as in `glmnet()`
+#' @param y         Response vector, as in `glmnet()`
+#' @param nfolds    Number of cv folds (default: 10)
+#' @param fold      Which fold each observation belongs to. By default the observations are randomly assigned.
 #'
 #' @examples
 #' attach_data(pollution)
@@ -14,7 +14,7 @@
 #' summary(cvfit)
 #' @export
 
-cv.adaptive_lasso <- function(X, y, nfolds=10, seed) {
+cv.adaptive_lasso <- function(X, y, nfolds=10, fold) {
 
   # Full data fit
   fit_init <- ncvreg(X, y, penalty='lasso')
@@ -24,10 +24,12 @@ cv.adaptive_lasso <- function(X, y, nfolds=10, seed) {
   fit <- ncvreg(X, y, penalty.factor=w, lambda.min=1e-5, penalty='lasso')
 
   # CV
-  if (!missing(seed)) set.seed(seed)
+  if (missing(fold)) {
+    fold <- assign_fold(y, nfolds)
+  } else {
+    nfolds <- max(fold)
+  }
   n <- length(y)
-  fold <- sample(1:n %% nfolds)
-  fold[fold==0] <- nfolds
   E <- matrix(NA, n, length(fit$lambda))
   pb <- txtProgressBar(0, nfolds, style=3)
   for (i in 1:nfolds) {

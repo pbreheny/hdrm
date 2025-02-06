@@ -2,17 +2,22 @@
 #'
 #' Reproduces Example 1.1 from the book.  If you specify any options, your results may look different.
 #'
-#' @param N  Number of simulated realizations
-#' @param n  Sample size
-#' @param p  Number of features
-#' @param bar  Show progress bar?
+#' @param N     Number of simulated realizations
+#' @param n     Sample size
+#' @param p     Number of features
+#' @param bar   Show progress bar?
+#' @param seed  For reproducibility (optional)
 #'
 #' @examples
 #' Ex1.1(N=10)
 #' @export
 
-Ex1.1 <- function(N=100, n=25, p=100, bar=TRUE) {
-  set.seed(1)
+Ex1.1 <- function(N=100, n=25, p=100, bar=TRUE, seed=1) {
+  if (!missing(seed)) {
+    original_seed <- .GlobalEnv$.Random.seed
+    on.exit(.GlobalEnv$.Random.seed <- original_seed)
+    set.seed(seed)
+  }
   xnam <- paste0("V", 1:p)
   form <- as.formula(paste("y ~ ", paste(xnam, collapse= "+")))
 

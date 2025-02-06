@@ -16,7 +16,11 @@
 #' @export
 
 Ex3.1 <- function(N=500, n=50, p=100, p1=6, SNR=c(1, 2, 4), seed=2) {
-  set.seed(seed)
+  if (!missing(seed)) {
+    original_seed <- .GlobalEnv$.Random.seed
+    on.exit(.GlobalEnv$.Random.seed <- original_seed)
+    set.seed(seed)
+  }
   gam <- 2^seq(0.5, 5, len=19)
 
   mMSE <- sMSE <- array(NA, dim=c(N, length(SNR), length(gam)), dimnames=list(1:N, SNR, gam))

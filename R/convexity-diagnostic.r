@@ -5,12 +5,17 @@
 #' @param seed      Random seed for reproducibility
 #' @param parlist   List of arguments to pass to `par()`
 #'
-#' @examples Fig3.6()
+#' @examples
+#' Fig3.6()
 #' @export
 
 Fig3.6 <- function(seed=9, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5,0.5))) {
   op <- par(parlist)
-  set.seed(seed)
+  if (!missing(seed)) {
+    original_seed <- .GlobalEnv$.Random.seed
+    on.exit(.GlobalEnv$.Random.seed <- original_seed)
+    set.seed(seed)
+  }
   Data <- gen_data(20, 50, 4)
   fit <- with(Data, ncvreg(X, y, nlambda=500))
   plot(fit, bty='n')
@@ -49,3 +54,4 @@ Fig3.6 <- function(seed=9, parlist=list(mfrow=c(1,2), mar=c(5,5,0.5,0.5))) {
   text(1.9, tail(q3,1), expression(lambda==0.42), xpd=1)
   par(op)
 }
+
