@@ -114,7 +114,7 @@ plot.ridge <- function(x, xaxis=c('loglam', 'df', 'both'), standardize=FALSE, xl
     mtext("Degrees of freedom", 3, 2.5)
   }
   if (missing(ylab)) {
-    mtext(expression(hat(beta)), 2, 3, las=1)
+    mtext(expression(hat(beta)), 2, 3)
   } else {
     mtext(ylab, 2, 3)
   }
