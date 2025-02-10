@@ -1,7 +1,7 @@
 Package: hdrm
 Title: High-Dimensional Regression Modeling
-Date: 2025-02-09
-Version: 0.13.1
+Date: 2025-02-10
+Version: 0.14.0
 Author: Patrick Breheny
 Maintainer: Patrick Breheny <patrick-breheny@uiowa.edu>
 Description: Examples, simulations, and figures from the book, "High-Dimensional
