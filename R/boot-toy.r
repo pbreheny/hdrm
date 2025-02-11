@@ -16,9 +16,9 @@
 
 Fig9.4 <- function(out, B=100, seed=2) {
   set.seed(seed)
-  cvfit <- cv.glmnet(out$X, out$y)
-  res <- boot.glmnet(out$X, out$y, lambda=cvfit$lambda.min, B=B)
-  all_coef <- cbind(coef(cvfit)[-1], res)
+  res <- boot_ncvreg(out$X, out$y, nbootB=B)
+  all_coef <- res$confidence_intervals
+  colnames(all_coef) <- c("Coef","Lower","Upper")
   nz_coef <- all_coef[all_coef[,1] != 0,]
   ci_plot(nz_coef, sort=FALSE, xlab=expression(beta), xlim=c(-1.1, 1.1))
   for (i in 1:nrow(nz_coef)) {
