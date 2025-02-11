@@ -17,6 +17,7 @@
 #' @examples
 #' Tab9.1(N=5)   # Increase N for more reliable results
 #' @export
+
 Tab9.1 <- function(N=100, B=100, n=100, p=100, a=10, b=2, rho=0.5, noise='autoregressive', rho.noise=0.8, seed=1, ...) {
   set.seed(seed)
   pb <- txtProgressBar(0, N, style=3)
@@ -24,6 +25,7 @@ Tab9.1 <- function(N=100, B=100, n=100, p=100, a=10, b=2, rho=0.5, noise='autore
   for (i in 1:N) {
     Data <- gen_data_abn(n=n, p=p, a=a, b=b, rho=rho, noise=noise, rho.noise=rho.noise, ...)
     res <- boot_ncvreg(Data$X, Data$y, nboot=B)
+
     cov[i,] <- Data$beta >= res$confidence_intervals$lower & Data$beta <= res$confidence_intervals$upper
     setTxtProgressBar(pb, i)
   }
