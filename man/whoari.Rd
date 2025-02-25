@@ -1,13 +1,15 @@
 \name{whoari}
 \docType{data}
 \alias{whoari}
-\description{\label{description}
 
+\title{World Health Organization study on acute respiratory
+illnesses}
+\description{
 The presentation of an acutely ill young infant presents health workers,
 especially those in developing countries, with a very difficult problem.
 Serious infections are the main cause of morbidity and mortality in
 infants under 3 months of age in these countries, and diagnosing the
-severity of the illness is rather difficult.
+severing of the illness is rather difficult.
 
 To study this problem, the World Health Organization (WHO) collected
 data on a number of readily accessible variables such as vital signs,
@@ -23,8 +25,16 @@ countries. This data set contains data on pneumonia from the country
 Ethiopia.
 
 }
-\format{\label{elements}
+\section{Dimensions}{
+\itemize{
+\item
+  n = 816
+\item
+  p = 66
+}
 
+}
+\format{
 \itemize{
 \item
   \code{y}: A pneumonia score, measured on the following scale: 1=No
@@ -60,131 +70,46 @@ Ethiopia.
   \item
     There are also a number of clinical observations, judged on a
     severity scale with higher numbers denoting increased severity. For
-    example, 0-3 would represent absent/mild/moderate/severe:
+    example, 0-3 would represent absent/mild/moderate/severe. Below are
+    some of those variables:
 
     \itemize{
         \item
-      \code{omph}: omphalitis (0-1)
+      \code{hvo}: Vomit more (0-1)
     \item
-      \code{conj}: conjunctivitis (0-1)
+      \code{bat}: Birth preterm (0-1)
     \item
-      \code{slpm}: sleeping more (0-1)
+      \code{hbr}: Engorged breasts (0-1)
     \item
-      \code{slpl}: sleeping less (0-1)
+      \code{inc}: Respiratory distress (0-2)
     \item
-      \code{wake}: wakes less easy (0-1)
+      \code{sr1}: Respiratory state (0-3)
     \item
-      \code{convul}: history of convulsion (0-1)
+      \code{sr2}: Respiratory state (0-3)
     \item
-      \code{hfa}: history of abnormal feeding (0-3)
+      \code{str}: Stridor (0-2)
     \item
-      \code{hfb}: fast breathing (0-1)
+      \code{att}: Attentive (0-2)
     \item
-      \code{hfe}: history of fever (0-1)
+      \code{skr}: Skin rash (0-2)
     \item
-      \code{hap}: history of stop breathing (0-1)
+      \code{hyp}: Hypotonia (0-3)
     \item
-      \code{hcl}: less activity (0-1)
+      \code{nut}: Nutritional status score (0-3)
     \item
-      \code{hcm}: crying more (0-1)
-    \item
-      \code{hcs}: crying less (0-1)
-    \item
-      \code{hdi}: history of diarrhoea (0-1)
-    \item
-      \code{hvo}: vomit more (0-1)
-    \item
-      \code{bat}: birth preterm (0-1)
-    \item
-      \code{fde}: fever at delivery (0-1)
-    \item
-      \code{chi}: previous child died (0-1)
-    \item
-      \code{hbr}: engorged breasts (0-1)
-    \item
-      \code{twb}: water broke (0-1)
-    \item
-      \code{ldy}: days in labour (1-9)
-    \item
-      \code{inc}: respiratory distress (0-2)
-    \item
-      \code{sr1}: respiratory state (0-3)
-    \item
-      \code{sr2}: respiratory state (0-3); I do not know why this is
-      measured twice
-    \item
-      \code{apn}: apnea (0-1)
-    \item
-      \code{lcw}: lower chest in-drawing (0-3)
-    \item
-      \code{nfl}: nasal flaring (0-3)
-    \item
-      \code{str}: stridor (0-2)
-    \item
-      \code{gru}: grunting (0-2)
-    \item
-      \code{coh}: cough heard (0-1)
-    \item
-      \code{ccy}: central cyanosis (0-1)
-    \item
-      \code{jau}: jaundice (0-1)
-    \item
-      \code{csd}: drowsy state (0-2)
-    \item
-      \code{csa}: agitated state (0-1)
-    \item
-      \code{aro}: arousal (0-2)
-    \item
-      \code{qcr}: quality of crying (0-2)
-    \item
-      \code{con}: consolability (0-2)
-    \item
-      \code{att}: attentive (0-2)
-    \item
-      \code{mvm}: amount of movement (0-2)
-    \item
-      \code{afe}: drinking ability (0-2)
-    \item
-      \code{absu}: sucking ability (0-2)
-    \item
-      \code{stu}: skin turgor (0-2)
-    \item
-      \code{deh}: dehydrated (0-2)
-    \item
-      \code{dcp}: digital capillary refill (0-2)
-    \item
-      \code{crs}: crepitation (0-2)
-    \item
-      \code{skr}: skin rash (0-2)
-    \item
-      \code{abb}: bulging fontanelle (0-1)
-    \item
-      \code{abk}: sunken fontanelle (0-1)
-    \item
-      \code{hyp}: hypotonia (0-3)
-    \item
-      \code{whz}: wheezing (0-1)
-    \item
-      \code{hdb}: difficulty breathing (0-1)
-    \item
-      \code{smi2}: smiling ability
-    \item
-      \code{puskin}: pustular skin rash (0-1)
-    \item
-      \code{abd}: abdominal distension (0-4)
-    \item
-      \code{nut}: nutritional status score (0-3)
-    \item
-      \code{oto}: otoscopy impression (0-2)
-    \item
-      \code{oab}: sclerema (0-1)
+      \code{oab}: Sclerema (0-1)
     }
+  \item
+    \href{http://myweb.uiowa.edu/pbreheny/data/whoari.pdf}{The rest of
+    the variables are described in this table}. In the table, hx stands
+    for history, ausc for auscultation, and hxprob for history of
+    problems. The author made an effort to cluster relevant variables
+    together; some variables are listed twice as a result.
   }
 }
 
 }
-\references{\label{reference}
-
+\references{
 I obtained the data from
 \url{http://biostat.mc.vanderbilt.edu/wiki/Main/DataSets}. The original
 reference is:
