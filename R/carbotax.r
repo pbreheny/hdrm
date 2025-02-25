@@ -3,6 +3,7 @@
 #' Reproduces Figure 2.12 from the book.  If you specify any options, your results may look different.
 #'
 #' @param cvfit     `cv.ncvreg()` fit to the TCGA data; see examples
+#' @param which     `left`, `right`, or `both`
 #' @param parlist   List of arguments to pass to `par()`
 #'
 #' @examples
@@ -23,28 +24,39 @@
 #'
 #' # Plot
 #' Fig2.12(cvfit)
-#'
+#' Fig2.12(cvfit, 'left')
 #' @export
 
-Fig2.12 <- function(cvfit, parlist=list(mfrow=c(1,2), mar=c(5,5,5,0.5))) {
+Fig2.12 <- function(cvfit, which = c('both', 'left', 'right'), parlist) {
+  which <- match.arg(which)
+  if (missing(parlist)) {
+    if (which == 'both') {
+      parlist <- list(mfrow=c(1,2), mar=c(5,5,5,0.5))
+    } else {
+      parlist <- list(mar=c(5,5,5,0.5))
+    }
+  }
   op <- par(parlist)
   fit <- cvfit$fit
-  xlim <- log(c(fit$lambda[1], cvfit$lambda.min))
-  ylim <- c(-0.3, 0.4)
-  plot(fit, log=TRUE, xlab=expression(lambda), xaxt="n", bty="n", xlim=xlim, lwd=2, ylim=ylim)
-  at <- seq(xlim[1], xlim[2], length=5)
-  axis(1, at=at, labels=round(exp(at), 2))
-  abline(v=log(cvfit$lambda.min), col="gray", lty=2, lwd=2)
-  mtext("Variables selected", 3, 2.5)
-  nv <- predict(fit, lam=exp(at), type="nvars")
-  axis(3, at=at, labels=nv)
-
-  ll <- log(fit$lambda)
-  plot(cvfit, xlab=expression(lambda), xaxt="n", bty="n", type='rsq', selected=FALSE)
-  at <- seq(max(ll), min(ll), length=5)
-  axis(1, at=at, labels=round(exp(at), 2))
-  mtext("Variables selected", 3, 2.5)
-  nv <- predict(fit, lam=exp(at), type="nvars")
-  axis(3, at=at, labels=nv)
+  if (which == 'both' | which == 'left') {
+    xlim <- log(c(fit$lambda[1], cvfit$lambda.min))
+    ylim <- c(-0.3, 0.4)
+    plot(fit, log=TRUE, xlab=expression(lambda), xaxt="n", bty="n", xlim=xlim, lwd=2, ylim=ylim)
+    at <- seq(xlim[1], xlim[2], length=5)
+    axis(1, at=at, labels=round(exp(at), 2))
+    abline(v=log(cvfit$lambda.min), col="gray", lty=2, lwd=2)
+    mtext("Variables selected", 3, 2.5)
+    nv <- predict(fit, lam=exp(at), type="nvars")
+    axis(3, at=at, labels=nv)
+  }
+  if (which == 'both' | which == 'right') {
+    ll <- log(fit$lambda)
+    plot(cvfit, xlab=expression(lambda), xaxt="n", bty="n", type='rsq', selected=FALSE)
+    at <- seq(max(ll), min(ll), length=5)
+    axis(1, at=at, labels=round(exp(at), 2))
+    mtext("Variables selected", 3, 2.5)
+    nv <- predict(fit, lam=exp(at), type="nvars")
+    axis(3, at=at, labels=nv)
+  }
   par(op)
 }

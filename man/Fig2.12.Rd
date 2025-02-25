@@ -4,10 +4,12 @@
 \alias{Fig2.12}
 \title{Reproduce Figure 2.12}
 \usage{
-Fig2.12(cvfit, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 5, 0.5)))
+Fig2.12(cvfit, which = c("both", "left", "right"), parlist)
 }
 \arguments{
 \item{cvfit}{\code{cv.ncvreg()} fit to the TCGA data; see examples}
+
+\item{which}{\code{left}, \code{right}, or \code{both}}
 
 \item{parlist}{List of arguments to pass to \code{par()}}
 }
@@ -32,5 +34,5 @@ cvfit <- cv.ncvreg(XX, y, penalty.factor=multiplier, penalty='lasso', fold=fold)
 
 # Plot
 Fig2.12(cvfit)
-
+Fig2.12(cvfit, 'left')
 }
