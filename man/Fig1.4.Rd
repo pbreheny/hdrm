@@ -4,10 +4,10 @@
 \alias{Fig1.4}
 \title{Reproduce Figure 1.4}
 \usage{
-Fig1.4(gcv.line = TRUE, mar = c(5, 5, 5, 7))
+Fig1.4(loocv = TRUE, mar = c(5, 5, 5, 7))
 }
 \arguments{
-\item{gcv.line}{Draw a vertical line at the lambda value that minimizes GCV? (Default: true)}
+\item{loocv}{Include a vertical line at the lambda value that minimizes LOOCV? (Default: true)}
 
 \item{mar}{Margins (passed to par)}
 }
@@ -16,5 +16,4 @@ Reproduces Figure 1.4 from the book.  If you specify any options, your results m
 }
 \examples{
 Fig1.4()
-
 }

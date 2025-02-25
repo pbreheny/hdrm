@@ -4,17 +4,22 @@
 \alias{Fig2.2}
 \title{Reproduce Figure 2.2}
 \usage{
-Fig2.2(range = c(-2.5, 2.5), col = c("#FF4E37FF", "#008DFFFF"))
+Fig2.2(
+  range = c(-2.5, 2.5),
+  col = c("#FF4E37FF", "#008DFFFF"),
+  mar = c(3, 5, 3, 0.5)
+)
 }
 \arguments{
 \item{range}{Range for beta coefficient (vector of length 2)}
 
 \item{col}{Lasso/ridge color (vector of length 2)}
+
+\item{mar}{Plot margins (as in \verb{[par()]})}
 }
 \description{
 Reproduces Figure 2.2 from the book; if you specify any options, your results may look different.
 }
 \examples{
 Fig2.2()
-
 }

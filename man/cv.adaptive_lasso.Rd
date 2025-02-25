@@ -4,7 +4,7 @@
 \alias{cv.adaptive_lasso}
 \title{Adaptive lasso with cross-validation, using lasso(BIC) as initial estimator}
 \usage{
-cv.adaptive_lasso(X, y, nfolds = 10, seed)
+cv.adaptive_lasso(X, y, nfolds = 10, fold)
 }
 \arguments{
 \item{X}{Design matrix, as in \code{glmnet()}}
@@ -13,7 +13,7 @@ cv.adaptive_lasso(X, y, nfolds = 10, seed)
 
 \item{nfolds}{Number of cv folds (default: 10)}
 
-\item{seed}{For reproducibility with respect to the fold assignments}
+\item{fold}{Which fold each observation belongs to. By default the observations are randomly assigned.}
 }
 \description{
 Using \code{cv.glmnet()} to carry out the adaptive lasso will result in an underestimation of error unless you also apply cross-validation to the initial estimator; this function provides a wrapper to do that.

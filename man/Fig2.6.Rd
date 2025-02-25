@@ -15,5 +15,4 @@ Reproduces Figure 2.6 from the book; if you specify any options, your results ma
 \examples{
 Fig2.6()
 Fig2.6(EBIC=TRUE)
-
 }

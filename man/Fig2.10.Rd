@@ -4,10 +4,12 @@
 \alias{Fig2.10}
 \title{Reproduce Figure 2.10}
 \usage{
-Fig2.10(cvfit, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 5, 0.5)))
+Fig2.10(cvfit, which = c("both", "left", "right"), parlist)
 }
 \arguments{
 \item{cvfit}{\code{glmnet()} fit to the TCGA data; see examples}
+
+\item{which}{\code{left}, \code{right}, or \code{both}}
 
 \item{parlist}{List of arguments to pass to \code{par()}}
 }
@@ -18,4 +20,6 @@ Reproduces Figure 2.10 from the book.  If you specify any options, your results 
 attach_data(brca1)
 cvfit <- cv.glmnet(X, y)
 Fig2.10(cvfit)
+Fig2.10(cvfit, 'left')
+Fig2.10(cvfit, 'right')
 }

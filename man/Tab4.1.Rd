@@ -14,5 +14,4 @@ Reproduces Table 4.1 from the book.  If you specify any options, your results ma
 }
 \examples{
 Tab4.1()
-
 }

@@ -4,7 +4,7 @@
 \alias{Ex1.1}
 \title{Reproduce Example 1.1}
 \usage{
-Ex1.1(N = 100, n = 25, p = 100, bar = TRUE)
+Ex1.1(N = 100, n = 25, p = 100, bar = TRUE, seed = 1)
 }
 \arguments{
 \item{N}{Number of simulated realizations}
@@ -14,6 +14,8 @@ Ex1.1(N = 100, n = 25, p = 100, bar = TRUE)
 \item{p}{Number of features}
 
 \item{bar}{Show progress bar?}
+
+\item{seed}{For reproducibility (optional)}
 }
 \description{
 Reproduces Example 1.1 from the book.  If you specify any options, your results may look different.

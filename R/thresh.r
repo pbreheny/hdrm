@@ -2,14 +2,17 @@
 #'
 #' Reproduces Figure 2.2 from the book; if you specify any options, your results may look different.
 #'
-#' @param range      Range for beta coefficient (vector of length 2)
-#' @param col        Lasso/ridge color (vector of length 2)
+#' @param range     Range for beta coefficient (vector of length 2)
+#' @param col       Lasso/ridge color (vector of length 2)
+#' @param mar       Plot margins (as in `[par()]`)
 #'
-#' @examples Fig2.2()
-#'
+#' @examples
+#' Fig2.2()
 #' @export
 
-Fig2.2 <- function(range=c(-2.5,2.5), col=c("#FF4E37FF", "#008DFFFF")) {
+Fig2.2 <- function(range=c(-2.5,2.5), col=c("#FF4E37FF", "#008DFFFF"), mar=c(3, 5, 3, 0.5)) {
+  op <- par(mar=mar)
+  on.exit(par(op))
   xx <- seq(range[1], range[2], len=99)
   plot(xx, xx, lwd=3, type="l", col="gray", xlab="z", ylab=expression(hat(beta)(z)), bty="n", las=1)
   lines(xx, xx*(abs(xx) > 1), lwd=3, col=col[1])

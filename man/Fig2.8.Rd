@@ -28,5 +28,4 @@ Reproduces Figure 2.8 from the book; if you specify any options, your results ma
 }
 \examples{
 Fig2.8(N=5)  # Increase N for a more reliable estimate
-
 }
