@@ -4,15 +4,34 @@
 #'
 #' @param n         Sample size
 #' @param p         Number of features
+#' @param which     `mcp`, `scad`, `lasso`, `adaptive`, or `all`
 #' @param seed      Random number seed for reproducibility
 #' @param ylim      Vertical limits, passed to plot()
 #' @param parlist   List of arguments to pass to `par()`
 #'
-#' @examples Fig3.2()
+#' @examples
+#' Fig3.2()
 #' @export
 
-Fig3.2 <- function(n=200, p=1000, seed=105, ylim=c(-4.1,4.1), parlist=list(mfrow=c(2,2), mar=c(4.5, 4.5, 3, 0.5))) {
+Fig3.2 <- function(
+    n = 200,
+    p = 1000,
+    which = c('all', 'mcp', 'scad', 'lasso', 'adaptive'),
+    seed = 105,
+    ylim = c(-4.1, 4.1),
+    parlist) {
+
   if (p < 40) stop('p must be at least 40')
+  which <- match.arg(which)
+  if (missing(parlist)) {
+    if (which == 'all') {
+      parlist <- list(mfrow=c(2,2), mar=c(4.5, 4.5, 3, 0.5))
+    } else {
+      parlist <- list(mar=c(4.5, 4.5, 3, 0.5))
+    }
+  }
+  op <- par(parlist)
+  on.exit(par(op))
 
   # Gen data
   if (!missing(seed)) {
@@ -30,35 +49,42 @@ Fig3.2 <- function(n=200, p=1000, seed=105, ylim=c(-4.1,4.1), parlist=list(mfrow
   beta <- c(4, 2, -4,-2, rep(0, p-4))
   y <- rnorm(n, X%*%beta, sd=1.5)
 
-  op <- par(parlist)
-
   # MCP
-  fit <- ncvreg(X, y, gamma=3)
-  plot(fit, col=pal(4), lwd=2, shade=FALSE, bty='n', ylim=ylim)
-  mtext('MCP', line=0.5)
+  if (which == 'mcp' | which == 'all') {
+    fit <- ncvreg(X, y, gamma=3)
+    plot(fit, col=pal(4), lwd=2, shade=FALSE, bty='n', ylim=ylim)
+    mtext('MCP', line=0.5)
+  }
 
   # SCAD
-  fit <- ncvreg(X, y, gamma=4, penalty='SCAD')
-  plot(fit, col=pal(4), lwd=2, shade=FALSE, bty='n', ylim=ylim)
-  mtext('SCAD', line=0.5)
+  if (which == 'scad' | which == 'all') {
+    fit <- ncvreg(X, y, gamma=4, penalty='SCAD')
+    plot(fit, col=pal(4), lwd=2, shade=FALSE, bty='n', ylim=ylim)
+    mtext('SCAD', line=0.5)
+  }
 
   # Lasso
-  fit <- ncvreg(X, y, penalty='lasso', lambda.min=0.002)
-  plot(fit, col=pal(4), lwd=2, shade=FALSE, bty='n', ylim=ylim)
-  mtext('Lasso', line=0.5)
+  if (which == 'lasso' | which == 'all') {
+    fit <- ncvreg(X, y, penalty='lasso', lambda.min=0.002)
+    plot(fit, col=pal(4), lwd=2, shade=FALSE, bty='n', ylim=ylim)
+    mtext('Lasso', line=0.5)
+  }
 
   # Adaptive lasso
-  fit <- ncvreg(X, y, penalty='lasso', lambda.min=0.002)
-  beta <- fit$beta
-  L <- length(fit$lambda)
-  for (l in 2:L) {
-    w <- pmin(1e6, 1/abs(fit$beta[-1,l]))
-    fit.al <- ncvreg(X, y, lambda=fit$lambda[1:l], penalty='lasso', penalty.factor=w)
-    beta[,l] <- fit.al$beta[,l]
+  if (which == 'adaptive' | which == 'all') {
+    fit <- ncvreg(X, y, penalty='lasso', lambda.min=0.002)
+    beta <- fit$beta
+    L <- length(fit$lambda)
+    for (l in 2:L) {
+      w <- pmin(1e6, 1/abs(fit$beta[-1,l]))
+      fit.al <- ncvreg(X, y, lambda=fit$lambda[1:l], penalty='lasso', penalty.factor=w)
+      beta[,l] <- fit.al$beta[,l]
+    }
+    fit$beta <- beta
+    nz <- which(apply(beta[-1,], 2, function(x) any(x!=0)))
+    xlim <- c(fit$lambda[nz[1]-1], fit$lambda[100])
+    plot(fit, col=pal(4), lwd=2, shade=FALSE, xlim=xlim, bty='n', ylim=ylim)
+    mtext('Adaptive lasso', line=0.5)
   }
-  fit$beta <- beta
-  nz <- which(apply(beta[-1,], 2, function(x) any(x!=0)))
-  xlim <- c(fit$lambda[nz[1]-1], fit$lambda[100])
-  plot(fit, col=pal(4), lwd=2, shade=FALSE, xlim=xlim, bty='n', ylim=ylim)
-  mtext('Adaptive lasso', line=0.5)
+
 }
