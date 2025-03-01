@@ -4,7 +4,7 @@
 \alias{Ex3.1}
 \title{Reproduce Example 3.1}
 \usage{
-Ex3.1(N = 500, n = 50, p = 100, p1 = 6, SNR = c(1, 2, 4), seed = 2)
+Ex3.1(N = 500, n = 50, p = 100, p1 = 6, snr = c(1, 2, 4), seed = 2)
 }
 \arguments{
 \item{N}{Number of simulated realizations}
@@ -15,7 +15,7 @@ Ex3.1(N = 500, n = 50, p = 100, p1 = 6, SNR = c(1, 2, 4), seed = 2)
 
 \item{p1}{Number of non-null features}
 
-\item{SNR}{Vector of SNR values}
+\item{snr}{Vector of signal-to-noise ratio values}
 
 \item{seed}{Seed for reproducibility}
 }
@@ -27,5 +27,4 @@ Reproduces Example 3.1 from the book.  If you specify any options, your results 
 }
 \examples{
 Ex3.1(N=2)
-
 }

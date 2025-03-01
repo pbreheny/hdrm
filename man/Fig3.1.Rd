@@ -7,13 +7,16 @@
 Fig3.1(
   range = c(-4, 4),
   col = c("#FF4E37FF", "#00B500FF", "#008DFFFF"),
-  parlist = list(mfrow = c(1, 3), mar = c(5, 5, 5, 0.5), xpd = 1)
+  which = c("all", "left", "middle", "right", "all"),
+  parlist
 )
 }
 \arguments{
 \item{range}{Range for beta coefficient (vector of length 2)}
 
 \item{col}{Lasso/ridge color (vector of length 2)}
+
+\item{which}{\code{left}, \code{middle}, \code{right}, or \code{all}}
 
 \item{parlist}{List of arguments to pass to \code{par()}}
 }
@@ -22,4 +25,5 @@ Reproduces Figure 3.1 from the book; if you specify any options, your results ma
 }
 \examples{
 Fig3.1()
+Fig3.1(which='middle')
 }

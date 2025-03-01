@@ -4,16 +4,21 @@
 \alias{Fig3.6}
 \title{Reproduce Figure 3.6}
 \usage{
-Fig3.6(seed = 9, parlist = list(mfrow = c(1, 2), mar = c(5, 5, 0.5, 0.5)))
+Fig3.6(which = c("both", "left", "right"), seed = 9, parlist)
 }
 \arguments{
+\item{which}{\code{both}, \code{left}, or \code{right}}
+
 \item{seed}{Random seed for reproducibility}
 
 \item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
-Reproduces Figure 3.6 from the book.  If you specify any options, your results may look different.
+Reproduces Figure 3.6 from the book. If you specify any options, your results
+may look different. For this example in particular, changing the seed is
+unlikely to result in an interesting plot.
 }
 \examples{
 Fig3.6()
+Fig3.6(which='right')
 }

@@ -35,9 +35,9 @@ firmSCAD <- function(z, l, g=3.7) {
 }
 
 MCP <- function(theta, l, a=3.7) {
-  T <- length(theta)
-  val <- numeric(T)
-  for (i in 1:T) {
+  nt <- length(theta)
+  val <- numeric(nt)
+  for (i in 1:nt) {
     x <- abs(theta[i])
     val[i] <- (x < a*l) * (l*x - x^2 / (2*a)) + (x >= a*l) * (1/2)*a*l^2
   }

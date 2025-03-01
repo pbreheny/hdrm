@@ -7,15 +7,18 @@
 Fig3.2(
   n = 200,
   p = 1000,
+  which = c("all", "mcp", "scad", "lasso", "adaptive"),
   seed = 105,
   ylim = c(-4.1, 4.1),
-  parlist = list(mfrow = c(2, 2), mar = c(4.5, 4.5, 3, 0.5))
+  parlist
 )
 }
 \arguments{
 \item{n}{Sample size}
 
 \item{p}{Number of features}
+
+\item{which}{\code{mcp}, \code{scad}, \code{lasso}, \code{adaptive}, or \code{all}}
 
 \item{seed}{Random number seed for reproducibility}
 

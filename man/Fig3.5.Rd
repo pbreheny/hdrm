@@ -4,15 +4,10 @@
 \alias{Fig3.5}
 \title{Reproduce Figure 3.5}
 \usage{
-Fig3.5(
-  out,
-  parlist = list(mfrow = c(1, 2), mar = c(5, 5, 1, 0.5), oma = c(0, 0, 3, 0))
-)
+Fig3.5(out)
 }
 \arguments{
 \item{out}{Output of Ex3.1()}
-
-\item{parlist}{List of arguments to pass to \code{par()}}
 }
 \description{
 Reproduces Figure 3.5 from the book; if you specify any options, your results may look different.
