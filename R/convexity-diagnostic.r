@@ -51,7 +51,7 @@ Fig3.6 <- function(which=c('both', 'left', 'right'), seed=9, parlist) {
     }
     x <- seq(-0.5, 1.5, len=101)
     q1 <- q2 <- q3 <- length(x)
-    l <- c(0.21, 0.27, 0.35)
+    l <- c(0.15, 0.25, 0.35)
     for (i in 1:length(x)) {
       q1[i] <- Q(x[i]*b2 + (1-x[i])*b1, l[1])
       q2[i] <- Q(x[i]*b2 + (1-x[i])*b1, l[2])
@@ -60,7 +60,7 @@ Fig3.6 <- function(which=c('both', 'left', 'right'), seed=9, parlist) {
     mar <- par()$mar
     mar[4] <- 5
     par(mar=mar)
-    plot(x, q1, type='l', las=1, ylim=c(0.5, 1), bty='n', xaxt='n', ylab=expression(Q(beta)), xlab='')
+    plot(x, q1, type='l', las=1, ylim=c(0.4, 1), bty='n', xaxt='n', ylab=expression(Q(beta)), xlab='')
     axis(1, at=c(-0.5, 0, 1, 1.5), labels=expression("", beta[1], beta[2], ""))
     lines(x, q2)
     lines(x, q3)
