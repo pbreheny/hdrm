@@ -6,6 +6,7 @@
 #' @param y         Response vector, as in `glmnet()`
 #' @param nfolds    Number of cv folds (default: 10)
 #' @param fold      Which fold each observation belongs to. By default the observations are randomly assigned.
+#' @param progress  Print progress bar? (default: true)
 #'
 #' @examples
 #' attach_data(pollution)
@@ -25,13 +26,13 @@ cv.adaptive_lasso <- function(X, y, nfolds=10, fold) {
 
   # CV
   if (missing(fold)) {
-    fold <- assign_fold(y, nfolds)
+    fold <- ncvreg::assign_fold(y, nfolds)
   } else {
     nfolds <- max(fold)
   }
   n <- length(y)
   E <- matrix(NA, n, length(fit$lambda))
-  pb <- txtProgressBar(0, nfolds, style=3)
+  pb <- progress::progress_bar$new(total = nfolds)
   for (i in 1:nfolds) {
     fit0 <- ncvreg(X[fold!=i,], y[fold!=i], penalty='lasso')
     b <- coef(fit0, which=which.min(BIC(fit0)))[-1]
@@ -40,9 +41,8 @@ cv.adaptive_lasso <- function(X, y, nfolds=10, fold) {
     fit1 <- ncvreg(X[fold!=i,], y[fold!=i], penalty.factor=w, lambda=fit$lambda, penalty='lasso')
     yhat <- predict(fit1, X[fold==i,])
     E[fold==i,] <- ncvreg:::loss.ncvreg(y[fold==i], yhat, 'gaussian')
-    setTxtProgressBar(pb, i)
+    pb$tick()
   }
-  close(pb)
 
   # Return as cv.ncvreg object
   ind <- which(apply(is.finite(E), 2, all))

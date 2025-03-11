@@ -21,5 +21,5 @@ Fig3.7 <- function(seed=1, nfolds=10, ...) {
   fold <- ncvreg::assign_fold(brca1$y, nfolds, seed=seed)
   cvfit <- cv.ncvreg(brca1$X, brca1$y, penalty.factor=w, lambda.min=5e-5, penalty='lasso', fold=fold)
   plot(cvfit, bty='n', ylab=expression(CV(lambda)), ...)
-  summary(cvfit)
+  invisible(summary(cvfit))
 }
