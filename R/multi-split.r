@@ -15,11 +15,10 @@
 #' @export
 
 Fig9.1 <- function(out, N=100, seed=1) {
-  if (!missing(seed)) {
-    original_seed <- .GlobalEnv$.Random.seed
-    on.exit(.GlobalEnv$.Random.seed <- original_seed)
-    set.seed(seed)
-  }
+  original_seed <- .GlobalEnv$.Random.seed
+  on.exit(.GlobalEnv$.Random.seed <- original_seed)
+  set.seed(seed)
+
   pb <- txtProgressBar(1, N, style=3)
   n <- nrow(out$X)
   p <- ncol(out$X)

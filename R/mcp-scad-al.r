@@ -20,6 +20,9 @@ Fig3.2 <- function(
     seed = 105,
     ylim = c(-4.1, 4.1),
     parlist) {
+  original_seed <- .GlobalEnv$.Random.seed
+  on.exit(.GlobalEnv$.Random.seed <- original_seed)
+  set.seed(seed)
 
   if (p < 40) stop('p must be at least 40')
   which <- match.arg(which)
@@ -34,11 +37,6 @@ Fig3.2 <- function(
   on.exit(par(op))
 
   # Gen data
-  if (!missing(seed)) {
-    original_seed <- .GlobalEnv$.Random.seed
-    on.exit(.GlobalEnv$.Random.seed <- original_seed)
-    set.seed(seed)
-  }
   X <- matrix(rnorm(n*p), nrow=n, ncol=p)
   z1 <- rnorm(n); z2 <- rnorm(n)
   X[,1:4]   <- X[,1:4]+z1

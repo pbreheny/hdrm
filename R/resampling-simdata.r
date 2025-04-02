@@ -16,10 +16,8 @@
 #' @export
 
 Ex9.1 <- function(n=100, p=60, a=6, b=2, rho=0.5, beta=c(1,-1,0.5,-0.5,0.5,-0.5), seed=72, ...) {
-  if (!missing(seed)) {
-    original_seed <- .GlobalEnv$.Random.seed
-    on.exit(.GlobalEnv$.Random.seed <- original_seed)
-    set.seed(seed)
-  }
+  original_seed <- .GlobalEnv$.Random.seed
+  on.exit(.GlobalEnv$.Random.seed <- original_seed)
+  set.seed(seed)
   gen_data_abn(n=n, p=p, a=a, b=b, rho=rho, beta=beta, ...)
 }

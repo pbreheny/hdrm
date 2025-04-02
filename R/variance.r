@@ -11,11 +11,10 @@
 #' @export
 
 Fig1.1 <- function(n=20, p=n-1, seed=1) {
-  if (!missing(seed)) {
-    original_seed <- .GlobalEnv$.Random.seed
-    on.exit(.GlobalEnv$.Random.seed <- original_seed)
-    set.seed(seed)
-  }
+  original_seed <- .GlobalEnv$.Random.seed
+  on.exit(.GlobalEnv$.Random.seed <- original_seed)
+  set.seed(seed)
+
   X <- std(matrix(rnorm(n*p),n,p))
   bigVar <- numeric(p)
   for (i in 1:p) {

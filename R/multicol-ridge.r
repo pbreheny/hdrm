@@ -12,11 +12,10 @@
 #' @export
 
 Ex1.2 <- function(seed=11, lambda=0.1) {
-  if (!missing(seed)) {
-    original_seed <- .GlobalEnv$.Random.seed
-    on.exit(.GlobalEnv$.Random.seed <- original_seed)
-    set.seed(seed)
-  }
+  original_seed <- .GlobalEnv$.Random.seed
+  on.exit(.GlobalEnv$.Random.seed <- original_seed)
+  set.seed(seed)
+
   x1 <- rnorm(20)
   x2 <- rnorm(20, mean=x1, sd=.01)
   y <- rnorm(20, mean=3+x1+x2)

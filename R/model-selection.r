@@ -13,11 +13,10 @@
 #' @export
 
 Ex1.1 <- function(N=100, n=25, p=100, bar=TRUE, seed=1) {
-  if (!missing(seed)) {
-    original_seed <- .GlobalEnv$.Random.seed
-    on.exit(.GlobalEnv$.Random.seed <- original_seed)
-    set.seed(seed)
-  }
+  original_seed <- .GlobalEnv$.Random.seed
+  on.exit(.GlobalEnv$.Random.seed <- original_seed)
+  set.seed(seed)
+
   xnam <- paste0("V", 1:p)
   form <- as.formula(paste("y ~ ", paste(xnam, collapse= "+")))
 

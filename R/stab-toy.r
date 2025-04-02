@@ -13,6 +13,10 @@
 #' @export
 
 Fig9.2 <- function(out, N=100, seed=1) {
+  original_seed <- .GlobalEnv$.Random.seed
+  on.exit(.GlobalEnv$.Random.seed <- original_seed)
+  set.seed(seed)
+
   X <- out$X
   y <- out$y
   p <- ncol(X)
@@ -21,11 +25,6 @@ Fig9.2 <- function(out, N=100, seed=1) {
   pb <- txtProgressBar(0, N, style=3)
   SS <- array(NA, dim=c(N, p, length(fit$lambda)), dimnames=list(1:N, colnames(X), fit$lambda))
   Q <- matrix(NA, N, length(fit$lambda))
-  if (!missing(seed)) {
-    original_seed <- .GlobalEnv$.Random.seed
-    on.exit(.GlobalEnv$.Random.seed <- original_seed)
-    set.seed(seed)
-  }
   for (i in 1:N) {
     ind <- sample(1:n, replace=TRUE)
     fit.i <- glmnet(X[ind,], y[ind], lambda=fit$lambda)
