@@ -6,7 +6,7 @@ Author: Patrick Breheny
 Maintainer: Patrick Breheny <patrick-breheny@uiowa.edu>
 Description: Examples, simulations, and figures from the book, "High-Dimensional
  Regression Modeling", by Patrick Breheny and Jian Huang.
-Depends: R (>= 3.5.0), glmnet, ncvreg
+Depends: R (>= 4.1.0), glmnet, ncvreg
 Imports:
   arrow,
   data.table,

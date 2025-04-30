@@ -14,6 +14,8 @@ cv.adaptive_lasso(X, y, nfolds = 10, fold)
 \item{nfolds}{Number of cv folds (default: 10)}
 
 \item{fold}{Which fold each observation belongs to. By default the observations are randomly assigned.}
+
+\item{progress}{Print progress bar? (default: true)}
 }
 \description{
 Using \code{cv.glmnet()} to carry out the adaptive lasso will result in an underestimation of error unless you also apply cross-validation to the initial estimator; this function provides a wrapper to do that.

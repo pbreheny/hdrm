@@ -46,7 +46,7 @@ download_data <- function(name) {
 read_data <- function(name) {
   name <- as.character(substitute(name))
   if (!(name %in% hdrm_data_sets)) stop(paste0(name, ' is not an hdrm data set'))
-  FILE <- paste0(system.file("extdata", package="hdrm"), '/', name, '.rds')
+  FILE <- paste0(system.file("extdata", package = "hdrm"), '/', name, '.rds')
   if (!file.exists(FILE)) download_data(name)
   readRDS(FILE)
 }
