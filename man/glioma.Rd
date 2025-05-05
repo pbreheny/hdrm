@@ -61,3 +61,6 @@ detection for CGH data using the fused lasso. \emph{Biostatistics},
 The data used to be available in the \code{cghFLasso} package, but
 this package appears to be no longer available.
 }
+\examples{
+plot(glioma)
+}

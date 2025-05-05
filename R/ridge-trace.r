@@ -11,7 +11,7 @@
 
 Fig1.4 <- function(loocv = TRUE, mar = c(5,5,5,7)) {
   op <- par(mar=mar)
-  dat <- read_data(pollution)
+  dat <- read_data('pollution')
   XX <- std(dat$X)
   y <- dat$y
   fit <- ridge(XX, y)

@@ -6,7 +6,6 @@
 #' @param y         Response vector, as in `glmnet()`
 #' @param nfolds    Number of cv folds (default: 10)
 #' @param fold      Which fold each observation belongs to. By default the observations are randomly assigned.
-#' @param progress  Print progress bar? (default: true)
 #'
 #' @examples
 #' attach_data(pollution)

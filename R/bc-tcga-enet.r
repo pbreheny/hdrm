@@ -16,14 +16,14 @@ Tab4.1 <- function(seed=1) {
   R <- S <- matrix(NA, 2, 4)
   fold <- ncvreg::assign_fold(dat$y, 10, seed=seed)
   for (j in 1:4) {
-    cvfit <- cv.glmnet(dat$X, dat$y, alpha=alpha[j], fold=fold)
+    cvfit <- cv.glmnet(dat$X, dat$y, alpha=alpha[j], foldid = fold)
     R[1,j] <- 1-min(cvfit$cvm)/var(dat$y)
     S[1,j] <- length(predict(cvfit, type='nonzero')[[1]])
   }
 
   # Mnet
   for (j in 1:4) {
-    cvfit <- cv.ncvreg(dat$X, dat$y, alpha=alpha[j], fold=fold)
+    cvfit <- cv.ncvreg(dat$X, dat$y, alpha=alpha[j], foldid = fold)
     R[2,j] <- 1-min(cvfit$cve)/var(dat$y)
     S[2,j] <- predict(cvfit, type='nvars')
   }

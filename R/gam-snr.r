@@ -15,7 +15,7 @@
 #' Ex3.1(N=2)
 #' @export
 
-Ex3.1 <- function(N=500, n=50, p=100, p1=6, snr=c(1, 2, 4), seed=2) {
+Ex3.1 <- function(N = 500, n = 50, p = 100, p1 = 6, snr = c(1, 2, 4), seed = 2) {
   original_seed <- .GlobalEnv$.Random.seed
   on.exit(.GlobalEnv$.Random.seed <- original_seed)
   set.seed(seed)
@@ -63,14 +63,17 @@ Ex3.1 <- function(N=500, n=50, p=100, p1=6, snr=c(1, 2, 4), seed=2) {
 #' @export
 
 Fig3.5 <- function(out) {
+  SNR <- snr <- est_err <- NULL  # NSE Rcheck
 
   if (missing(out)) stop("You need to run the code in Ex3.1() first and pass it to Fig3.5()")
-  out[!is.na(est_err)] %>%
-    .[, SNR := factor(snr)] %>%
-    ggplot2::ggplot(ggplot2::aes(.data$gam, .data$est_err, group=.data$SNR, color=.data$SNR)) +
+  out[!is.na(est_err)] |>
+    _[, SNR := factor(snr)] |>
+    ggplot2::ggplot(
+      ggplot2::aes(.data$gam, .data$est_err, group = .data$SNR, color = .data$SNR)
+    ) +
     ggplot2::geom_smooth(method = lm, formula = y ~ splines::ns(x, 3), se = FALSE) +
-    ggplot2::facet_wrap(~.data$penalty) +
-    ggplot2::scale_x_log10(breaks=2^(1:5)) +
+    ggplot2::facet_wrap(~ .data$penalty) +
+    ggplot2::scale_x_log10(breaks = 2^(1:5)) +
     ggplot2::xlab(expression(gamma)) +
     ggplot2::ylab('Mean squared error')
 }
